@@ -1,0 +1,28 @@
+# BraTS 2021 - 3D U-Net Pipeline Requirements
+# Install with: pip install -r requirements.txt
+# Note: Install PyTorch with CUDA first:
+#   pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu121
+
+# Core ML
+torch>=2.0.0
+torchvision>=0.15.0
+torchaudio>=2.0.0
+
+# Medical Imaging
+nibabel>=5.0.0
+SimpleITK>=2.2.0
+monai>=1.0.0
+
+# Data Science
+numpy>=1.24.0
+pandas>=2.0.0
+scipy>=1.10.0
+scikit-learn>=1.2.0
+
+# Visualization
+matplotlib>=3.7.0
+tqdm>=4.65.0
+
+# Jupyter
+ipykernel>=6.0.0
+ipywidgets>=8.0.0

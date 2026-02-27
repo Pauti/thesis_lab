@@ -35,6 +35,6 @@ __pycache__/
 Thumbs.db
 
 # Output
-samples/
+#samples/
 outputs/
 logs/
