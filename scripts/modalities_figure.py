@@ -31,12 +31,16 @@ def parse_args():
                         help="Output image path. Defaults depend on --layout.")
     parser.add_argument("--gap", type=int, default=6,
                         help="Gap in pixels between panels.")
-    parser.add_argument("--label-height", type=int, default=30,
+    parser.add_argument("--label-height", type=int, default=45,
                         help="Pixels to crop from top of each panel (label area).")
     parser.add_argument("--panels", type=int, default=4,
                         help="Number of panels to extract from the strip.")
     parser.add_argument("--layout", choices=["grid", "row"], default="grid",
                         help="Output layout: 'grid' (2x2) or 'row' (1xN).")
+    parser.add_argument("--order", default="0,1,2,3",
+                        help="Comma-separated panel indices controlling output order. "
+                             "Strip order is 0=T1,1=T1CE,2=T2,3=FLAIR. "
+                             "Default '0,1,2,3' gives T1, T1CE, T2, FLAIR.")
     return parser.parse_args()
 
 
@@ -44,7 +48,7 @@ def extract_panels(src_path: str, n_panels: int, label_height: int) -> list[Imag
     """Crop the first n_panels from the horizontal strip and remove the label row."""
     src = Image.open(src_path)
     w, h = src.size
-    panel_w = w // (n_panels + 1)  # strip contains n modalities + 1 mask panel
+    panel_w = w // n_panels
     panels = []
     for i in range(n_panels):
         crop = src.crop((i * panel_w, label_height, (i + 1) * panel_w, h))
@@ -95,6 +99,12 @@ def main():
     panels = extract_panels(src_path, args.panels, args.label_height)
     print(f"Extracted {len(panels)} panels from {src_path} "
           f"(each {panels[0].size[0]}x{panels[0].size[1]} px after label crop)")
+
+    order = [int(i) for i in args.order.split(",")]
+    if any(i >= len(panels) for i in order):
+        raise ValueError(f"--order index out of range for {len(panels)} panels: {args.order}")
+    panels = [panels[i] for i in order]
+    print(f"Panel order: {[['FLAIR','T1','T1CE','T2'][i] for i in order]}")
 
     if args.layout == "grid":
         result = build_grid(panels, args.gap)

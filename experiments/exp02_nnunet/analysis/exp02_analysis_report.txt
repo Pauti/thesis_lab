@@ -1,0 +1,193 @@
+EXP-02 ANALYSIS REPORT
+Generated: 2026-04-17 08:38:08
+Dataset: BraTS 2021 (1251 cases, 5-fold CV)
+Model: nnU-Net (nnUNetTrainer, 3d_fullres, 1000 epochs)
+
+======================================================================
+CONVERGENCE ANALYSIS
+======================================================================
+
+Final mean pseudo-Dice WT (epoch 999): 0.8964
+  95.0% of final (0.8516) reached at epoch 19
+  99.0% of final (0.8874) reached at epoch 120
+  99.5% of final (0.8919) reached at epoch 120
+
+Mean pseudo-Dice WT at checkpoints:
+  Epoch  200: 0.8840
+  Epoch  300: 0.8851
+  Epoch  400: 0.8784
+  Epoch  500: 0.8673
+  Epoch  600: 0.8905
+  Epoch  700: 0.8884
+  Epoch  800: 0.8798
+  Epoch  900: 0.9032
+  Epoch  999: 0.8964
+
+Improvement over last N epochs (Dice WT):
+  Epoch 200 → 999: Δ = +0.0124 (+1.41%)
+  Epoch 300 → 999: Δ = +0.0113 (+1.28%)
+  Epoch 500 → 999: Δ = +0.0291 (+3.36%)
+  Epoch 750 → 999: Δ = +0.0036 (+0.40%)
+
+Rolling 100-epoch improvement (Dice WT):
+  Epoch    0- 100: Δ = +0.22058 ← significant
+  Epoch  100- 200: Δ = +0.00907 ← significant
+  Epoch  200- 300: Δ = +0.00113
+  Epoch  300- 400: Δ = -0.00669 ← significant
+  Epoch  400- 500: Δ = -0.01111 ← significant
+  Epoch  500- 600: Δ = +0.02325 ← significant
+  Epoch  600- 700: Δ = -0.00211
+  Epoch  700- 800: Δ = -0.00865 ← significant
+  Epoch  800- 900: Δ = +0.02342 ← significant
+
+======================================================================
+FOLD VARIANCE ANALYSIS
+======================================================================
+
+Final metrics at epoch 999:
+      Dice WT  Dice TC  Dice ET    NCR     ED  Val Loss  Train Loss
+Fold                                                               
+0      0.9199   0.9223   0.9412 0.9034 0.9152   -0.8293     -0.8557
+1      0.8894   0.8838   0.9276 0.8400 0.9007   -0.7942     -0.8546
+2      0.8954   0.8959   0.9400 0.8517 0.8945   -0.8040     -0.8531
+3      0.8984   0.8963   0.9126 0.8801 0.9025   -0.7935     -0.8605
+4      0.8788   0.8725   0.9083 0.8367 0.8915   -0.7661     -0.8605
+
+Summary (Mean ± Std):
+  Dice WT     : 0.8964 ± 0.0135  (range: 0.8788 – 0.9199)
+  Dice TC     : 0.8942 ± 0.0166  (range: 0.8725 – 0.9223)
+  Dice ET     : 0.9259 ± 0.0136  (range: 0.9083 – 0.9412)
+  NCR         : 0.8624 ± 0.0256  (range: 0.8367 – 0.9034)
+  ED          : 0.9009 ± 0.0082  (range: 0.8915 – 0.9152)
+  Val Loss    : -0.7974 ± 0.0203  (range: -0.8293 – -0.7661)
+  Train Loss  : -0.8569 ± 0.0031  (range: -0.8605 – -0.8531)
+
+Standard Error of Mean (SEM):
+  3 folds: SEM = 0.0093 (95% CI width: ±0.0183)
+  5 folds: SEM = 0.0068 (95% CI width: ±0.0133)
+
+3-fold vs 5-fold comparison (Dice WT):
+  Folds [0, 1, 2]: mean=0.9016 ± 0.0132 (vs 5-fold mean 0.8964)
+  Folds [0, 1, 3]: mean=0.9026 ± 0.0128 (vs 5-fold mean 0.8964)
+  Folds [0, 2, 4]: mean=0.8981 ± 0.0169 (vs 5-fold mean 0.8964)
+  Folds [1, 3, 4]: mean=0.8889 ± 0.0080 (vs 5-fold mean 0.8964)
+
+======================================================================
+POST-HOC BRATS REGION DICE (on validation NIfTI predictions)
+======================================================================
+
+Fold 0 (251 cases):
+  DICE_WT   : 0.9393 ± 0.0608 (median=0.9591, min=0.5400, max=0.9918)
+  DICE_TC   : 0.9178 ± 0.1560 (median=0.9649, min=0.0000, max=0.9949)
+  DICE_ET   : 0.8668 ± 0.2061 (median=0.9379, min=0.0000, max=1.0000)
+
+Fold 1 (250 cases):
+  DICE_WT   : 0.9327 ± 0.0945 (median=0.9597, min=0.0000, max=0.9922)
+  DICE_TC   : 0.9188 ± 0.1390 (median=0.9649, min=0.0000, max=1.0000)
+  DICE_ET   : 0.8769 ± 0.1810 (median=0.9335, min=0.0000, max=1.0000)
+
+Fold 2 (250 cases):
+  DICE_WT   : 0.9400 ± 0.0628 (median=0.9625, min=0.6092, max=0.9917)
+  DICE_TC   : 0.9290 ± 0.1133 (median=0.9647, min=0.0000, max=0.9951)
+  DICE_ET   : 0.8801 ± 0.1799 (median=0.9381, min=0.0000, max=0.9900)
+
+Fold 3 (250 cases):
+  DICE_WT   : 0.9401 ± 0.0684 (median=0.9606, min=0.3367, max=0.9932)
+  DICE_TC   : 0.9249 ± 0.1300 (median=0.9662, min=0.0000, max=0.9950)
+  DICE_ET   : 0.8923 ± 0.1572 (median=0.9397, min=0.0000, max=1.0000)
+
+Fold 4 (250 cases):
+  DICE_WT   : 0.9422 ± 0.0530 (median=0.9582, min=0.6676, max=0.9926)
+  DICE_TC   : 0.9179 ± 0.1307 (median=0.9610, min=0.0000, max=0.9929)
+  DICE_ET   : 0.8707 ± 0.1866 (median=0.9367, min=0.0000, max=1.0000)
+
+--------------------------------------------------
+AGGREGATE ACROSS ALL FOLDS:
+  DICE_WT   : 0.9389 ± 0.0694 (median=0.9596)
+  DICE_TC   : 0.9217 ± 0.1346 (median=0.9648)
+  DICE_ET   : 0.8774 ± 0.1831 (median=0.9364)
+
+Per-fold mean Dice (for CV summary):
+  Fold 0: WT=0.9393  TC=0.9178  ET=0.8668
+  Fold 1: WT=0.9327  TC=0.9188  ET=0.8769
+  Fold 2: WT=0.9400  TC=0.9290  ET=0.8801
+  Fold 3: WT=0.9401  TC=0.9249  ET=0.8923
+  Fold 4: WT=0.9422  TC=0.9179  ET=0.8707
+  CV DICE_WT   : 0.9389 ± 0.0032
+  CV DICE_TC   : 0.9217 ± 0.0045
+  CV DICE_ET   : 0.8774 ± 0.0088
+
+--------------------------------------------------
+WORST CASES (bottom 10 by Dice WT):
+  BraTS2021_01637: WT=0.0000 TC=1.0000 ET=1.0000
+  BraTS2021_01364: WT=0.2762 TC=0.9388 ET=0.8982
+  BraTS2021_00493: WT=0.3367 TC=0.9262 ET=0.8858
+  BraTS2021_01480: WT=0.5400 TC=0.0000 ET=1.0000
+  BraTS2021_00642: WT=0.5703 TC=0.9769 ET=0.9556
+  BraTS2021_00025: WT=0.5825 TC=0.8428 ET=0.8127
+  BraTS2021_01240: WT=0.5959 TC=0.8627 ET=0.8282
+  BraTS2021_01628: WT=0.6092 TC=0.6837 ET=0.5791
+  BraTS2021_00227: WT=0.6453 TC=0.9016 ET=0.8104
+  BraTS2021_01154: WT=0.6570 TC=0.9096 ET=0.9073
+
+BEST CASES (top 10 by Dice WT):
+  BraTS2021_00216: WT=0.9932 TC=0.9915 ET=0.9781
+  BraTS2021_00421: WT=0.9929 TC=0.9864 ET=0.9829
+  BraTS2021_00789: WT=0.9928 TC=0.9910 ET=0.9762
+  BraTS2021_01564: WT=0.9926 TC=0.9922 ET=0.9843
+  BraTS2021_00312: WT=0.9922 TC=0.9822 ET=0.9644
+  BraTS2021_01112: WT=0.9922 TC=0.9026 ET=0.8030
+  BraTS2021_00453: WT=0.9920 TC=0.9752 ET=0.9634
+  BraTS2021_00101: WT=0.9919 TC=0.9801 ET=0.9611
+  BraTS2021_01086: WT=0.9919 TC=0.9815 ET=0.9381
+  BraTS2021_01191: WT=0.9918 TC=0.8849 ET=0.8226
+
+Cases with perfect ET Dice (both empty): 11
+Cases with ET Dice < 0.3: 41
+
+======================================================================
+GPU MONITORING SUMMARY
+======================================================================
+
+GPU Temperature: mean=77.0°C, max=84.0°C
+
+Monitoring entries: 8611
+Monitoring duration: 80.7 hours
+
+======================================================================
+TRAINING TIME ANALYSIS
+======================================================================
+
+Fold 0: total=13.62h, mean=49.0s/epoch, min=45.2s, max=100.1s
+
+Fold 1: total=13.53h, mean=48.7s/epoch, min=44.8s, max=72.1s
+
+Fold 2: total=13.48h, mean=48.5s/epoch, min=44.8s, max=80.7s
+
+Fold 3: total=14.97h, mean=53.9s/epoch, min=47.4s, max=79.9s
+
+Fold 4: total=14.23h, mean=51.2s/epoch, min=45.3s, max=81.2s
+
+Total across all 5 folds: 69.8 hours
+Mean epoch time: 50.3s ± 4.0s
+
+Hypothetical 3-fold (0,1,2): 40.6h (saved 29.2h)
+
+======================================================================
+RECOMMENDATIONS & NEXT STEPS
+======================================================================
+
+--- Epoch count ---
+  Last 200 epochs gained +0.0166 — still meaningful.
+  → 1000 epochs was justified.
+
+--- Fold count ---
+  5-fold Dice WT std: 0.0135
+  3-fold (0,1,2) Dice WT std: 0.0132
+  → Low inter-fold variance. 3 folds would have been adequate for this dataset.
+  → For the thesis: use all 5 folds (already trained), but UNETR can use 3 folds.
+
+--- Performance assessment ---
+  Dice WT: 0.9389 ✓ Good (>0.90)
+  Dice TC: 0.9217 ✓ Good (>0.85)
+  Dice ET: 0.8774 ✓ Good (>0.78)

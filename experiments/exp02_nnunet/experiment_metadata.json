@@ -1,0 +1,30 @@
+{
+    "experiment_id": "exp02_nnunet",
+    "timestamp_start": "2026-04-09T07:19:29+00:00",
+    "config": {
+        "model": "nnunet",
+        "trainer": "nnUNetTrainer",
+        "architecture": "3d_fullres",
+        "dataset_id": "001",
+        "multi_task": false,
+        "augmentation": "medium (nnU-Net default)",
+        "num_epochs": 1000,
+        "folds": "1,2,3,4"
+    },
+    "hardware": {
+        "gpu": "NVIDIA GeForce RTX 4080",
+        "vram_gb": "16.0",
+        "cuda_version": "550.163.01",
+        "hostname": "ca-crs-mth-dat24-02",
+        "python_version": "Python 3.13.5",
+        "torch_version": "2.10.0+cu128",
+        "nnunet_version": "unknown"
+    },
+    "paths": {
+        "nnunet_raw": "/data/paul_daten/nnunet/nnUNet_raw",
+        "nnunet_preprocessed": "/data/paul_daten/nnunet/nnUNet_preprocessed",
+        "nnunet_results": "/data/paul_daten/nnunet/nnUNet_results",
+        "experiment_dir": "/home/paul/repositories/thesis_lab/experiments/exp02_nnunet"
+    },
+    "timestamp_end": "2026-04-11T17:08:42.567020"
+}

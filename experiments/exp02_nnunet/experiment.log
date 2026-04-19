@@ -1,0 +1,55 @@
+[2026-04-08 08:28:29] Starting GPU monitor → /home/paul/repositories/thesis_lab/experiments/exp02_nnunet/gpu_monitor.csv
+[2026-04-08 08:28:29] GPU monitor PID: 1956354
+[2026-04-08 08:28:30] Metadata saved to /home/paul/repositories/thesis_lab/experiments/exp02_nnunet/experiment_metadata.json
+[2026-04-08 08:28:30] ==========================================
+[2026-04-08 08:28:30] EXP-02: nnU-Net 3d_fullres — Folds 0–4
+[2026-04-08 08:28:30] ==========================================
+[2026-04-08 08:28:30] ------------------------------------------
+[2026-04-08 08:28:30] Starting Fold 0/4 at Wed Apr  8 08:28:30 UTC 2026
+[2026-04-08 08:28:30] ------------------------------------------
+[2026-04-08 22:29:10] Stopping GPU monitor (PID 1956354)...
+[2026-04-08 22:29:28] Cleanup complete.
+[2026-04-09 07:19:29] Starting GPU monitor → /home/paul/repositories/thesis_lab/experiments/exp02_nnunet/gpu_monitor.csv
+[2026-04-09 07:19:29] GPU monitor PID: 1979639
+[2026-04-09 07:19:31] Metadata saved to /home/paul/repositories/thesis_lab/experiments/exp02_nnunet/experiment_metadata.json
+[2026-04-09 07:19:31] ==========================================
+[2026-04-09 07:19:31] EXP-02: nnU-Net 3d_fullres — Folds 1–4
+[2026-04-09 07:19:31] ==========================================
+[2026-04-09 07:19:31] ------------------------------------------
+[2026-04-09 07:19:31] Starting Fold 1/4 at Thu Apr  9 07:19:31 UTC 2026
+[2026-04-09 07:19:31] ------------------------------------------
+[2026-04-09 21:14:47] Fold 1 completed successfully in 13.92h
+[2026-04-09 21:14:47] Parsing training log: /data/paul_daten/nnunet/nnUNet_results/Dataset001_BraTS/nnUNetTrainer__nnUNetPlans__3d_fullres/fold_1/training_log_2026_4_9_07_19_34.txt
+[2026-04-09 21:14:47] Fold 1 results saved to /home/paul/repositories/thesis_lab/experiments/exp02_nnunet/fold_1/
+[2026-04-09 21:14:47] ------------------------------------------
+[2026-04-09 21:14:47] Starting Fold 2/4 at Thu Apr  9 21:14:47 UTC 2026
+[2026-04-09 21:14:47] ------------------------------------------
+[2026-04-10 11:07:13] Fold 2 completed successfully in 13.87h
+[2026-04-10 11:07:13] Parsing training log: /data/paul_daten/nnunet/nnUNet_results/Dataset001_BraTS/nnUNetTrainer__nnUNetPlans__3d_fullres/fold_2/training_log_2026_4_9_21_14_50.txt
+[2026-04-10 11:07:13] Fold 2 results saved to /home/paul/repositories/thesis_lab/experiments/exp02_nnunet/fold_2/
+[2026-04-10 11:07:13] ------------------------------------------
+[2026-04-10 11:07:13] Starting Fold 3/4 at Fri Apr 10 11:07:13 UTC 2026
+[2026-04-10 11:07:13] ------------------------------------------
+[2026-04-11 02:30:23] Fold 3 completed successfully in 15.39h
+[2026-04-11 02:30:23] Parsing training log: /data/paul_daten/nnunet/nnUNet_results/Dataset001_BraTS/nnUNetTrainer__nnUNetPlans__3d_fullres/fold_3/training_log_2026_4_10_11_07_16.txt
+[2026-04-11 02:30:23] Fold 3 results saved to /home/paul/repositories/thesis_lab/experiments/exp02_nnunet/fold_3/
+[2026-04-11 02:30:23] ------------------------------------------
+[2026-04-11 02:30:23] Starting Fold 4/4 at Sat Apr 11 02:30:23 UTC 2026
+[2026-04-11 02:30:23] ------------------------------------------
+[2026-04-11 17:08:42] Fold 4 completed successfully in 14.64h
+[2026-04-11 17:08:42] Parsing training log: /data/paul_daten/nnunet/nnUNet_results/Dataset001_BraTS/nnUNetTrainer__nnUNetPlans__3d_fullres/fold_4/training_log_2026_4_11_02_30_26.txt
+[2026-04-11 17:08:42] Fold 4 results saved to /home/paul/repositories/thesis_lab/experiments/exp02_nnunet/fold_4/
+[2026-04-11 17:08:42] ==========================================
+[2026-04-11 17:08:42] EXP-02 COMPLETE at Sat Apr 11 17:08:42 UTC 2026
+[2026-04-11 17:08:42] ==========================================
+[2026-04-11 17:08:42] Results directory: /home/paul/repositories/thesis_lab/experiments/exp02_nnunet
+[2026-04-11 17:08:42] nnU-Net results:   /data/paul_daten/nnunet/nnUNet_results/Dataset001_BraTS/nnUNetTrainer__nnUNetPlans__3d_fullres
+[2026-04-11 17:08:42] 
+[2026-04-11 17:08:42] Per-fold metrics CSVs:
+[2026-04-11 17:08:42]   Fold 1: 999,-0.8546,-0.7942,0.84,0.9007,0.9276,0.8894333333333333,0.8837999999999999,2e-05,49.19,
+[2026-04-11 17:08:42]   Fold 2: 999,-0.8531,-0.804,0.8517,0.8945,0.94,0.8954,0.89585,2e-05,54.99,
+[2026-04-11 17:08:42]   Fold 3: 999,-0.8605,-0.7935,0.8801,0.9025,0.9126,0.8984,0.89635,2e-05,52.1,
+[2026-04-11 17:08:42]   Fold 4: 999,-0.8605,-0.7661,0.8367,0.8915,0.9083,0.8788333333333332,0.8725,2e-05,50.06,
+[2026-04-11 17:08:42] Done. GPU monitor log: /home/paul/repositories/thesis_lab/experiments/exp02_nnunet/gpu_monitor.csv
+[2026-04-11 17:08:42] Stopping GPU monitor (PID 1979639)...
+[2026-04-11 17:08:58] Cleanup complete.

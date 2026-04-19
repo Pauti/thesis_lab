@@ -1,0 +1,9 @@
+{
+    "fold": 3,
+    "timestamp_start": "2026-04-10T11:07:13+00:00",
+    "timestamp_end": "2026-04-11T02:30:23+00:00",
+    "duration_seconds": 55390,
+    "duration_hours": 15.39,
+    "exit_code": 0,
+    "nnunet_output_dir": "/data/paul_daten/nnunet/nnUNet_results/Dataset001_BraTS/nnUNetTrainer__nnUNetPlans__3d_fullres/fold_3"
+}
