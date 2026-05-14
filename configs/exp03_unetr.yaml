@@ -1,0 +1,84 @@
+# EXP-03: UNETR baseline training configuration
+# Architecture follows Hatamizadeh et al., WACV 2022
+# Training settings match nnU-Net (EXP-02) where possible for fair comparison
+
+experiment:
+  name: "exp03_unetr"
+  description: "UNETR baseline on BraTS 2021, 5-fold CV"
+  folds: [0, 1, 2, 3, 4]
+
+# ── Model ────────────────────────────────────────────────────────────────────
+model:
+  name: "unetr"
+  img_size: [128, 128, 128]
+  in_channels: 4
+  out_channels: 4            # bg=0, NCR=1, ED=2, ET=3
+  feature_size: 16
+  hidden_size: 768
+  mlp_dim: 3072
+  num_heads: 12
+  proj_type: "conv"
+  norm_name: "instance"
+  res_block: true
+  dropout_rate: 0.0
+
+# ── Data ─────────────────────────────────────────────────────────────────────
+data:
+  raw_dir: "/data/paul_daten/nnunet/nnUNet_raw/Dataset001_BraTS"
+  splits_file: "/data/paul_daten/nnunet/nnUNet_preprocessed/Dataset001_BraTS/splits_final.json"
+  num_workers: 4
+  cache_rate: 0.0            # disable caching (data is large, >1 TB uncompressed)
+
+# ── Training ─────────────────────────────────────────────────────────────────
+training:
+  num_epochs: 200
+  batch_size: 2
+  gradient_accumulation: 4  # effective batch = 8
+  patch_size: [128, 128, 128]
+  num_samples_per_case: 1   # patches per case per iteration
+
+  # Optimiser
+  optimizer: "adamw"
+  lr: 1.0e-4
+  weight_decay: 1.0e-5
+
+  # Scheduler: linear warmup (5 epochs) + cosine decay (paper Appendix)
+  scheduler: "cosine_warmup"
+  warmup_epochs: 5
+
+  # Mixed precision
+  mixed_precision: true
+
+  # Augmentation tier (none / light / medium / heavy)
+  augmentation: "medium"
+
+# ── Early stopping ───────────────────────────────────────────────────────────
+early_stopping:
+  enabled: true
+  # Justification: paper used 20k iter on 484 cases (MSD-Brain); BraTS 2021 has
+  # 1251 cases (2.6x larger), so 20k iter = only ~40 epochs here — insufficient
+  # for convergence. ES on val WT-Dice ensures both models compared at optimum.
+  metric: "dice_wt"
+  patience: 30
+  min_delta: 0.0001
+
+# ── Validation ───────────────────────────────────────────────────────────────
+validation:
+  interval: 1                # validate every N epochs
+  sliding_window:
+    roi_size: [128, 128, 128]
+    sw_batch_size: 1
+    overlap: 0.5
+    mode: "gaussian"         # Gaussian weighting at patch borders
+
+# ── Checkpointing ────────────────────────────────────────────────────────────
+checkpointing:
+  save_best: true
+  metric: "dice_wt"          # save checkpoint when WT Dice improves
+  save_last: true
+
+# ── Logging ──────────────────────────────────────────────────────────────────
+logging:
+  log_interval: 10           # log training loss every N batches
+  csv_file: "metrics.csv"
+  results_file: "results.json"

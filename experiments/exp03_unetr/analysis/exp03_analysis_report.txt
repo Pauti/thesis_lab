@@ -1,0 +1,124 @@
+EXP-03 ANALYSIS REPORT
+Generated: 2026-05-05 15:30:23
+Dataset : BraTS 2021 (1251 cases, 5-fold CV)
+Model   : UNETR (ViT-B/16 + CNN decoder, Hatamizadeh et al. WACV 2022)
+Config  : 200 max epochs, early stopping patience=30, optimizer=AdamW, lr=0.0001
+
+======================================================================
+EARLY STOPPING ANALYSIS
+======================================================================
+
+Config: max_epochs=200, patience=30, metric=val_dice_wt
+
+Fold 0: 165 epochs | early stop at epoch 165 (idle 29 ep)
+  Best: epoch 136, val_dice_wt=0.9291
+  Final epoch val_dice_wt=0.9261
+  Duration: 26.99h
+
+Fold 1: 156 epochs | early stop at epoch 156 (idle 29 ep)
+  Best: epoch 127, val_dice_wt=0.9172
+  Final epoch val_dice_wt=0.9081
+  Duration: 24.76h
+
+Fold 2: 162 epochs | early stop at epoch 162 (idle 29 ep)
+  Best: epoch 133, val_dice_wt=0.9222
+  Final epoch val_dice_wt=0.9211
+  Duration: 25.13h
+
+Fold 3: 197 epochs | early stop at epoch 197 (idle 29 ep)
+  Best: epoch 168, val_dice_wt=0.9277
+  Final epoch val_dice_wt=0.9273
+  Duration: 30.59h
+
+Fold 4: 184 epochs | early stop at epoch 184 (idle 29 ep)
+  Best: epoch 155, val_dice_wt=0.9262
+  Final epoch val_dice_wt=0.9253
+  Duration: 28.64h
+
+Folds that stopped early: [0, 1, 2, 3, 4]
+→ All folds used early stopping. Training converged before 200 epochs.
+
+Best val Dice WT per fold: ['0.9291', '0.9172', '0.9222', '0.9277', '0.9262']
+Mean: 0.9245 ± 0.0043
+
+======================================================================
+FOLD VARIANCE ANALYSIS
+======================================================================
+
+Best-checkpoint metrics per fold:
+      Dice WT (best)  Dice TC (best)  Dice ET (best)  best_epoch  n_epochs
+Fold                                                                      
+0             0.9291          0.8938          0.8435    136.0000  165.0000
+1             0.9172          0.8792          0.8396    127.0000  156.0000
+2             0.9222          0.8907          0.8433    133.0000  162.0000
+3             0.9277          0.8953          0.8640    168.0000  197.0000
+4             0.9262          0.8863          0.8365    155.0000  184.0000
+
+Summary (Mean ± Std) at best checkpoint:
+  Dice WT (best)      : 0.9245 ± 0.0043  (range: 0.9172 – 0.9291)
+  Dice TC (best)      : 0.8891 ± 0.0058  (range: 0.8792 – 0.8953)
+  Dice ET (best)      : 0.8454 ± 0.0097  (range: 0.8365 – 0.8640)
+
+Final-epoch metrics per fold:
+  Fold 0: WT=0.9261  TC=0.8937  ET=0.8439
+  Fold 1: WT=0.9081  TC=0.8840  ET=0.8412
+  Fold 2: WT=0.9211  TC=0.8921  ET=0.8449
+  Fold 3: WT=0.9273  TC=0.8962  ET=0.8611
+  Fold 4: WT=0.9253  TC=0.8871  ET=0.8360
+
+Standard Error of Mean (SEM) for Dice WT:
+  3 folds: SEM = 0.0035  (95% CI width: ±0.0068)
+  5 folds: SEM = 0.0022  (95% CI width: ±0.0042)
+
+======================================================================
+COMPARISON: EXP-03 UNETR vs EXP-02 nnU-Net
+======================================================================
+
+EXP-03 UNETR (best-checkpoint val Dice, 5-fold CV):
+  WT: 0.9245 ± 0.0043
+  TC: 0.8922 ± 0.0052
+  ET: 0.8480 ± 0.0092
+
+EXP-02 nnU-Net (post-hoc NIfTI Dice, 5-fold CV):
+  WT: 0.9389 ± 0.0695
+  TC: 0.9217 ± 0.1347
+  ET: 0.8774 ± 0.1831
+
+Difference (UNETR – nnU-Net):
+  WT: -0.0144 (↓ worse)
+  TC: -0.0294 (↓ worse)
+  ET: -0.0293 (↓ worse)
+
+NOTE: EXP-03 uses best-checkpoint val Dice (in-batch std per case), EXP-02 uses post-hoc volumetric NIfTI Dice. Direct comparison is indicative only.
+
+--- Resource Comparison ---
+EXP-03 UNETR:  135.3h total, 864 total epochs across 5 folds
+EXP-02 nnU-Net: 69.8h total, 5000 total epochs across 5 folds
+nnU-Net was 0.5x more expensive in training time
+
+======================================================================
+GPU MONITORING SUMMARY
+======================================================================
+
+GPU Temperature : mean=61.8°C, max=77.0°C
+
+Monitoring entries: 16325
+Monitoring duration: 136.1 hours
+
+======================================================================
+TRAINING TIME ANALYSIS
+======================================================================
+
+Fold 0: epochs=165, total=26.83h (wall: 26.99h), mean=585.5s/epoch, min=544.4s, max=703.0s
+
+Fold 1: epochs=156, total=24.60h (wall: 24.76h), mean=567.7s/epoch, min=546.7s, max=622.7s
+
+Fold 2: epochs=162, total=24.97h (wall: 25.13h), mean=554.9s/epoch, min=546.4s, max=588.1s
+
+Fold 3: epochs=197, total=30.44h (wall: 30.59h), mean=556.2s/epoch, min=547.7s, max=587.7s
+
+Fold 4: epochs=184, total=28.49h (wall: 28.64h), mean=557.4s/epoch, min=545.4s, max=626.9s
+
+Total across all 5 folds: 135.3 hours
+Mean epoch time        : 563.9s ± 21.7s
+(Note: each epoch ≈ 9.4 min — UNETR is slower than nnU-Net per epoch due to ViT self-attention over 3D patches)

@@ -1,0 +1,10 @@
+{
+    "fold": 3,
+    "timestamp_start": "2026-04-29T22:54:02+00:00",
+    "timestamp_end": "2026-05-01T05:29:35+00:00",
+    "duration_seconds": 110133,
+    "duration_hours": 30.59,
+    "exit_code": 0,
+    "output_dir": "/home/paul/repositories/thesis_lab/experiments/exp03_unetr/fold_3",
+    "checkpoint_dir": "/data/paul_daten/experiments/exp03_unetr/fold_3"
+}

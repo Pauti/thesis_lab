@@ -1,0 +1,8 @@
+{
+  "experiment": "exp03_unetr",
+  "fold": 0,
+  "num_epochs_run": 20,
+  "best_val_dice_wt": 0.891119,
+  "config": "/home/paul/repositories/thesis_lab/configs/exp03_unetr.yaml",
+  "output_dir": "/home/paul/repositories/thesis_lab/experiments/exp03_unetr/fold_0_debug"
+}

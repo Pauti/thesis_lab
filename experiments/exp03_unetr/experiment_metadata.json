@@ -1,0 +1,40 @@
+{
+    "experiment_id": "exp03_unetr",
+    "timestamp_start": "2026-04-26T18:01:18+00:00",
+    "config": {
+        "model": "unetr",
+        "architecture": "ViT-B/16 + CNN decoder",
+        "paper": "Hatamizadeh et al., WACV 2022",
+        "num_epochs": 200,
+        "early_stopping_patience": 30,
+        "batch_size": 2,
+        "gradient_accumulation": 4,
+        "effective_batch": 8,
+        "lr": 0.0001,
+        "weight_decay": 1e-05,
+        "optimizer": "AdamW",
+        "scheduler": "cosine_warmup",
+        "augmentation": "medium",
+        "patch_size": [
+            128,
+            128,
+            128
+        ],
+        "folds": "0 1 2 3 4",
+        "loss": "DiceCE (include_background=False)"
+    },
+    "hardware": {
+        "gpu": "NVIDIA GeForce RTX 4080",
+        "vram_gb": "16.0",
+        "cuda_version": "12.4",
+        "hostname": "ca-crs-mth-dat24-02",
+        "torch_version": "2.10.0+cu128",
+        "monai_version": "1.5.2"
+    },
+    "paths": {
+        "raw_data": "/data/paul_daten/nnunet/nnUNet_raw/Dataset001_BraTS",
+        "splits_file": "/data/paul_daten/nnunet/nnUNet_preprocessed/Dataset001_BraTS/splits_final.json",
+        "experiment_dir": "/home/paul/repositories/thesis_lab/experiments/exp03_unetr",
+        "checkpoints_dir": "/data/paul_daten/experiments/exp03_unetr"
+    }
+}
