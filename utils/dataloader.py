@@ -1,8 +1,11 @@
 """
-BraTS 2021 MONAI DataLoader for UNETR (EXP-03).
+BraTS 2021 MONAI DataLoader for UNETR experiments.
 
-Reads raw NIfTI images from nnUNet_raw and uses nnU-Net's splits_final.json
-for reproducible fold splits — identical to EXP-02 for fair comparison.
+Reads raw NIfTI images from nnUNet_raw and uses split files for
+reproducible fold splits.
+
+  - splits_final.json: Original 5-fold CV on all 1251 cases (EXP-02/03, RQ1)
+  - splits_ablation.json: 3-fold CV on 1126 cases, 125 held out (ablation, RQ2)
 
 Image paths follow nnU-Net multi-channel convention:
   imagesTr/{case_id}_0000.nii.gz  (FLAIR)
@@ -30,6 +33,9 @@ from monai.transforms import (
 
 SPLITS_FILE = Path(
     "/data/paul_daten/nnunet/nnUNet_preprocessed/Dataset001_BraTS/splits_final.json"
+)
+ABLATION_SPLITS_FILE = Path(
+    "/data/paul_daten/nnunet/nnUNet_preprocessed/Dataset001_BraTS/splits_ablation.json"
 )
 RAW_DIR = Path("/data/paul_daten/nnunet/nnUNet_raw/Dataset001_BraTS")
 MODALITY_SUFFIXES = ["_0000", "_0001", "_0002", "_0003"]
@@ -76,9 +82,11 @@ def get_train_dataset(
     augmentation_transforms: Compose,
     cache_rate: float = 0.0,
     num_workers: int = 4,
+    splits_file: Path | None = None,
 ) -> Dataset:
     """Return MONAI dataset for training split of the given fold."""
-    splits = json.loads(SPLITS_FILE.read_text())
+    sf = splits_file or SPLITS_FILE
+    splits = json.loads(sf.read_text())
     case_ids = splits[fold]["train"]
     data = _build_file_list(case_ids)
 
@@ -95,9 +103,11 @@ def get_val_dataset(
     fold: int,
     cache_rate: float = 0.0,
     num_workers: int = 4,
+    splits_file: Path | None = None,
 ) -> Dataset:
     """Return MONAI dataset for validation split of the given fold (no augmentation)."""
-    splits = json.loads(SPLITS_FILE.read_text())
+    sf = splits_file or SPLITS_FILE
+    splits = json.loads(sf.read_text())
     case_ids = splits[fold]["val"]
     data = _build_file_list(case_ids)
 

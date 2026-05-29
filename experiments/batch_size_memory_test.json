@@ -1,0 +1,44 @@
+[
+  {
+    "batch_size": 1,
+    "success": true,
+    "peak_vram_gb": 3.5429482460021973,
+    "forward_time": 0.2651340961456299,
+    "backward_time": 0.18487262725830078,
+    "optimizer_time": 0.05284762382507324,
+    "total_time": 0.5028543472290039
+  },
+  {
+    "batch_size": 2,
+    "success": true,
+    "peak_vram_gb": 6.816123008728027,
+    "forward_time": 0.06694936752319336,
+    "backward_time": 0.046952009201049805,
+    "optimizer_time": 0.1105644702911377,
+    "total_time": 0.22446584701538086
+  },
+  {
+    "batch_size": 3,
+    "success": true,
+    "peak_vram_gb": 9.9535551071167,
+    "forward_time": 0.0786292552947998,
+    "backward_time": 0.04691052436828613,
+    "optimizer_time": 0.1817305088043213,
+    "total_time": 0.3072702884674072
+  },
+  {
+    "batch_size": 4,
+    "success": true,
+    "peak_vram_gb": 13.084390640258789,
+    "forward_time": 0.04297518730163574,
+    "backward_time": 0.3009822368621826,
+    "optimizer_time": 0.10694098472595215,
+    "total_time": 0.4508984088897705
+  },
+  {
+    "batch_size": 5,
+    "success": false,
+    "peak_vram_gb": 14.965842723846436,
+    "error": "CUDA out of memory. Tried to allocate 640.00 MiB. GPU 0 has a total capacity of 15.70 GiB of which 49.50 MiB is free. Including non-PyTorch memory, this process has 15.64 GiB memory in use. Of the all"
+  }
+]

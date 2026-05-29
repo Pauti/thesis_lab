@@ -39,7 +39,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
 from models.unetr import get_unetr_model
 from utils.augmentation import get_augmentation
-from utils.dataloader import get_dataloader, get_train_dataset, get_val_dataset
+from utils.dataloader import get_dataloader, get_train_dataset, get_val_dataset, ABLATION_SPLITS_FILE
 from utils.losses import get_loss
 from utils.metrics import BraTSMetrics
 
@@ -146,16 +146,19 @@ def train(args):
     augmentation = get_augmentation(tr["augmentation"], patch_size)
 
     data_cfg = cfg["data"]
+    splits_file = Path(args.splits_file) if args.splits_file else None
     train_ds = get_train_dataset(
         fold=args.fold,
         augmentation_transforms=augmentation,
         cache_rate=data_cfg["cache_rate"],
         num_workers=data_cfg["num_workers"],
+        splits_file=splits_file,
     )
     val_ds = get_val_dataset(
         fold=args.fold,
         cache_rate=data_cfg["cache_rate"],
         num_workers=data_cfg["num_workers"],
+        splits_file=splits_file,
     )
 
     train_loader = get_dataloader(
@@ -234,6 +237,9 @@ def train(args):
         # ── Validation ───────────────────────────────────────────────────────
         val_metrics: dict = {}
         if epoch % val_interval == 0:
+            # Free cached CUDA memory before validation
+            torch.cuda.empty_cache()
+            
             model.eval()
             brats_metrics.reset()
 
@@ -345,6 +351,9 @@ def parse_args():
     p.add_argument("--checkpoint_dir", default=None,
                    help="Directory to save checkpoints (default: output_dir/checkpoints). "
                         "Redirect to /data to avoid filling /home.")
+    p.add_argument("--splits_file", default=None,
+                   help="Path to splits JSON (default: splits_final.json). "
+                        "Use splits_ablation.json for RQ2 ablation runs.")
     return p.parse_args()
 
 

@@ -1,0 +1,3110 @@
+nnUNet_raw is not defined and nnU-Net can only be used on data for which preprocessed files are already present on your system. nnU-Net cannot be used for experiment planning and preprocessing like this. If this is not intended, please read documentation/setting_up_paths.md for information on how to set this up properly.
+nnUNet_preprocessed is not defined and nnU-Net can not be used for preprocessing or training. If this is not intended, please read documentation/setting_up_paths.md for information on how to set this up.
+nnUNet_results is not defined and nnU-Net cannot be used for training or inference. If this is not intended behavior, please read documentation/setting_up_paths.md for information on how to set this up.
+nnU-Net Test Set Inference: Default Augmentation
+Model: /data/paul_daten/nnunet/nnUNet_results/Dataset001_BraTS/nnUNetTrainer_DefaultAug__nnUNetPlans__3d_fullres
+
+======================================================================
+Fold 0 Inference (nnU-Net)
+======================================================================
+Checkpoint: /data/paul_daten/nnunet/nnUNet_results/Dataset001_BraTS/nnUNetTrainer_DefaultAug__nnUNetPlans__3d_fullres/fold_0/checkpoint_best.pth
+Test set: 125 cases
+Initializing nnUNetPredictor...
+Starting inference...
+Fold 0:   0%|          | 0/125 [00:00<?, ?it/s]There are 1 cases in the source folder
+I am processing 0 out of 1 (max process ID is 0, we start counting with 0!)
+There are 1 cases that I would like to predict
+Fold 0:   1%|          | 1/125 [00:05<11:38,  5.63s/it]
+Predicting BraTS2021_00016.nii.gz:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with BraTS2021_00016.nii.gz
+There are 1 cases in the source folder
+I am processing 0 out of 1 (max process ID is 0, we start counting with 0!)
+There are 1 cases that I would like to predict
+Fold 0:   2%|▏         | 2/125 [00:10<10:04,  4.91s/it]
+Predicting BraTS2021_00028.nii.gz:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with BraTS2021_00028.nii.gz
+There are 1 cases in the source folder
+I am processing 0 out of 1 (max process ID is 0, we start counting with 0!)
+There are 1 cases that I would like to predict
+Fold 0:   2%|▏         | 3/125 [00:14<09:26,  4.64s/it]
+Predicting BraTS2021_00046.nii.gz:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with BraTS2021_00046.nii.gz
+There are 1 cases in the source folder
+I am processing 0 out of 1 (max process ID is 0, we start counting with 0!)
+There are 1 cases that I would like to predict
+Fold 0:   3%|▎         | 4/125 [00:18<09:08,  4.53s/it]
+Predicting BraTS2021_00054.nii.gz:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with BraTS2021_00054.nii.gz
+There are 1 cases in the source folder
+I am processing 0 out of 1 (max process ID is 0, we start counting with 0!)
+There are 1 cases that I would like to predict
+Fold 0:   4%|▍         | 5/125 [00:23<09:01,  4.51s/it]
+Predicting BraTS2021_00063.nii.gz:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with BraTS2021_00063.nii.gz
+There are 1 cases in the source folder
+I am processing 0 out of 1 (max process ID is 0, we start counting with 0!)
+There are 1 cases that I would like to predict
+Fold 0:   5%|▍         | 6/125 [00:27<08:48,  4.44s/it]
+Predicting BraTS2021_00066.nii.gz:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with BraTS2021_00066.nii.gz
+There are 1 cases in the source folder
+I am processing 0 out of 1 (max process ID is 0, we start counting with 0!)
+There are 1 cases that I would like to predict
+Fold 0:   6%|▌         | 7/125 [00:31<08:42,  4.43s/it]
+Predicting BraTS2021_00094.nii.gz:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with BraTS2021_00094.nii.gz
+There are 1 cases in the source folder
+I am processing 0 out of 1 (max process ID is 0, we start counting with 0!)
+There are 1 cases that I would like to predict
+Fold 0:   6%|▋         | 8/125 [00:36<08:38,  4.43s/it]
+Predicting BraTS2021_00103.nii.gz:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with BraTS2021_00103.nii.gz
+There are 1 cases in the source folder
+I am processing 0 out of 1 (max process ID is 0, we start counting with 0!)
+There are 1 cases that I would like to predict
+Fold 0:   7%|▋         | 9/125 [00:40<08:36,  4.45s/it]
+Predicting BraTS2021_00111.nii.gz:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with BraTS2021_00111.nii.gz
+There are 1 cases in the source folder
+I am processing 0 out of 1 (max process ID is 0, we start counting with 0!)
+There are 1 cases that I would like to predict
+Fold 0:   8%|▊         | 10/125 [00:45<08:38,  4.51s/it]
+Predicting BraTS2021_00115.nii.gz:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with BraTS2021_00115.nii.gz
+There are 1 cases in the source folder
+I am processing 0 out of 1 (max process ID is 0, we start counting with 0!)
+There are 1 cases that I would like to predict
+Fold 0:   9%|▉         | 11/125 [00:49<08:29,  4.47s/it]
+Predicting BraTS2021_00117.nii.gz:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with BraTS2021_00117.nii.gz
+There are 1 cases in the source folder
+I am processing 0 out of 1 (max process ID is 0, we start counting with 0!)
+There are 1 cases that I would like to predict
+Fold 0:  10%|▉         | 12/125 [00:54<08:25,  4.48s/it]
+Predicting BraTS2021_00118.nii.gz:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with BraTS2021_00118.nii.gz
+There are 1 cases in the source folder
+I am processing 0 out of 1 (max process ID is 0, we start counting with 0!)
+There are 1 cases that I would like to predict
+Fold 0:  10%|█         | 13/125 [00:58<08:18,  4.45s/it]
+Predicting BraTS2021_00139.nii.gz:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with BraTS2021_00139.nii.gz
+There are 1 cases in the source folder
+I am processing 0 out of 1 (max process ID is 0, we start counting with 0!)
+There are 1 cases that I would like to predict
+Fold 0:  11%|█         | 14/125 [01:03<08:11,  4.43s/it]
+Predicting BraTS2021_00152.nii.gz:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with BraTS2021_00152.nii.gz
+There are 1 cases in the source folder
+I am processing 0 out of 1 (max process ID is 0, we start counting with 0!)
+There are 1 cases that I would like to predict
+Fold 0:  12%|█▏        | 15/125 [01:07<08:05,  4.41s/it]
+Predicting BraTS2021_00158.nii.gz:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with BraTS2021_00158.nii.gz
+There are 1 cases in the source folder
+I am processing 0 out of 1 (max process ID is 0, we start counting with 0!)
+There are 1 cases that I would like to predict
+Fold 0:  13%|█▎        | 16/125 [01:11<07:58,  4.39s/it]
+Predicting BraTS2021_00170.nii.gz:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with BraTS2021_00170.nii.gz
+There are 1 cases in the source folder
+I am processing 0 out of 1 (max process ID is 0, we start counting with 0!)
+There are 1 cases that I would like to predict
+Fold 0:  14%|█▎        | 17/125 [01:16<07:53,  4.39s/it]
+Predicting BraTS2021_00177.nii.gz:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with BraTS2021_00177.nii.gz
+There are 1 cases in the source folder
+I am processing 0 out of 1 (max process ID is 0, we start counting with 0!)
+There are 1 cases that I would like to predict
+Fold 0:  14%|█▍        | 18/125 [01:20<07:47,  4.37s/it]
+Predicting BraTS2021_00183.nii.gz:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with BraTS2021_00183.nii.gz
+There are 1 cases in the source folder
+I am processing 0 out of 1 (max process ID is 0, we start counting with 0!)
+There are 1 cases that I would like to predict
+Fold 0:  15%|█▌        | 19/125 [01:25<07:46,  4.40s/it]
+Predicting BraTS2021_00184.nii.gz:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with BraTS2021_00184.nii.gz
+There are 1 cases in the source folder
+I am processing 0 out of 1 (max process ID is 0, we start counting with 0!)
+There are 1 cases that I would like to predict
+Fold 0:  16%|█▌        | 20/125 [01:29<07:44,  4.43s/it]
+Predicting BraTS2021_00188.nii.gz:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with BraTS2021_00188.nii.gz
+There are 1 cases in the source folder
+I am processing 0 out of 1 (max process ID is 0, we start counting with 0!)
+There are 1 cases that I would like to predict
+Fold 0:  17%|█▋        | 21/125 [01:33<07:41,  4.44s/it]
+Predicting BraTS2021_00191.nii.gz:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with BraTS2021_00191.nii.gz
+There are 1 cases in the source folder
+I am processing 0 out of 1 (max process ID is 0, we start counting with 0!)
+There are 1 cases that I would like to predict
+Fold 0:  18%|█▊        | 22/125 [01:38<07:38,  4.45s/it]
+Predicting BraTS2021_00203.nii.gz:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with BraTS2021_00203.nii.gz
+There are 1 cases in the source folder
+I am processing 0 out of 1 (max process ID is 0, we start counting with 0!)
+There are 1 cases that I would like to predict
+Fold 0:  18%|█▊        | 23/125 [01:42<07:35,  4.47s/it]
+Predicting BraTS2021_00212.nii.gz:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with BraTS2021_00212.nii.gz
+There are 1 cases in the source folder
+I am processing 0 out of 1 (max process ID is 0, we start counting with 0!)
+There are 1 cases that I would like to predict
+Fold 0:  19%|█▉        | 24/125 [01:47<07:28,  4.44s/it]
+Predicting BraTS2021_00216.nii.gz:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with BraTS2021_00216.nii.gz
+There are 1 cases in the source folder
+I am processing 0 out of 1 (max process ID is 0, we start counting with 0!)
+There are 1 cases that I would like to predict
+Fold 0:  20%|██        | 25/125 [01:51<07:21,  4.42s/it]
+Predicting BraTS2021_00243.nii.gz:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with BraTS2021_00243.nii.gz
+There are 1 cases in the source folder
+I am processing 0 out of 1 (max process ID is 0, we start counting with 0!)
+There are 1 cases that I would like to predict
+Fold 0:  21%|██        | 26/125 [01:56<07:17,  4.42s/it]
+Predicting BraTS2021_00254.nii.gz:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with BraTS2021_00254.nii.gz
+There are 1 cases in the source folder
+I am processing 0 out of 1 (max process ID is 0, we start counting with 0!)
+There are 1 cases that I would like to predict
+Fold 0:  22%|██▏       | 27/125 [02:00<07:14,  4.43s/it]
+Predicting BraTS2021_00261.nii.gz:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with BraTS2021_00261.nii.gz
+There are 1 cases in the source folder
+I am processing 0 out of 1 (max process ID is 0, we start counting with 0!)
+There are 1 cases that I would like to predict
+Fold 0:  22%|██▏       | 28/125 [02:05<07:10,  4.44s/it]
+Predicting BraTS2021_00300.nii.gz:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with BraTS2021_00300.nii.gz
+There are 1 cases in the source folder
+I am processing 0 out of 1 (max process ID is 0, we start counting with 0!)
+There are 1 cases that I would like to predict
+Fold 0:  23%|██▎       | 29/125 [02:09<07:05,  4.43s/it]
+Predicting BraTS2021_00310.nii.gz:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with BraTS2021_00310.nii.gz
+There are 1 cases in the source folder
+I am processing 0 out of 1 (max process ID is 0, we start counting with 0!)
+There are 1 cases that I would like to predict
+Fold 0:  24%|██▍       | 30/125 [02:13<07:01,  4.43s/it]
+Predicting BraTS2021_00312.nii.gz:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with BraTS2021_00312.nii.gz
+There are 1 cases in the source folder
+I am processing 0 out of 1 (max process ID is 0, we start counting with 0!)
+There are 1 cases that I would like to predict
+Fold 0:  25%|██▍       | 31/125 [02:18<06:56,  4.43s/it]
+Predicting BraTS2021_00313.nii.gz:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with BraTS2021_00313.nii.gz
+There are 1 cases in the source folder
+I am processing 0 out of 1 (max process ID is 0, we start counting with 0!)
+There are 1 cases that I would like to predict
+Fold 0:  26%|██▌       | 32/125 [02:22<06:53,  4.45s/it]
+Predicting BraTS2021_00324.nii.gz:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with BraTS2021_00324.nii.gz
+There are 1 cases in the source folder
+I am processing 0 out of 1 (max process ID is 0, we start counting with 0!)
+There are 1 cases that I would like to predict
+Fold 0:  26%|██▋       | 33/125 [02:27<06:46,  4.41s/it]
+Predicting BraTS2021_00327.nii.gz:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with BraTS2021_00327.nii.gz
+There are 1 cases in the source folder
+I am processing 0 out of 1 (max process ID is 0, we start counting with 0!)
+There are 1 cases that I would like to predict
+Fold 0:  27%|██▋       | 34/125 [02:31<06:36,  4.36s/it]
+Predicting BraTS2021_00339.nii.gz:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with BraTS2021_00339.nii.gz
+There are 1 cases in the source folder
+I am processing 0 out of 1 (max process ID is 0, we start counting with 0!)
+There are 1 cases that I would like to predict
+Fold 0:  28%|██▊       | 35/125 [02:35<06:32,  4.37s/it]
+Predicting BraTS2021_00407.nii.gz:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with BraTS2021_00407.nii.gz
+There are 1 cases in the source folder
+I am processing 0 out of 1 (max process ID is 0, we start counting with 0!)
+There are 1 cases that I would like to predict
+Fold 0:  29%|██▉       | 36/125 [02:40<06:28,  4.36s/it]
+Predicting BraTS2021_00440.nii.gz:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with BraTS2021_00440.nii.gz
+There are 1 cases in the source folder
+I am processing 0 out of 1 (max process ID is 0, we start counting with 0!)
+There are 1 cases that I would like to predict
+Fold 0:  30%|██▉       | 37/125 [02:44<06:27,  4.40s/it]
+Predicting BraTS2021_00495.nii.gz:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with BraTS2021_00495.nii.gz
+There are 1 cases in the source folder
+I am processing 0 out of 1 (max process ID is 0, we start counting with 0!)
+There are 1 cases that I would like to predict
+Fold 0:  30%|███       | 38/125 [02:49<06:23,  4.41s/it]
+Predicting BraTS2021_00510.nii.gz:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with BraTS2021_00510.nii.gz
+There are 1 cases in the source folder
+I am processing 0 out of 1 (max process ID is 0, we start counting with 0!)
+There are 1 cases that I would like to predict
+Fold 0:  31%|███       | 39/125 [02:53<06:20,  4.42s/it]
+Predicting BraTS2021_00518.nii.gz:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with BraTS2021_00518.nii.gz
+There are 1 cases in the source folder
+I am processing 0 out of 1 (max process ID is 0, we start counting with 0!)
+There are 1 cases that I would like to predict
+Fold 0:  32%|███▏      | 40/125 [02:57<06:16,  4.43s/it]
+Predicting BraTS2021_00526.nii.gz:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with BraTS2021_00526.nii.gz
+There are 1 cases in the source folder
+I am processing 0 out of 1 (max process ID is 0, we start counting with 0!)
+There are 1 cases that I would like to predict
+Fold 0:  33%|███▎      | 41/125 [03:02<06:14,  4.46s/it]
+Predicting BraTS2021_00528.nii.gz:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with BraTS2021_00528.nii.gz
+There are 1 cases in the source folder
+I am processing 0 out of 1 (max process ID is 0, we start counting with 0!)
+There are 1 cases that I would like to predict
+Fold 0:  34%|███▎      | 42/125 [03:06<06:09,  4.45s/it]
+Predicting BraTS2021_00529.nii.gz:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with BraTS2021_00529.nii.gz
+There are 1 cases in the source folder
+I am processing 0 out of 1 (max process ID is 0, we start counting with 0!)
+There are 1 cases that I would like to predict
+Fold 0:  34%|███▍      | 43/125 [03:11<06:04,  4.44s/it]
+Predicting BraTS2021_00545.nii.gz:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with BraTS2021_00545.nii.gz
+There are 1 cases in the source folder
+I am processing 0 out of 1 (max process ID is 0, we start counting with 0!)
+There are 1 cases that I would like to predict
+Fold 0:  35%|███▌      | 44/125 [03:15<05:58,  4.43s/it]
+Predicting BraTS2021_00556.nii.gz:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with BraTS2021_00556.nii.gz
+There are 1 cases in the source folder
+I am processing 0 out of 1 (max process ID is 0, we start counting with 0!)
+There are 1 cases that I would like to predict
+Fold 0:  36%|███▌      | 45/125 [03:20<05:58,  4.49s/it]
+Predicting BraTS2021_00567.nii.gz:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with BraTS2021_00567.nii.gz
+There are 1 cases in the source folder
+I am processing 0 out of 1 (max process ID is 0, we start counting with 0!)
+There are 1 cases that I would like to predict
+Fold 0:  37%|███▋      | 46/125 [03:25<06:00,  4.56s/it]
+Predicting BraTS2021_00594.nii.gz:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with BraTS2021_00594.nii.gz
+There are 1 cases in the source folder
+I am processing 0 out of 1 (max process ID is 0, we start counting with 0!)
+There are 1 cases that I would like to predict
+Fold 0:  38%|███▊      | 47/125 [03:29<05:56,  4.58s/it]
+Predicting BraTS2021_00596.nii.gz:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with BraTS2021_00596.nii.gz
+There are 1 cases in the source folder
+I am processing 0 out of 1 (max process ID is 0, we start counting with 0!)
+There are 1 cases that I would like to predict
+Fold 0:  38%|███▊      | 48/125 [03:34<05:47,  4.52s/it]
+Predicting BraTS2021_00608.nii.gz:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with BraTS2021_00608.nii.gz
+There are 1 cases in the source folder
+I am processing 0 out of 1 (max process ID is 0, we start counting with 0!)
+There are 1 cases that I would like to predict
+Fold 0:  39%|███▉      | 49/125 [03:38<05:41,  4.49s/it]
+Predicting BraTS2021_00628.nii.gz:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with BraTS2021_00628.nii.gz
+There are 1 cases in the source folder
+I am processing 0 out of 1 (max process ID is 0, we start counting with 0!)
+There are 1 cases that I would like to predict
+Fold 0:  40%|████      | 50/125 [03:42<05:35,  4.48s/it]
+Predicting BraTS2021_00630.nii.gz:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with BraTS2021_00630.nii.gz
+There are 1 cases in the source folder
+I am processing 0 out of 1 (max process ID is 0, we start counting with 0!)
+There are 1 cases that I would like to predict
+Fold 0:  41%|████      | 51/125 [03:47<05:29,  4.46s/it]
+Predicting BraTS2021_00642.nii.gz:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with BraTS2021_00642.nii.gz
+There are 1 cases in the source folder
+I am processing 0 out of 1 (max process ID is 0, we start counting with 0!)
+There are 1 cases that I would like to predict
+Fold 0:  42%|████▏     | 52/125 [03:51<05:23,  4.43s/it]
+Predicting BraTS2021_00646.nii.gz:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with BraTS2021_00646.nii.gz
+There are 1 cases in the source folder
+I am processing 0 out of 1 (max process ID is 0, we start counting with 0!)
+There are 1 cases that I would like to predict
+Fold 0:  42%|████▏     | 53/125 [03:55<05:16,  4.39s/it]
+Predicting BraTS2021_00675.nii.gz:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with BraTS2021_00675.nii.gz
+There are 1 cases in the source folder
+I am processing 0 out of 1 (max process ID is 0, we start counting with 0!)
+There are 1 cases that I would like to predict
+Fold 0:  43%|████▎     | 54/125 [04:00<05:11,  4.38s/it]
+Predicting BraTS2021_00676.nii.gz:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with BraTS2021_00676.nii.gz
+There are 1 cases in the source folder
+I am processing 0 out of 1 (max process ID is 0, we start counting with 0!)
+There are 1 cases that I would like to predict
+Fold 0:  44%|████▍     | 55/125 [04:04<05:04,  4.36s/it]
+Predicting BraTS2021_00679.nii.gz:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with BraTS2021_00679.nii.gz
+There are 1 cases in the source folder
+I am processing 0 out of 1 (max process ID is 0, we start counting with 0!)
+There are 1 cases that I would like to predict
+Fold 0:  45%|████▍     | 56/125 [04:09<05:01,  4.38s/it]
+Predicting BraTS2021_00683.nii.gz:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with BraTS2021_00683.nii.gz
+There are 1 cases in the source folder
+I am processing 0 out of 1 (max process ID is 0, we start counting with 0!)
+There are 1 cases that I would like to predict
+Fold 0:  46%|████▌     | 57/125 [04:13<04:58,  4.39s/it]
+Predicting BraTS2021_00693.nii.gz:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with BraTS2021_00693.nii.gz
+There are 1 cases in the source folder
+I am processing 0 out of 1 (max process ID is 0, we start counting with 0!)
+There are 1 cases that I would like to predict
+Fold 0:  46%|████▋     | 58/125 [04:18<04:59,  4.47s/it]
+Predicting BraTS2021_00782.nii.gz:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with BraTS2021_00782.nii.gz
+There are 1 cases in the source folder
+I am processing 0 out of 1 (max process ID is 0, we start counting with 0!)
+There are 1 cases that I would like to predict
+Fold 0:  47%|████▋     | 59/125 [04:22<04:57,  4.51s/it]
+Predicting BraTS2021_00789.nii.gz:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with BraTS2021_00789.nii.gz
+There are 1 cases in the source folder
+I am processing 0 out of 1 (max process ID is 0, we start counting with 0!)
+There are 1 cases that I would like to predict
+Fold 0:  48%|████▊     | 60/125 [04:27<04:55,  4.54s/it]
+Predicting BraTS2021_00791.nii.gz:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with BraTS2021_00791.nii.gz
+There are 1 cases in the source folder
+I am processing 0 out of 1 (max process ID is 0, we start counting with 0!)
+There are 1 cases that I would like to predict
+Fold 0:  49%|████▉     | 61/125 [04:31<04:51,  4.55s/it]
+Predicting BraTS2021_00792.nii.gz:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with BraTS2021_00792.nii.gz
+There are 1 cases in the source folder
+I am processing 0 out of 1 (max process ID is 0, we start counting with 0!)
+There are 1 cases that I would like to predict
+Fold 0:  50%|████▉     | 62/125 [04:36<04:46,  4.55s/it]
+Predicting BraTS2021_00793.nii.gz:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with BraTS2021_00793.nii.gz
+There are 1 cases in the source folder
+I am processing 0 out of 1 (max process ID is 0, we start counting with 0!)
+There are 1 cases that I would like to predict
+Fold 0:  50%|█████     | 63/125 [04:41<04:42,  4.56s/it]
+Predicting BraTS2021_00823.nii.gz:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with BraTS2021_00823.nii.gz
+There are 1 cases in the source folder
+I am processing 0 out of 1 (max process ID is 0, we start counting with 0!)
+There are 1 cases that I would like to predict
+Fold 0:  51%|█████     | 64/125 [04:45<04:35,  4.52s/it]
+Predicting BraTS2021_00838.nii.gz:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with BraTS2021_00838.nii.gz
+There are 1 cases in the source folder
+I am processing 0 out of 1 (max process ID is 0, we start counting with 0!)
+There are 1 cases that I would like to predict
+Fold 0:  52%|█████▏    | 65/125 [04:49<04:27,  4.46s/it]
+Predicting BraTS2021_00839.nii.gz:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with BraTS2021_00839.nii.gz
+There are 1 cases in the source folder
+I am processing 0 out of 1 (max process ID is 0, we start counting with 0!)
+There are 1 cases that I would like to predict
+Fold 0:  53%|█████▎    | 66/125 [04:54<04:23,  4.46s/it]
+Predicting BraTS2021_01001.nii.gz:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with BraTS2021_01001.nii.gz
+There are 1 cases in the source folder
+I am processing 0 out of 1 (max process ID is 0, we start counting with 0!)
+There are 1 cases that I would like to predict
+Fold 0:  54%|█████▎    | 67/125 [04:58<04:17,  4.44s/it]
+Predicting BraTS2021_01009.nii.gz:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with BraTS2021_01009.nii.gz
+There are 1 cases in the source folder
+I am processing 0 out of 1 (max process ID is 0, we start counting with 0!)
+There are 1 cases that I would like to predict
+Fold 0:  54%|█████▍    | 68/125 [05:03<04:12,  4.43s/it]
+Predicting BraTS2021_01024.nii.gz:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with BraTS2021_01024.nii.gz
+There are 1 cases in the source folder
+I am processing 0 out of 1 (max process ID is 0, we start counting with 0!)
+There are 1 cases that I would like to predict
+Fold 0:  55%|█████▌    | 69/125 [05:07<04:06,  4.41s/it]
+Predicting BraTS2021_01028.nii.gz:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with BraTS2021_01028.nii.gz
+There are 1 cases in the source folder
+I am processing 0 out of 1 (max process ID is 0, we start counting with 0!)
+There are 1 cases that I would like to predict
+Fold 0:  56%|█████▌    | 70/125 [05:11<03:59,  4.36s/it]
+Predicting BraTS2021_01045.nii.gz:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with BraTS2021_01045.nii.gz
+There are 1 cases in the source folder
+I am processing 0 out of 1 (max process ID is 0, we start counting with 0!)
+There are 1 cases that I would like to predict
+Fold 0:  57%|█████▋    | 71/125 [05:15<03:54,  4.35s/it]
+Predicting BraTS2021_01052.nii.gz:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with BraTS2021_01052.nii.gz
+There are 1 cases in the source folder
+I am processing 0 out of 1 (max process ID is 0, we start counting with 0!)
+There are 1 cases that I would like to predict
+Fold 0:  58%|█████▊    | 72/125 [05:20<03:51,  4.37s/it]
+Predicting BraTS2021_01062.nii.gz:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with BraTS2021_01062.nii.gz
+There are 1 cases in the source folder
+I am processing 0 out of 1 (max process ID is 0, we start counting with 0!)
+There are 1 cases that I would like to predict
+Fold 0:  58%|█████▊    | 73/125 [05:24<03:48,  4.39s/it]
+Predicting BraTS2021_01089.nii.gz:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with BraTS2021_01089.nii.gz
+There are 1 cases in the source folder
+I am processing 0 out of 1 (max process ID is 0, we start counting with 0!)
+There are 1 cases that I would like to predict
+Fold 0:  59%|█████▉    | 74/125 [05:29<03:44,  4.39s/it]
+Predicting BraTS2021_01098.nii.gz:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with BraTS2021_01098.nii.gz
+There are 1 cases in the source folder
+I am processing 0 out of 1 (max process ID is 0, we start counting with 0!)
+There are 1 cases that I would like to predict
+Fold 0:  60%|██████    | 75/125 [05:33<03:41,  4.42s/it]
+Predicting BraTS2021_01099.nii.gz:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with BraTS2021_01099.nii.gz
+There are 1 cases in the source folder
+I am processing 0 out of 1 (max process ID is 0, we start counting with 0!)
+There are 1 cases that I would like to predict
+Fold 0:  61%|██████    | 76/125 [05:38<03:35,  4.40s/it]
+Predicting BraTS2021_01110.nii.gz:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with BraTS2021_01110.nii.gz
+There are 1 cases in the source folder
+I am processing 0 out of 1 (max process ID is 0, we start counting with 0!)
+There are 1 cases that I would like to predict
+Fold 0:  62%|██████▏   | 77/125 [05:42<03:30,  4.39s/it]
+Predicting BraTS2021_01113.nii.gz:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with BraTS2021_01113.nii.gz
+There are 1 cases in the source folder
+I am processing 0 out of 1 (max process ID is 0, we start counting with 0!)
+There are 1 cases that I would like to predict
+Fold 0:  62%|██████▏   | 78/125 [05:46<03:27,  4.41s/it]
+Predicting BraTS2021_01130.nii.gz:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with BraTS2021_01130.nii.gz
+There are 1 cases in the source folder
+I am processing 0 out of 1 (max process ID is 0, we start counting with 0!)
+There are 1 cases that I would like to predict
+Fold 0:  63%|██████▎   | 79/125 [05:51<03:22,  4.41s/it]
+Predicting BraTS2021_01133.nii.gz:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with BraTS2021_01133.nii.gz
+There are 1 cases in the source folder
+I am processing 0 out of 1 (max process ID is 0, we start counting with 0!)
+There are 1 cases that I would like to predict
+Fold 0:  64%|██████▍   | 80/125 [05:55<03:18,  4.42s/it]
+Predicting BraTS2021_01153.nii.gz:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with BraTS2021_01153.nii.gz
+There are 1 cases in the source folder
+I am processing 0 out of 1 (max process ID is 0, we start counting with 0!)
+There are 1 cases that I would like to predict
+Fold 0:  65%|██████▍   | 81/125 [06:00<03:13,  4.40s/it]
+Predicting BraTS2021_01154.nii.gz:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with BraTS2021_01154.nii.gz
+There are 1 cases in the source folder
+I am processing 0 out of 1 (max process ID is 0, we start counting with 0!)
+There are 1 cases that I would like to predict
+Fold 0:  66%|██████▌   | 82/125 [06:04<03:09,  4.40s/it]
+Predicting BraTS2021_01156.nii.gz:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with BraTS2021_01156.nii.gz
+There are 1 cases in the source folder
+I am processing 0 out of 1 (max process ID is 0, we start counting with 0!)
+There are 1 cases that I would like to predict
+Fold 0:  66%|██████▋   | 83/125 [06:08<03:04,  4.38s/it]
+Predicting BraTS2021_01188.nii.gz:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with BraTS2021_01188.nii.gz
+There are 1 cases in the source folder
+I am processing 0 out of 1 (max process ID is 0, we start counting with 0!)
+There are 1 cases that I would like to predict
+Fold 0:  67%|██████▋   | 84/125 [06:13<03:00,  4.39s/it]
+Predicting BraTS2021_01198.nii.gz:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with BraTS2021_01198.nii.gz
+There are 1 cases in the source folder
+I am processing 0 out of 1 (max process ID is 0, we start counting with 0!)
+There are 1 cases that I would like to predict
+Fold 0:  68%|██████▊   | 85/125 [06:17<02:55,  4.39s/it]
+Predicting BraTS2021_01200.nii.gz:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with BraTS2021_01200.nii.gz
+There are 1 cases in the source folder
+I am processing 0 out of 1 (max process ID is 0, we start counting with 0!)
+There are 1 cases that I would like to predict
+Fold 0:  69%|██████▉   | 86/125 [06:22<02:51,  4.39s/it]
+Predicting BraTS2021_01207.nii.gz:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with BraTS2021_01207.nii.gz
+There are 1 cases in the source folder
+I am processing 0 out of 1 (max process ID is 0, we start counting with 0!)
+There are 1 cases that I would like to predict
+Fold 0:  70%|██████▉   | 87/125 [06:26<02:45,  4.35s/it]
+Predicting BraTS2021_01216.nii.gz:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with BraTS2021_01216.nii.gz
+There are 1 cases in the source folder
+I am processing 0 out of 1 (max process ID is 0, we start counting with 0!)
+There are 1 cases that I would like to predict
+Fold 0:  70%|███████   | 88/125 [06:30<02:39,  4.32s/it]
+Predicting BraTS2021_01230.nii.gz:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with BraTS2021_01230.nii.gz
+There are 1 cases in the source folder
+I am processing 0 out of 1 (max process ID is 0, we start counting with 0!)
+There are 1 cases that I would like to predict
+Fold 0:  71%|███████   | 89/125 [06:34<02:34,  4.30s/it]
+Predicting BraTS2021_01239.nii.gz:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with BraTS2021_01239.nii.gz
+There are 1 cases in the source folder
+I am processing 0 out of 1 (max process ID is 0, we start counting with 0!)
+There are 1 cases that I would like to predict
+Fold 0:  72%|███████▏  | 90/125 [06:39<02:31,  4.33s/it]
+Predicting BraTS2021_01243.nii.gz:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with BraTS2021_01243.nii.gz
+There are 1 cases in the source folder
+I am processing 0 out of 1 (max process ID is 0, we start counting with 0!)
+There are 1 cases that I would like to predict
+Fold 0:  73%|███████▎  | 91/125 [06:43<02:28,  4.37s/it]
+Predicting BraTS2021_01258.nii.gz:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with BraTS2021_01258.nii.gz
+There are 1 cases in the source folder
+I am processing 0 out of 1 (max process ID is 0, we start counting with 0!)
+There are 1 cases that I would like to predict
+Fold 0:  74%|███████▎  | 92/125 [06:48<02:24,  4.38s/it]
+Predicting BraTS2021_01307.nii.gz:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with BraTS2021_01307.nii.gz
+There are 1 cases in the source folder
+I am processing 0 out of 1 (max process ID is 0, we start counting with 0!)
+There are 1 cases that I would like to predict
+Fold 0:  74%|███████▍  | 93/125 [06:52<02:20,  4.38s/it]
+Predicting BraTS2021_01314.nii.gz:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with BraTS2021_01314.nii.gz
+There are 1 cases in the source folder
+I am processing 0 out of 1 (max process ID is 0, we start counting with 0!)
+There are 1 cases that I would like to predict
+Fold 0:  75%|███████▌  | 94/125 [06:56<02:15,  4.38s/it]
+Predicting BraTS2021_01320.nii.gz:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with BraTS2021_01320.nii.gz
+There are 1 cases in the source folder
+I am processing 0 out of 1 (max process ID is 0, we start counting with 0!)
+There are 1 cases that I would like to predict
+Fold 0:  76%|███████▌  | 95/125 [07:01<02:10,  4.36s/it]
+Predicting BraTS2021_01344.nii.gz:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with BraTS2021_01344.nii.gz
+There are 1 cases in the source folder
+I am processing 0 out of 1 (max process ID is 0, we start counting with 0!)
+There are 1 cases that I would like to predict
+Fold 0:  77%|███████▋  | 96/125 [07:05<02:07,  4.38s/it]
+Predicting BraTS2021_01347.nii.gz:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with BraTS2021_01347.nii.gz
+There are 1 cases in the source folder
+I am processing 0 out of 1 (max process ID is 0, we start counting with 0!)
+There are 1 cases that I would like to predict
+Fold 0:  78%|███████▊  | 97/125 [07:09<02:02,  4.37s/it]
+Predicting BraTS2021_01366.nii.gz:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with BraTS2021_01366.nii.gz
+There are 1 cases in the source folder
+I am processing 0 out of 1 (max process ID is 0, we start counting with 0!)
+There are 1 cases that I would like to predict
+Fold 0:  78%|███████▊  | 98/125 [07:14<01:57,  4.37s/it]
+Predicting BraTS2021_01372.nii.gz:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with BraTS2021_01372.nii.gz
+There are 1 cases in the source folder
+I am processing 0 out of 1 (max process ID is 0, we start counting with 0!)
+There are 1 cases that I would like to predict
+Fold 0:  79%|███████▉  | 99/125 [07:18<01:52,  4.34s/it]
+Predicting BraTS2021_01392.nii.gz:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with BraTS2021_01392.nii.gz
+There are 1 cases in the source folder
+I am processing 0 out of 1 (max process ID is 0, we start counting with 0!)
+There are 1 cases that I would like to predict
+Fold 0:  80%|████████  | 100/125 [07:22<01:48,  4.35s/it]
+Predicting BraTS2021_01413.nii.gz:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with BraTS2021_01413.nii.gz
+There are 1 cases in the source folder
+I am processing 0 out of 1 (max process ID is 0, we start counting with 0!)
+There are 1 cases that I would like to predict
+Fold 0:  81%|████████  | 101/125 [07:27<01:44,  4.35s/it]
+Predicting BraTS2021_01419.nii.gz:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with BraTS2021_01419.nii.gz
+There are 1 cases in the source folder
+I am processing 0 out of 1 (max process ID is 0, we start counting with 0!)
+There are 1 cases that I would like to predict
+Fold 0:  82%|████████▏ | 102/125 [07:31<01:40,  4.37s/it]
+Predicting BraTS2021_01421.nii.gz:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with BraTS2021_01421.nii.gz
+There are 1 cases in the source folder
+I am processing 0 out of 1 (max process ID is 0, we start counting with 0!)
+There are 1 cases that I would like to predict
+Fold 0:  82%|████████▏ | 103/125 [07:36<01:36,  4.39s/it]
+Predicting BraTS2021_01448.nii.gz:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with BraTS2021_01448.nii.gz
+There are 1 cases in the source folder
+I am processing 0 out of 1 (max process ID is 0, we start counting with 0!)
+There are 1 cases that I would like to predict
+Fold 0:  83%|████████▎ | 104/125 [07:40<01:31,  4.34s/it]
+Predicting BraTS2021_01457.nii.gz:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with BraTS2021_01457.nii.gz
+There are 1 cases in the source folder
+I am processing 0 out of 1 (max process ID is 0, we start counting with 0!)
+There are 1 cases that I would like to predict
+Fold 0:  84%|████████▍ | 105/125 [07:44<01:26,  4.35s/it]
+Predicting BraTS2021_01462.nii.gz:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with BraTS2021_01462.nii.gz
+There are 1 cases in the source folder
+I am processing 0 out of 1 (max process ID is 0, we start counting with 0!)
+There are 1 cases that I would like to predict
+Fold 0:  85%|████████▍ | 106/125 [07:49<01:23,  4.39s/it]
+Predicting BraTS2021_01475.nii.gz:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with BraTS2021_01475.nii.gz
+There are 1 cases in the source folder
+I am processing 0 out of 1 (max process ID is 0, we start counting with 0!)
+There are 1 cases that I would like to predict
+Fold 0:  86%|████████▌ | 107/125 [07:53<01:19,  4.40s/it]
+Predicting BraTS2021_01477.nii.gz:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with BraTS2021_01477.nii.gz
+There are 1 cases in the source folder
+I am processing 0 out of 1 (max process ID is 0, we start counting with 0!)
+There are 1 cases that I would like to predict
+Fold 0:  86%|████████▋ | 108/125 [07:57<01:14,  4.38s/it]
+Predicting BraTS2021_01478.nii.gz:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with BraTS2021_01478.nii.gz
+There are 1 cases in the source folder
+I am processing 0 out of 1 (max process ID is 0, we start counting with 0!)
+There are 1 cases that I would like to predict
+Fold 0:  87%|████████▋ | 109/125 [08:02<01:10,  4.39s/it]
+Predicting BraTS2021_01479.nii.gz:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with BraTS2021_01479.nii.gz
+There are 1 cases in the source folder
+I am processing 0 out of 1 (max process ID is 0, we start counting with 0!)
+There are 1 cases that I would like to predict
+Fold 0:  88%|████████▊ | 110/125 [08:06<01:05,  4.37s/it]
+Predicting BraTS2021_01490.nii.gz:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with BraTS2021_01490.nii.gz
+There are 1 cases in the source folder
+I am processing 0 out of 1 (max process ID is 0, we start counting with 0!)
+There are 1 cases that I would like to predict
+Fold 0:  89%|████████▉ | 111/125 [08:11<01:01,  4.38s/it]
+Predicting BraTS2021_01495.nii.gz:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with BraTS2021_01495.nii.gz
+There are 1 cases in the source folder
+I am processing 0 out of 1 (max process ID is 0, we start counting with 0!)
+There are 1 cases that I would like to predict
+Fold 0:  90%|████████▉ | 112/125 [08:15<00:57,  4.40s/it]
+Predicting BraTS2021_01498.nii.gz:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with BraTS2021_01498.nii.gz
+There are 1 cases in the source folder
+I am processing 0 out of 1 (max process ID is 0, we start counting with 0!)
+There are 1 cases that I would like to predict
+Fold 0:  90%|█████████ | 113/125 [08:19<00:52,  4.39s/it]
+Predicting BraTS2021_01499.nii.gz:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with BraTS2021_01499.nii.gz
+There are 1 cases in the source folder
+I am processing 0 out of 1 (max process ID is 0, we start counting with 0!)
+There are 1 cases that I would like to predict
+Fold 0:  91%|█████████ | 114/125 [08:24<00:48,  4.40s/it]
+Predicting BraTS2021_01500.nii.gz:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with BraTS2021_01500.nii.gz
+There are 1 cases in the source folder
+I am processing 0 out of 1 (max process ID is 0, we start counting with 0!)
+There are 1 cases that I would like to predict
+Fold 0:  92%|█████████▏| 115/125 [08:28<00:44,  4.41s/it]
+Predicting BraTS2021_01506.nii.gz:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with BraTS2021_01506.nii.gz
+There are 1 cases in the source folder
+I am processing 0 out of 1 (max process ID is 0, we start counting with 0!)
+There are 1 cases that I would like to predict
+Fold 0:  93%|█████████▎| 116/125 [08:33<00:39,  4.41s/it]
+Predicting BraTS2021_01528.nii.gz:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with BraTS2021_01528.nii.gz
+There are 1 cases in the source folder
+I am processing 0 out of 1 (max process ID is 0, we start counting with 0!)
+There are 1 cases that I would like to predict
+Fold 0:  94%|█████████▎| 117/125 [08:37<00:35,  4.46s/it]
+Predicting BraTS2021_01539.nii.gz:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with BraTS2021_01539.nii.gz
+There are 1 cases in the source folder
+I am processing 0 out of 1 (max process ID is 0, we start counting with 0!)
+There are 1 cases that I would like to predict
+Fold 0:  94%|█████████▍| 118/125 [08:42<00:31,  4.51s/it]
+Predicting BraTS2021_01543.nii.gz:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with BraTS2021_01543.nii.gz
+There are 1 cases in the source folder
+I am processing 0 out of 1 (max process ID is 0, we start counting with 0!)
+There are 1 cases that I would like to predict
+Fold 0:  95%|█████████▌| 119/125 [08:47<00:27,  4.55s/it]
+Predicting BraTS2021_01556.nii.gz:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with BraTS2021_01556.nii.gz
+There are 1 cases in the source folder
+I am processing 0 out of 1 (max process ID is 0, we start counting with 0!)
+There are 1 cases that I would like to predict
+Fold 0:  96%|█████████▌| 120/125 [08:51<00:22,  4.58s/it]
+Predicting BraTS2021_01582.nii.gz:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with BraTS2021_01582.nii.gz
+There are 1 cases in the source folder
+I am processing 0 out of 1 (max process ID is 0, we start counting with 0!)
+There are 1 cases that I would like to predict
+Fold 0:  97%|█████████▋| 121/125 [08:56<00:18,  4.61s/it]
+Predicting BraTS2021_01584.nii.gz:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with BraTS2021_01584.nii.gz
+There are 1 cases in the source folder
+I am processing 0 out of 1 (max process ID is 0, we start counting with 0!)
+There are 1 cases that I would like to predict
+Fold 0:  98%|█████████▊| 122/125 [09:00<00:13,  4.56s/it]
+Predicting BraTS2021_01587.nii.gz:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with BraTS2021_01587.nii.gz
+There are 1 cases in the source folder
+I am processing 0 out of 1 (max process ID is 0, we start counting with 0!)
+There are 1 cases that I would like to predict
+Fold 0:  98%|█████████▊| 123/125 [09:05<00:09,  4.54s/it]
+Predicting BraTS2021_01612.nii.gz:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with BraTS2021_01612.nii.gz
+There are 1 cases in the source folder
+I am processing 0 out of 1 (max process ID is 0, we start counting with 0!)
+There are 1 cases that I would like to predict
+Fold 0:  99%|█████████▉| 124/125 [09:09<00:04,  4.55s/it]
+Predicting BraTS2021_01651.nii.gz:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with BraTS2021_01651.nii.gz
+There are 1 cases in the source folder
+I am processing 0 out of 1 (max process ID is 0, we start counting with 0!)
+There are 1 cases that I would like to predict
+Fold 0: 100%|██████████| 125/125 [09:14<00:00,  4.52s/it]Fold 0: 100%|██████████| 125/125 [09:14<00:00,  4.43s/it]
+
+Predicting BraTS2021_01659.nii.gz:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with BraTS2021_01659.nii.gz
+
+Fold 0 Results:
+  Mean WT Dice: 0.9350 ± 0.0594
+  Mean TC Dice: 0.9142 ± 0.1100
+  Mean ET Dice: 0.8485 ± 0.1932
+  Mean inference time: 4.21s
+  Saved: /home/paul/repositories/thesis_lab/experiments/ablation/abl_nnunet_default/test_predictions/fold_0_results.csv
+
+======================================================================
+Fold 1 Inference (nnU-Net)
+======================================================================
+Checkpoint: /data/paul_daten/nnunet/nnUNet_results/Dataset001_BraTS/nnUNetTrainer_DefaultAug__nnUNetPlans__3d_fullres/fold_1/checkpoint_best.pth
+Test set: 125 cases
+Initializing nnUNetPredictor...
+Starting inference...
+Fold 1:   0%|          | 0/125 [00:00<?, ?it/s]There are 1 cases in the source folder
+I am processing 0 out of 1 (max process ID is 0, we start counting with 0!)
+There are 1 cases that I would like to predict
+Fold 1:   1%|          | 1/125 [00:04<09:20,  4.52s/it]
+Predicting BraTS2021_00016.nii.gz:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with BraTS2021_00016.nii.gz
+There are 1 cases in the source folder
+I am processing 0 out of 1 (max process ID is 0, we start counting with 0!)
+There are 1 cases that I would like to predict
+Fold 1:   2%|▏         | 2/125 [00:08<09:09,  4.47s/it]
+Predicting BraTS2021_00028.nii.gz:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with BraTS2021_00028.nii.gz
+There are 1 cases in the source folder
+I am processing 0 out of 1 (max process ID is 0, we start counting with 0!)
+There are 1 cases that I would like to predict
+Fold 1:   2%|▏         | 3/125 [00:13<08:55,  4.39s/it]
+Predicting BraTS2021_00046.nii.gz:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with BraTS2021_00046.nii.gz
+There are 1 cases in the source folder
+I am processing 0 out of 1 (max process ID is 0, we start counting with 0!)
+There are 1 cases that I would like to predict
+Fold 1:   3%|▎         | 4/125 [00:17<08:50,  4.39s/it]
+Predicting BraTS2021_00054.nii.gz:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with BraTS2021_00054.nii.gz
+There are 1 cases in the source folder
+I am processing 0 out of 1 (max process ID is 0, we start counting with 0!)
+There are 1 cases that I would like to predict
+Fold 1:   4%|▍         | 5/125 [00:21<08:44,  4.37s/it]
+Predicting BraTS2021_00063.nii.gz:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with BraTS2021_00063.nii.gz
+There are 1 cases in the source folder
+I am processing 0 out of 1 (max process ID is 0, we start counting with 0!)
+There are 1 cases that I would like to predict
+Fold 1:   5%|▍         | 6/125 [00:26<08:36,  4.34s/it]
+Predicting BraTS2021_00066.nii.gz:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with BraTS2021_00066.nii.gz
+There are 1 cases in the source folder
+I am processing 0 out of 1 (max process ID is 0, we start counting with 0!)
+There are 1 cases that I would like to predict
+Fold 1:   6%|▌         | 7/125 [00:30<08:35,  4.37s/it]
+Predicting BraTS2021_00094.nii.gz:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with BraTS2021_00094.nii.gz
+There are 1 cases in the source folder
+I am processing 0 out of 1 (max process ID is 0, we start counting with 0!)
+There are 1 cases that I would like to predict
+Fold 1:   6%|▋         | 8/125 [00:35<08:34,  4.40s/it]
+Predicting BraTS2021_00103.nii.gz:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with BraTS2021_00103.nii.gz
+There are 1 cases in the source folder
+I am processing 0 out of 1 (max process ID is 0, we start counting with 0!)
+There are 1 cases that I would like to predict
+Fold 1:   7%|▋         | 9/125 [00:39<08:30,  4.40s/it]
+Predicting BraTS2021_00111.nii.gz:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with BraTS2021_00111.nii.gz
+There are 1 cases in the source folder
+I am processing 0 out of 1 (max process ID is 0, we start counting with 0!)
+There are 1 cases that I would like to predict
+Fold 1:   8%|▊         | 10/125 [00:44<08:32,  4.46s/it]
+Predicting BraTS2021_00115.nii.gz:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with BraTS2021_00115.nii.gz
+There are 1 cases in the source folder
+I am processing 0 out of 1 (max process ID is 0, we start counting with 0!)
+There are 1 cases that I would like to predict
+Fold 1:   9%|▉         | 11/125 [00:48<08:26,  4.45s/it]
+Predicting BraTS2021_00117.nii.gz:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with BraTS2021_00117.nii.gz
+There are 1 cases in the source folder
+I am processing 0 out of 1 (max process ID is 0, we start counting with 0!)
+There are 1 cases that I would like to predict
+Fold 1:  10%|▉         | 12/125 [00:53<08:22,  4.45s/it]
+Predicting BraTS2021_00118.nii.gz:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with BraTS2021_00118.nii.gz
+There are 1 cases in the source folder
+I am processing 0 out of 1 (max process ID is 0, we start counting with 0!)
+There are 1 cases that I would like to predict
+Fold 1:  10%|█         | 13/125 [00:57<08:11,  4.39s/it]
+Predicting BraTS2021_00139.nii.gz:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with BraTS2021_00139.nii.gz
+There are 1 cases in the source folder
+I am processing 0 out of 1 (max process ID is 0, we start counting with 0!)
+There are 1 cases that I would like to predict
+Fold 1:  11%|█         | 14/125 [01:01<08:00,  4.32s/it]
+Predicting BraTS2021_00152.nii.gz:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with BraTS2021_00152.nii.gz
+There are 1 cases in the source folder
+I am processing 0 out of 1 (max process ID is 0, we start counting with 0!)
+There are 1 cases that I would like to predict
+Fold 1:  12%|█▏        | 15/125 [01:05<07:56,  4.33s/it]
+Predicting BraTS2021_00158.nii.gz:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with BraTS2021_00158.nii.gz
+There are 1 cases in the source folder
+I am processing 0 out of 1 (max process ID is 0, we start counting with 0!)
+There are 1 cases that I would like to predict
+Fold 1:  13%|█▎        | 16/125 [01:10<07:54,  4.35s/it]
+Predicting BraTS2021_00170.nii.gz:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with BraTS2021_00170.nii.gz
+There are 1 cases in the source folder
+I am processing 0 out of 1 (max process ID is 0, we start counting with 0!)
+There are 1 cases that I would like to predict
+Fold 1:  14%|█▎        | 17/125 [01:14<07:53,  4.38s/it]
+Predicting BraTS2021_00177.nii.gz:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with BraTS2021_00177.nii.gz
+There are 1 cases in the source folder
+I am processing 0 out of 1 (max process ID is 0, we start counting with 0!)
+There are 1 cases that I would like to predict
+Fold 1:  14%|█▍        | 18/125 [01:19<07:49,  4.39s/it]
+Predicting BraTS2021_00183.nii.gz:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with BraTS2021_00183.nii.gz
+There are 1 cases in the source folder
+I am processing 0 out of 1 (max process ID is 0, we start counting with 0!)
+There are 1 cases that I would like to predict
+Fold 1:  15%|█▌        | 19/125 [01:23<07:45,  4.40s/it]
+Predicting BraTS2021_00184.nii.gz:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with BraTS2021_00184.nii.gz
+There are 1 cases in the source folder
+I am processing 0 out of 1 (max process ID is 0, we start counting with 0!)
+There are 1 cases that I would like to predict
+Fold 1:  16%|█▌        | 20/125 [01:27<07:44,  4.42s/it]
+Predicting BraTS2021_00188.nii.gz:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with BraTS2021_00188.nii.gz
+There are 1 cases in the source folder
+I am processing 0 out of 1 (max process ID is 0, we start counting with 0!)
+There are 1 cases that I would like to predict
+Fold 1:  17%|█▋        | 21/125 [01:32<07:40,  4.43s/it]
+Predicting BraTS2021_00191.nii.gz:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with BraTS2021_00191.nii.gz
+There are 1 cases in the source folder
+I am processing 0 out of 1 (max process ID is 0, we start counting with 0!)
+There are 1 cases that I would like to predict
+Fold 1:  18%|█▊        | 22/125 [01:36<07:36,  4.43s/it]
+Predicting BraTS2021_00203.nii.gz:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with BraTS2021_00203.nii.gz
+There are 1 cases in the source folder
+I am processing 0 out of 1 (max process ID is 0, we start counting with 0!)
+There are 1 cases that I would like to predict
+Fold 1:  18%|█▊        | 23/125 [01:41<07:31,  4.43s/it]
+Predicting BraTS2021_00212.nii.gz:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with BraTS2021_00212.nii.gz
+There are 1 cases in the source folder
+I am processing 0 out of 1 (max process ID is 0, we start counting with 0!)
+There are 1 cases that I would like to predict
+Fold 1:  19%|█▉        | 24/125 [01:45<07:26,  4.42s/it]
+Predicting BraTS2021_00216.nii.gz:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with BraTS2021_00216.nii.gz
+There are 1 cases in the source folder
+I am processing 0 out of 1 (max process ID is 0, we start counting with 0!)
+There are 1 cases that I would like to predict
+Fold 1:  20%|██        | 25/125 [01:50<07:20,  4.41s/it]
+Predicting BraTS2021_00243.nii.gz:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with BraTS2021_00243.nii.gz
+There are 1 cases in the source folder
+I am processing 0 out of 1 (max process ID is 0, we start counting with 0!)
+There are 1 cases that I would like to predict
+Fold 1:  21%|██        | 26/125 [01:54<07:15,  4.40s/it]
+Predicting BraTS2021_00254.nii.gz:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with BraTS2021_00254.nii.gz
+There are 1 cases in the source folder
+I am processing 0 out of 1 (max process ID is 0, we start counting with 0!)
+There are 1 cases that I would like to predict
+Fold 1:  22%|██▏       | 27/125 [01:58<07:15,  4.44s/it]
+Predicting BraTS2021_00261.nii.gz:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with BraTS2021_00261.nii.gz
+There are 1 cases in the source folder
+I am processing 0 out of 1 (max process ID is 0, we start counting with 0!)
+There are 1 cases that I would like to predict
+Fold 1:  22%|██▏       | 28/125 [02:03<07:11,  4.45s/it]
+Predicting BraTS2021_00300.nii.gz:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with BraTS2021_00300.nii.gz
+There are 1 cases in the source folder
+I am processing 0 out of 1 (max process ID is 0, we start counting with 0!)
+There are 1 cases that I would like to predict
+Fold 1:  23%|██▎       | 29/125 [02:07<07:09,  4.47s/it]
+Predicting BraTS2021_00310.nii.gz:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with BraTS2021_00310.nii.gz
+There are 1 cases in the source folder
+I am processing 0 out of 1 (max process ID is 0, we start counting with 0!)
+There are 1 cases that I would like to predict
+Fold 1:  24%|██▍       | 30/125 [02:12<07:03,  4.46s/it]
+Predicting BraTS2021_00312.nii.gz:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with BraTS2021_00312.nii.gz
+There are 1 cases in the source folder
+I am processing 0 out of 1 (max process ID is 0, we start counting with 0!)
+There are 1 cases that I would like to predict
+Fold 1:  25%|██▍       | 31/125 [02:16<06:54,  4.41s/it]
+Predicting BraTS2021_00313.nii.gz:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with BraTS2021_00313.nii.gz
+There are 1 cases in the source folder
+I am processing 0 out of 1 (max process ID is 0, we start counting with 0!)
+There are 1 cases that I would like to predict
+Fold 1:  26%|██▌       | 32/125 [02:20<06:46,  4.37s/it]
+Predicting BraTS2021_00324.nii.gz:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with BraTS2021_00324.nii.gz
+There are 1 cases in the source folder
+I am processing 0 out of 1 (max process ID is 0, we start counting with 0!)
+There are 1 cases that I would like to predict
+Fold 1:  26%|██▋       | 33/125 [02:25<06:39,  4.35s/it]
+Predicting BraTS2021_00327.nii.gz:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with BraTS2021_00327.nii.gz
+There are 1 cases in the source folder
+I am processing 0 out of 1 (max process ID is 0, we start counting with 0!)
+There are 1 cases that I would like to predict
+Fold 1:  27%|██▋       | 34/125 [02:29<06:38,  4.38s/it]
+Predicting BraTS2021_00339.nii.gz:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with BraTS2021_00339.nii.gz
+There are 1 cases in the source folder
+I am processing 0 out of 1 (max process ID is 0, we start counting with 0!)
+There are 1 cases that I would like to predict
+Fold 1:  28%|██▊       | 35/125 [02:34<06:35,  4.40s/it]
+Predicting BraTS2021_00407.nii.gz:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with BraTS2021_00407.nii.gz
+There are 1 cases in the source folder
+I am processing 0 out of 1 (max process ID is 0, we start counting with 0!)
+There are 1 cases that I would like to predict
+Fold 1:  29%|██▉       | 36/125 [02:38<06:34,  4.43s/it]
+Predicting BraTS2021_00440.nii.gz:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with BraTS2021_00440.nii.gz
+There are 1 cases in the source folder
+I am processing 0 out of 1 (max process ID is 0, we start counting with 0!)
+There are 1 cases that I would like to predict
+Fold 1:  30%|██▉       | 37/125 [02:43<06:30,  4.44s/it]
+Predicting BraTS2021_00495.nii.gz:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with BraTS2021_00495.nii.gz
+There are 1 cases in the source folder
+I am processing 0 out of 1 (max process ID is 0, we start counting with 0!)
+There are 1 cases that I would like to predict
+Fold 1:  30%|███       | 38/125 [02:47<06:26,  4.44s/it]
+Predicting BraTS2021_00510.nii.gz:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with BraTS2021_00510.nii.gz
+There are 1 cases in the source folder
+I am processing 0 out of 1 (max process ID is 0, we start counting with 0!)
+There are 1 cases that I would like to predict
+Fold 1:  31%|███       | 39/125 [02:51<06:22,  4.44s/it]
+Predicting BraTS2021_00518.nii.gz:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with BraTS2021_00518.nii.gz
+There are 1 cases in the source folder
+I am processing 0 out of 1 (max process ID is 0, we start counting with 0!)
+There are 1 cases that I would like to predict
+Fold 1:  32%|███▏      | 40/125 [02:56<06:16,  4.43s/it]
+Predicting BraTS2021_00526.nii.gz:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with BraTS2021_00526.nii.gz
+There are 1 cases in the source folder
+I am processing 0 out of 1 (max process ID is 0, we start counting with 0!)
+There are 1 cases that I would like to predict
+Fold 1:  33%|███▎      | 41/125 [03:00<06:15,  4.47s/it]
+Predicting BraTS2021_00528.nii.gz:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with BraTS2021_00528.nii.gz
+There are 1 cases in the source folder
+I am processing 0 out of 1 (max process ID is 0, we start counting with 0!)
+There are 1 cases that I would like to predict
+Fold 1:  34%|███▎      | 42/125 [03:05<06:08,  4.44s/it]
+Predicting BraTS2021_00529.nii.gz:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with BraTS2021_00529.nii.gz
+There are 1 cases in the source folder
+I am processing 0 out of 1 (max process ID is 0, we start counting with 0!)
+There are 1 cases that I would like to predict
+Fold 1:  34%|███▍      | 43/125 [03:09<06:03,  4.43s/it]
+Predicting BraTS2021_00545.nii.gz:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with BraTS2021_00545.nii.gz
+There are 1 cases in the source folder
+I am processing 0 out of 1 (max process ID is 0, we start counting with 0!)
+There are 1 cases that I would like to predict
+Fold 1:  35%|███▌      | 44/125 [03:14<05:58,  4.43s/it]
+Predicting BraTS2021_00556.nii.gz:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with BraTS2021_00556.nii.gz
+There are 1 cases in the source folder
+I am processing 0 out of 1 (max process ID is 0, we start counting with 0!)
+There are 1 cases that I would like to predict
+Fold 1:  36%|███▌      | 45/125 [03:18<05:59,  4.50s/it]
+Predicting BraTS2021_00567.nii.gz:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with BraTS2021_00567.nii.gz
+There are 1 cases in the source folder
+I am processing 0 out of 1 (max process ID is 0, we start counting with 0!)
+There are 1 cases that I would like to predict
+Fold 1:  37%|███▋      | 46/125 [03:23<06:01,  4.58s/it]
+Predicting BraTS2021_00594.nii.gz:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with BraTS2021_00594.nii.gz
+There are 1 cases in the source folder
+I am processing 0 out of 1 (max process ID is 0, we start counting with 0!)
+There are 1 cases that I would like to predict
+Fold 1:  38%|███▊      | 47/125 [03:28<05:57,  4.58s/it]
+Predicting BraTS2021_00596.nii.gz:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with BraTS2021_00596.nii.gz
+There are 1 cases in the source folder
+I am processing 0 out of 1 (max process ID is 0, we start counting with 0!)
+There are 1 cases that I would like to predict
+Fold 1:  38%|███▊      | 48/125 [03:32<05:45,  4.49s/it]
+Predicting BraTS2021_00608.nii.gz:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with BraTS2021_00608.nii.gz
+There are 1 cases in the source folder
+I am processing 0 out of 1 (max process ID is 0, we start counting with 0!)
+There are 1 cases that I would like to predict
+Fold 1:  39%|███▉      | 49/125 [03:36<05:39,  4.47s/it]
+Predicting BraTS2021_00628.nii.gz:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with BraTS2021_00628.nii.gz
+There are 1 cases in the source folder
+I am processing 0 out of 1 (max process ID is 0, we start counting with 0!)
+There are 1 cases that I would like to predict
+Fold 1:  40%|████      | 50/125 [03:41<05:34,  4.47s/it]
+Predicting BraTS2021_00630.nii.gz:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with BraTS2021_00630.nii.gz
+There are 1 cases in the source folder
+I am processing 0 out of 1 (max process ID is 0, we start counting with 0!)
+There are 1 cases that I would like to predict
+Fold 1:  41%|████      | 51/125 [03:45<05:28,  4.44s/it]
+Predicting BraTS2021_00642.nii.gz:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with BraTS2021_00642.nii.gz
+There are 1 cases in the source folder
+I am processing 0 out of 1 (max process ID is 0, we start counting with 0!)
+There are 1 cases that I would like to predict
+Fold 1:  42%|████▏     | 52/125 [03:50<05:23,  4.44s/it]
+Predicting BraTS2021_00646.nii.gz:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with BraTS2021_00646.nii.gz
+There are 1 cases in the source folder
+I am processing 0 out of 1 (max process ID is 0, we start counting with 0!)
+There are 1 cases that I would like to predict
+Fold 1:  42%|████▏     | 53/125 [03:54<05:18,  4.42s/it]
+Predicting BraTS2021_00675.nii.gz:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with BraTS2021_00675.nii.gz
+There are 1 cases in the source folder
+I am processing 0 out of 1 (max process ID is 0, we start counting with 0!)
+There are 1 cases that I would like to predict
+Fold 1:  43%|████▎     | 54/125 [03:58<05:14,  4.43s/it]
+Predicting BraTS2021_00676.nii.gz:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with BraTS2021_00676.nii.gz
+There are 1 cases in the source folder
+I am processing 0 out of 1 (max process ID is 0, we start counting with 0!)
+There are 1 cases that I would like to predict
+Fold 1:  44%|████▍     | 55/125 [04:03<05:08,  4.41s/it]
+Predicting BraTS2021_00679.nii.gz:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with BraTS2021_00679.nii.gz
+There are 1 cases in the source folder
+I am processing 0 out of 1 (max process ID is 0, we start counting with 0!)
+There are 1 cases that I would like to predict
+Fold 1:  45%|████▍     | 56/125 [04:07<05:03,  4.41s/it]
+Predicting BraTS2021_00683.nii.gz:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with BraTS2021_00683.nii.gz
+There are 1 cases in the source folder
+I am processing 0 out of 1 (max process ID is 0, we start counting with 0!)
+There are 1 cases that I would like to predict
+Fold 1:  46%|████▌     | 57/125 [04:12<05:01,  4.43s/it]
+Predicting BraTS2021_00693.nii.gz:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with BraTS2021_00693.nii.gz
+There are 1 cases in the source folder
+I am processing 0 out of 1 (max process ID is 0, we start counting with 0!)
+There are 1 cases that I would like to predict
+Fold 1:  46%|████▋     | 58/125 [04:16<05:01,  4.50s/it]
+Predicting BraTS2021_00782.nii.gz:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with BraTS2021_00782.nii.gz
+There are 1 cases in the source folder
+I am processing 0 out of 1 (max process ID is 0, we start counting with 0!)
+There are 1 cases that I would like to predict
+Fold 1:  47%|████▋     | 59/125 [04:21<04:59,  4.53s/it]
+Predicting BraTS2021_00789.nii.gz:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with BraTS2021_00789.nii.gz
+There are 1 cases in the source folder
+I am processing 0 out of 1 (max process ID is 0, we start counting with 0!)
+There are 1 cases that I would like to predict
+Fold 1:  48%|████▊     | 60/125 [04:26<04:55,  4.55s/it]
+Predicting BraTS2021_00791.nii.gz:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with BraTS2021_00791.nii.gz
+There are 1 cases in the source folder
+I am processing 0 out of 1 (max process ID is 0, we start counting with 0!)
+There are 1 cases that I would like to predict
+Fold 1:  49%|████▉     | 61/125 [04:30<04:55,  4.62s/it]
+Predicting BraTS2021_00792.nii.gz:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with BraTS2021_00792.nii.gz
+There are 1 cases in the source folder
+I am processing 0 out of 1 (max process ID is 0, we start counting with 0!)
+There are 1 cases that I would like to predict
+Fold 1:  50%|████▉     | 62/125 [04:35<04:52,  4.64s/it]
+Predicting BraTS2021_00793.nii.gz:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with BraTS2021_00793.nii.gz
+There are 1 cases in the source folder
+I am processing 0 out of 1 (max process ID is 0, we start counting with 0!)
+There are 1 cases that I would like to predict
+Fold 1:  50%|█████     | 63/125 [04:40<04:49,  4.67s/it]
+Predicting BraTS2021_00823.nii.gz:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with BraTS2021_00823.nii.gz
+There are 1 cases in the source folder
+I am processing 0 out of 1 (max process ID is 0, we start counting with 0!)
+There are 1 cases that I would like to predict
+Fold 1:  51%|█████     | 64/125 [04:44<04:41,  4.62s/it]
+Predicting BraTS2021_00838.nii.gz:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with BraTS2021_00838.nii.gz
+There are 1 cases in the source folder
+I am processing 0 out of 1 (max process ID is 0, we start counting with 0!)
+There are 1 cases that I would like to predict
+Fold 1:  52%|█████▏    | 65/125 [04:49<04:34,  4.58s/it]
+Predicting BraTS2021_00839.nii.gz:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with BraTS2021_00839.nii.gz
+There are 1 cases in the source folder
+I am processing 0 out of 1 (max process ID is 0, we start counting with 0!)
+There are 1 cases that I would like to predict
+Fold 1:  53%|█████▎    | 66/125 [04:53<04:26,  4.52s/it]
+Predicting BraTS2021_01001.nii.gz:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with BraTS2021_01001.nii.gz
+There are 1 cases in the source folder
+I am processing 0 out of 1 (max process ID is 0, we start counting with 0!)
+There are 1 cases that I would like to predict
+Fold 1:  54%|█████▎    | 67/125 [04:57<04:18,  4.46s/it]
+Predicting BraTS2021_01009.nii.gz:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with BraTS2021_01009.nii.gz
+There are 1 cases in the source folder
+I am processing 0 out of 1 (max process ID is 0, we start counting with 0!)
+There are 1 cases that I would like to predict
+Fold 1:  54%|█████▍    | 68/125 [05:02<04:11,  4.42s/it]
+Predicting BraTS2021_01024.nii.gz:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with BraTS2021_01024.nii.gz
+There are 1 cases in the source folder
+I am processing 0 out of 1 (max process ID is 0, we start counting with 0!)
+There are 1 cases that I would like to predict
+Fold 1:  55%|█████▌    | 69/125 [05:06<04:06,  4.41s/it]
+Predicting BraTS2021_01028.nii.gz:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with BraTS2021_01028.nii.gz
+There are 1 cases in the source folder
+I am processing 0 out of 1 (max process ID is 0, we start counting with 0!)
+There are 1 cases that I would like to predict
+Fold 1:  56%|█████▌    | 70/125 [05:11<04:02,  4.42s/it]
+Predicting BraTS2021_01045.nii.gz:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with BraTS2021_01045.nii.gz
+There are 1 cases in the source folder
+I am processing 0 out of 1 (max process ID is 0, we start counting with 0!)
+There are 1 cases that I would like to predict
+Fold 1:  57%|█████▋    | 71/125 [05:15<03:59,  4.43s/it]
+Predicting BraTS2021_01052.nii.gz:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with BraTS2021_01052.nii.gz
+There are 1 cases in the source folder
+I am processing 0 out of 1 (max process ID is 0, we start counting with 0!)
+There are 1 cases that I would like to predict
+Fold 1:  58%|█████▊    | 72/125 [05:20<03:55,  4.44s/it]
+Predicting BraTS2021_01062.nii.gz:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with BraTS2021_01062.nii.gz
+There are 1 cases in the source folder
+I am processing 0 out of 1 (max process ID is 0, we start counting with 0!)
+There are 1 cases that I would like to predict
+Fold 1:  58%|█████▊    | 73/125 [05:24<03:51,  4.45s/it]
+Predicting BraTS2021_01089.nii.gz:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with BraTS2021_01089.nii.gz
+There are 1 cases in the source folder
+I am processing 0 out of 1 (max process ID is 0, we start counting with 0!)
+There are 1 cases that I would like to predict
+Fold 1:  59%|█████▉    | 74/125 [05:28<03:47,  4.46s/it]
+Predicting BraTS2021_01098.nii.gz:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with BraTS2021_01098.nii.gz
+There are 1 cases in the source folder
+I am processing 0 out of 1 (max process ID is 0, we start counting with 0!)
+There are 1 cases that I would like to predict
+Fold 1:  60%|██████    | 75/125 [05:33<03:43,  4.47s/it]
+Predicting BraTS2021_01099.nii.gz:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with BraTS2021_01099.nii.gz
+There are 1 cases in the source folder
+I am processing 0 out of 1 (max process ID is 0, we start counting with 0!)
+There are 1 cases that I would like to predict
+Fold 1:  61%|██████    | 76/125 [05:37<03:39,  4.47s/it]
+Predicting BraTS2021_01110.nii.gz:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with BraTS2021_01110.nii.gz
+There are 1 cases in the source folder
+I am processing 0 out of 1 (max process ID is 0, we start counting with 0!)
+There are 1 cases that I would like to predict
+Fold 1:  62%|██████▏   | 77/125 [05:42<03:34,  4.46s/it]
+Predicting BraTS2021_01113.nii.gz:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with BraTS2021_01113.nii.gz
+There are 1 cases in the source folder
+I am processing 0 out of 1 (max process ID is 0, we start counting with 0!)
+There are 1 cases that I would like to predict
+Fold 1:  62%|██████▏   | 78/125 [05:46<03:30,  4.47s/it]
+Predicting BraTS2021_01130.nii.gz:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with BraTS2021_01130.nii.gz
+There are 1 cases in the source folder
+I am processing 0 out of 1 (max process ID is 0, we start counting with 0!)
+There are 1 cases that I would like to predict
+Fold 1:  63%|██████▎   | 79/125 [05:51<03:25,  4.47s/it]
+Predicting BraTS2021_01133.nii.gz:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with BraTS2021_01133.nii.gz
+There are 1 cases in the source folder
+I am processing 0 out of 1 (max process ID is 0, we start counting with 0!)
+There are 1 cases that I would like to predict
+Fold 1:  64%|██████▍   | 80/125 [05:55<03:20,  4.46s/it]
+Predicting BraTS2021_01153.nii.gz:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with BraTS2021_01153.nii.gz
+There are 1 cases in the source folder
+I am processing 0 out of 1 (max process ID is 0, we start counting with 0!)
+There are 1 cases that I would like to predict
+Fold 1:  65%|██████▍   | 81/125 [06:00<03:15,  4.44s/it]
+Predicting BraTS2021_01154.nii.gz:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with BraTS2021_01154.nii.gz
+There are 1 cases in the source folder
+I am processing 0 out of 1 (max process ID is 0, we start counting with 0!)
+There are 1 cases that I would like to predict
+Fold 1:  66%|██████▌   | 82/125 [06:04<03:11,  4.46s/it]
+Predicting BraTS2021_01156.nii.gz:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with BraTS2021_01156.nii.gz
+There are 1 cases in the source folder
+I am processing 0 out of 1 (max process ID is 0, we start counting with 0!)
+There are 1 cases that I would like to predict
+Fold 1:  66%|██████▋   | 83/125 [06:09<03:07,  4.45s/it]
+Predicting BraTS2021_01188.nii.gz:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with BraTS2021_01188.nii.gz
+There are 1 cases in the source folder
+I am processing 0 out of 1 (max process ID is 0, we start counting with 0!)
+There are 1 cases that I would like to predict
+Fold 1:  67%|██████▋   | 84/125 [06:13<03:00,  4.40s/it]
+Predicting BraTS2021_01198.nii.gz:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with BraTS2021_01198.nii.gz
+There are 1 cases in the source folder
+I am processing 0 out of 1 (max process ID is 0, we start counting with 0!)
+There are 1 cases that I would like to predict
+Fold 1:  68%|██████▊   | 85/125 [06:17<02:55,  4.38s/it]
+Predicting BraTS2021_01200.nii.gz:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with BraTS2021_01200.nii.gz
+There are 1 cases in the source folder
+I am processing 0 out of 1 (max process ID is 0, we start counting with 0!)
+There are 1 cases that I would like to predict
+Fold 1:  69%|██████▉   | 86/125 [06:22<02:51,  4.41s/it]
+Predicting BraTS2021_01207.nii.gz:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with BraTS2021_01207.nii.gz
+There are 1 cases in the source folder
+I am processing 0 out of 1 (max process ID is 0, we start counting with 0!)
+There are 1 cases that I would like to predict
+Fold 1:  70%|██████▉   | 87/125 [06:26<02:47,  4.41s/it]
+Predicting BraTS2021_01216.nii.gz:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with BraTS2021_01216.nii.gz
+There are 1 cases in the source folder
+I am processing 0 out of 1 (max process ID is 0, we start counting with 0!)
+There are 1 cases that I would like to predict
+Fold 1:  70%|███████   | 88/125 [06:31<02:44,  4.44s/it]
+Predicting BraTS2021_01230.nii.gz:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with BraTS2021_01230.nii.gz
+There are 1 cases in the source folder
+I am processing 0 out of 1 (max process ID is 0, we start counting with 0!)
+There are 1 cases that I would like to predict
+Fold 1:  71%|███████   | 89/125 [06:35<02:38,  4.41s/it]
+Predicting BraTS2021_01239.nii.gz:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with BraTS2021_01239.nii.gz
+There are 1 cases in the source folder
+I am processing 0 out of 1 (max process ID is 0, we start counting with 0!)
+There are 1 cases that I would like to predict
+Fold 1:  72%|███████▏  | 90/125 [06:39<02:34,  4.41s/it]
+Predicting BraTS2021_01243.nii.gz:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with BraTS2021_01243.nii.gz
+There are 1 cases in the source folder
+I am processing 0 out of 1 (max process ID is 0, we start counting with 0!)
+There are 1 cases that I would like to predict
+Fold 1:  73%|███████▎  | 91/125 [06:44<02:30,  4.41s/it]
+Predicting BraTS2021_01258.nii.gz:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with BraTS2021_01258.nii.gz
+There are 1 cases in the source folder
+I am processing 0 out of 1 (max process ID is 0, we start counting with 0!)
+There are 1 cases that I would like to predict
+Fold 1:  74%|███████▎  | 92/125 [06:48<02:26,  4.45s/it]
+Predicting BraTS2021_01307.nii.gz:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with BraTS2021_01307.nii.gz
+There are 1 cases in the source folder
+I am processing 0 out of 1 (max process ID is 0, we start counting with 0!)
+There are 1 cases that I would like to predict
+Fold 1:  74%|███████▍  | 93/125 [06:53<02:22,  4.46s/it]
+Predicting BraTS2021_01314.nii.gz:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with BraTS2021_01314.nii.gz
+There are 1 cases in the source folder
+I am processing 0 out of 1 (max process ID is 0, we start counting with 0!)
+There are 1 cases that I would like to predict
+Fold 1:  75%|███████▌  | 94/125 [06:57<02:18,  4.47s/it]
+Predicting BraTS2021_01320.nii.gz:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with BraTS2021_01320.nii.gz
+There are 1 cases in the source folder
+I am processing 0 out of 1 (max process ID is 0, we start counting with 0!)
+There are 1 cases that I would like to predict
+Fold 1:  76%|███████▌  | 95/125 [07:02<02:14,  4.47s/it]
+Predicting BraTS2021_01344.nii.gz:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with BraTS2021_01344.nii.gz
+There are 1 cases in the source folder
+I am processing 0 out of 1 (max process ID is 0, we start counting with 0!)
+There are 1 cases that I would like to predict
+Fold 1:  77%|███████▋  | 96/125 [07:06<02:09,  4.45s/it]
+Predicting BraTS2021_01347.nii.gz:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with BraTS2021_01347.nii.gz
+There are 1 cases in the source folder
+I am processing 0 out of 1 (max process ID is 0, we start counting with 0!)
+There are 1 cases that I would like to predict
+Fold 1:  78%|███████▊  | 97/125 [07:11<02:05,  4.47s/it]
+Predicting BraTS2021_01366.nii.gz:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with BraTS2021_01366.nii.gz
+There are 1 cases in the source folder
+I am processing 0 out of 1 (max process ID is 0, we start counting with 0!)
+There are 1 cases that I would like to predict
+Fold 1:  78%|███████▊  | 98/125 [07:15<02:00,  4.47s/it]
+Predicting BraTS2021_01372.nii.gz:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with BraTS2021_01372.nii.gz
+There are 1 cases in the source folder
+I am processing 0 out of 1 (max process ID is 0, we start counting with 0!)
+There are 1 cases that I would like to predict
+Fold 1:  79%|███████▉  | 99/125 [07:20<01:56,  4.49s/it]
+Predicting BraTS2021_01392.nii.gz:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with BraTS2021_01392.nii.gz
+There are 1 cases in the source folder
+I am processing 0 out of 1 (max process ID is 0, we start counting with 0!)
+There are 1 cases that I would like to predict
+Fold 1:  80%|████████  | 100/125 [07:24<01:52,  4.52s/it]
+Predicting BraTS2021_01413.nii.gz:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with BraTS2021_01413.nii.gz
+There are 1 cases in the source folder
+I am processing 0 out of 1 (max process ID is 0, we start counting with 0!)
+There are 1 cases that I would like to predict
+Fold 1:  81%|████████  | 101/125 [07:29<01:46,  4.46s/it]
+Predicting BraTS2021_01419.nii.gz:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with BraTS2021_01419.nii.gz
+There are 1 cases in the source folder
+I am processing 0 out of 1 (max process ID is 0, we start counting with 0!)
+There are 1 cases that I would like to predict
+Fold 1:  82%|████████▏ | 102/125 [07:33<01:41,  4.42s/it]
+Predicting BraTS2021_01421.nii.gz:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with BraTS2021_01421.nii.gz
+There are 1 cases in the source folder
+I am processing 0 out of 1 (max process ID is 0, we start counting with 0!)
+There are 1 cases that I would like to predict
+Fold 1:  82%|████████▏ | 103/125 [07:37<01:37,  4.45s/it]
+Predicting BraTS2021_01448.nii.gz:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with BraTS2021_01448.nii.gz
+There are 1 cases in the source folder
+I am processing 0 out of 1 (max process ID is 0, we start counting with 0!)
+There are 1 cases that I would like to predict
+Fold 1:  83%|████████▎ | 104/125 [07:42<01:33,  4.46s/it]
+Predicting BraTS2021_01457.nii.gz:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with BraTS2021_01457.nii.gz
+There are 1 cases in the source folder
+I am processing 0 out of 1 (max process ID is 0, we start counting with 0!)
+There are 1 cases that I would like to predict
+Fold 1:  84%|████████▍ | 105/125 [07:47<01:29,  4.49s/it]
+Predicting BraTS2021_01462.nii.gz:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with BraTS2021_01462.nii.gz
+There are 1 cases in the source folder
+I am processing 0 out of 1 (max process ID is 0, we start counting with 0!)
+There are 1 cases that I would like to predict
+Fold 1:  85%|████████▍ | 106/125 [07:51<01:25,  4.49s/it]
+Predicting BraTS2021_01475.nii.gz:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with BraTS2021_01475.nii.gz
+There are 1 cases in the source folder
+I am processing 0 out of 1 (max process ID is 0, we start counting with 0!)
+There are 1 cases that I would like to predict
+Fold 1:  86%|████████▌ | 107/125 [07:55<01:20,  4.47s/it]
+Predicting BraTS2021_01477.nii.gz:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with BraTS2021_01477.nii.gz
+There are 1 cases in the source folder
+I am processing 0 out of 1 (max process ID is 0, we start counting with 0!)
+There are 1 cases that I would like to predict
+Fold 1:  86%|████████▋ | 108/125 [08:00<01:15,  4.46s/it]
+Predicting BraTS2021_01478.nii.gz:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with BraTS2021_01478.nii.gz
+There are 1 cases in the source folder
+I am processing 0 out of 1 (max process ID is 0, we start counting with 0!)
+There are 1 cases that I would like to predict
+Fold 1:  87%|████████▋ | 109/125 [08:04<01:11,  4.47s/it]
+Predicting BraTS2021_01479.nii.gz:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with BraTS2021_01479.nii.gz
+There are 1 cases in the source folder
+I am processing 0 out of 1 (max process ID is 0, we start counting with 0!)
+There are 1 cases that I would like to predict
+Fold 1:  88%|████████▊ | 110/125 [08:09<01:07,  4.49s/it]
+Predicting BraTS2021_01490.nii.gz:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with BraTS2021_01490.nii.gz
+There are 1 cases in the source folder
+I am processing 0 out of 1 (max process ID is 0, we start counting with 0!)
+There are 1 cases that I would like to predict
+Fold 1:  89%|████████▉ | 111/125 [08:13<01:02,  4.49s/it]
+Predicting BraTS2021_01495.nii.gz:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with BraTS2021_01495.nii.gz
+There are 1 cases in the source folder
+I am processing 0 out of 1 (max process ID is 0, we start counting with 0!)
+There are 1 cases that I would like to predict
+Fold 1:  90%|████████▉ | 112/125 [08:18<00:58,  4.51s/it]
+Predicting BraTS2021_01498.nii.gz:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with BraTS2021_01498.nii.gz
+There are 1 cases in the source folder
+I am processing 0 out of 1 (max process ID is 0, we start counting with 0!)
+There are 1 cases that I would like to predict
+Fold 1:  90%|█████████ | 113/125 [08:22<00:54,  4.52s/it]
+Predicting BraTS2021_01499.nii.gz:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with BraTS2021_01499.nii.gz
+There are 1 cases in the source folder
+I am processing 0 out of 1 (max process ID is 0, we start counting with 0!)
+There are 1 cases that I would like to predict
+Fold 1:  91%|█████████ | 114/125 [08:27<00:49,  4.51s/it]
+Predicting BraTS2021_01500.nii.gz:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with BraTS2021_01500.nii.gz
+There are 1 cases in the source folder
+I am processing 0 out of 1 (max process ID is 0, we start counting with 0!)
+There are 1 cases that I would like to predict
+Fold 1:  92%|█████████▏| 115/125 [08:32<00:45,  4.53s/it]
+Predicting BraTS2021_01506.nii.gz:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with BraTS2021_01506.nii.gz
+There are 1 cases in the source folder
+I am processing 0 out of 1 (max process ID is 0, we start counting with 0!)
+There are 1 cases that I would like to predict
+Fold 1:  93%|█████████▎| 116/125 [08:36<00:40,  4.54s/it]
+Predicting BraTS2021_01528.nii.gz:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with BraTS2021_01528.nii.gz
+There are 1 cases in the source folder
+I am processing 0 out of 1 (max process ID is 0, we start counting with 0!)
+There are 1 cases that I would like to predict
+Fold 1:  94%|█████████▎| 117/125 [08:41<00:36,  4.58s/it]
+Predicting BraTS2021_01539.nii.gz:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with BraTS2021_01539.nii.gz
+There are 1 cases in the source folder
+I am processing 0 out of 1 (max process ID is 0, we start counting with 0!)
+There are 1 cases that I would like to predict
+Fold 1:  94%|█████████▍| 118/125 [08:45<00:32,  4.61s/it]
+Predicting BraTS2021_01543.nii.gz:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with BraTS2021_01543.nii.gz
+There are 1 cases in the source folder
+I am processing 0 out of 1 (max process ID is 0, we start counting with 0!)
+There are 1 cases that I would like to predict
+Fold 1:  95%|█████████▌| 119/125 [08:50<00:27,  4.62s/it]
+Predicting BraTS2021_01556.nii.gz:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with BraTS2021_01556.nii.gz
+There are 1 cases in the source folder
+I am processing 0 out of 1 (max process ID is 0, we start counting with 0!)
+There are 1 cases that I would like to predict
+Fold 1:  96%|█████████▌| 120/125 [08:55<00:23,  4.62s/it]
+Predicting BraTS2021_01582.nii.gz:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with BraTS2021_01582.nii.gz
+There are 1 cases in the source folder
+I am processing 0 out of 1 (max process ID is 0, we start counting with 0!)
+There are 1 cases that I would like to predict
+Fold 1:  97%|█████████▋| 121/125 [08:59<00:18,  4.65s/it]
+Predicting BraTS2021_01584.nii.gz:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with BraTS2021_01584.nii.gz
+There are 1 cases in the source folder
+I am processing 0 out of 1 (max process ID is 0, we start counting with 0!)
+There are 1 cases that I would like to predict
+Fold 1:  98%|█████████▊| 122/125 [09:04<00:14,  4.70s/it]
+Predicting BraTS2021_01587.nii.gz:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with BraTS2021_01587.nii.gz
+There are 1 cases in the source folder
+I am processing 0 out of 1 (max process ID is 0, we start counting with 0!)
+There are 1 cases that I would like to predict
+Fold 1:  98%|█████████▊| 123/125 [09:09<00:09,  4.71s/it]
+Predicting BraTS2021_01612.nii.gz:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with BraTS2021_01612.nii.gz
+There are 1 cases in the source folder
+I am processing 0 out of 1 (max process ID is 0, we start counting with 0!)
+There are 1 cases that I would like to predict
+Fold 1:  99%|█████████▉| 124/125 [09:14<00:04,  4.71s/it]
+Predicting BraTS2021_01651.nii.gz:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with BraTS2021_01651.nii.gz
+There are 1 cases in the source folder
+I am processing 0 out of 1 (max process ID is 0, we start counting with 0!)
+There are 1 cases that I would like to predict
+Fold 1: 100%|██████████| 125/125 [09:18<00:00,  4.61s/it]Fold 1: 100%|██████████| 125/125 [09:18<00:00,  4.47s/it]
+
+Predicting BraTS2021_01659.nii.gz:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with BraTS2021_01659.nii.gz
+
+Fold 1 Results:
+  Mean WT Dice: 0.9361 ± 0.0574
+  Mean TC Dice: 0.9167 ± 0.0986
+  Mean ET Dice: 0.8551 ± 0.1861
+  Mean inference time: 4.25s
+  Saved: /home/paul/repositories/thesis_lab/experiments/ablation/abl_nnunet_default/test_predictions/fold_1_results.csv
+
+======================================================================
+Fold 2 Inference (nnU-Net)
+======================================================================
+Checkpoint: /data/paul_daten/nnunet/nnUNet_results/Dataset001_BraTS/nnUNetTrainer_DefaultAug__nnUNetPlans__3d_fullres/fold_2/checkpoint_best.pth
+Test set: 125 cases
+Initializing nnUNetPredictor...
+Starting inference...
+Fold 2:   0%|          | 0/125 [00:00<?, ?it/s]There are 1 cases in the source folder
+I am processing 0 out of 1 (max process ID is 0, we start counting with 0!)
+There are 1 cases that I would like to predict
+Fold 2:   1%|          | 1/125 [00:04<09:30,  4.60s/it]
+Predicting BraTS2021_00016.nii.gz:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with BraTS2021_00016.nii.gz
+There are 1 cases in the source folder
+I am processing 0 out of 1 (max process ID is 0, we start counting with 0!)
+There are 1 cases that I would like to predict
+Fold 2:   2%|▏         | 2/125 [00:09<09:21,  4.56s/it]
+Predicting BraTS2021_00028.nii.gz:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with BraTS2021_00028.nii.gz
+There are 1 cases in the source folder
+I am processing 0 out of 1 (max process ID is 0, we start counting with 0!)
+There are 1 cases that I would like to predict
+Fold 2:   2%|▏         | 3/125 [00:13<09:07,  4.49s/it]
+Predicting BraTS2021_00046.nii.gz:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with BraTS2021_00046.nii.gz
+There are 1 cases in the source folder
+I am processing 0 out of 1 (max process ID is 0, we start counting with 0!)
+There are 1 cases that I would like to predict
+Fold 2:   3%|▎         | 4/125 [00:18<09:02,  4.48s/it]
+Predicting BraTS2021_00054.nii.gz:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with BraTS2021_00054.nii.gz
+There are 1 cases in the source folder
+I am processing 0 out of 1 (max process ID is 0, we start counting with 0!)
+There are 1 cases that I would like to predict
+Fold 2:   4%|▍         | 5/125 [00:22<09:00,  4.51s/it]
+Predicting BraTS2021_00063.nii.gz:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with BraTS2021_00063.nii.gz
+There are 1 cases in the source folder
+I am processing 0 out of 1 (max process ID is 0, we start counting with 0!)
+There are 1 cases that I would like to predict
+Fold 2:   5%|▍         | 6/125 [00:26<08:53,  4.48s/it]
+Predicting BraTS2021_00066.nii.gz:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with BraTS2021_00066.nii.gz
+There are 1 cases in the source folder
+I am processing 0 out of 1 (max process ID is 0, we start counting with 0!)
+There are 1 cases that I would like to predict
+Fold 2:   6%|▌         | 7/125 [00:31<08:51,  4.50s/it]
+Predicting BraTS2021_00094.nii.gz:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with BraTS2021_00094.nii.gz
+There are 1 cases in the source folder
+I am processing 0 out of 1 (max process ID is 0, we start counting with 0!)
+There are 1 cases that I would like to predict
+Fold 2:   6%|▋         | 8/125 [00:36<08:47,  4.51s/it]
+Predicting BraTS2021_00103.nii.gz:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with BraTS2021_00103.nii.gz
+There are 1 cases in the source folder
+I am processing 0 out of 1 (max process ID is 0, we start counting with 0!)
+There are 1 cases that I would like to predict
+Fold 2:   7%|▋         | 9/125 [00:40<08:39,  4.48s/it]
+Predicting BraTS2021_00111.nii.gz:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with BraTS2021_00111.nii.gz
+There are 1 cases in the source folder
+I am processing 0 out of 1 (max process ID is 0, we start counting with 0!)
+There are 1 cases that I would like to predict
+Fold 2:   8%|▊         | 10/125 [00:44<08:36,  4.49s/it]
+Predicting BraTS2021_00115.nii.gz:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with BraTS2021_00115.nii.gz
+There are 1 cases in the source folder
+I am processing 0 out of 1 (max process ID is 0, we start counting with 0!)
+There are 1 cases that I would like to predict
+Fold 2:   9%|▉         | 11/125 [00:49<08:32,  4.50s/it]
+Predicting BraTS2021_00117.nii.gz:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with BraTS2021_00117.nii.gz
+There are 1 cases in the source folder
+I am processing 0 out of 1 (max process ID is 0, we start counting with 0!)
+There are 1 cases that I would like to predict
+Fold 2:  10%|▉         | 12/125 [00:54<08:30,  4.52s/it]
+Predicting BraTS2021_00118.nii.gz:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with BraTS2021_00118.nii.gz
+There are 1 cases in the source folder
+I am processing 0 out of 1 (max process ID is 0, we start counting with 0!)
+There are 1 cases that I would like to predict
+Fold 2:  10%|█         | 13/125 [00:58<08:26,  4.53s/it]
+Predicting BraTS2021_00139.nii.gz:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with BraTS2021_00139.nii.gz
+There are 1 cases in the source folder
+I am processing 0 out of 1 (max process ID is 0, we start counting with 0!)
+There are 1 cases that I would like to predict
+Fold 2:  11%|█         | 14/125 [01:03<08:22,  4.53s/it]
+Predicting BraTS2021_00152.nii.gz:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with BraTS2021_00152.nii.gz
+There are 1 cases in the source folder
+I am processing 0 out of 1 (max process ID is 0, we start counting with 0!)
+There are 1 cases that I would like to predict
+Fold 2:  12%|█▏        | 15/125 [01:07<08:16,  4.51s/it]
+Predicting BraTS2021_00158.nii.gz:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with BraTS2021_00158.nii.gz
+There are 1 cases in the source folder
+I am processing 0 out of 1 (max process ID is 0, we start counting with 0!)
+There are 1 cases that I would like to predict
+Fold 2:  13%|█▎        | 16/125 [01:12<08:08,  4.48s/it]
+Predicting BraTS2021_00170.nii.gz:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with BraTS2021_00170.nii.gz
+There are 1 cases in the source folder
+I am processing 0 out of 1 (max process ID is 0, we start counting with 0!)
+There are 1 cases that I would like to predict
+Fold 2:  14%|█▎        | 17/125 [01:16<08:04,  4.49s/it]
+Predicting BraTS2021_00177.nii.gz:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with BraTS2021_00177.nii.gz
+There are 1 cases in the source folder
+I am processing 0 out of 1 (max process ID is 0, we start counting with 0!)
+There are 1 cases that I would like to predict
+Fold 2:  14%|█▍        | 18/125 [01:21<08:18,  4.66s/it]
+Predicting BraTS2021_00183.nii.gz:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with BraTS2021_00183.nii.gz
+There are 1 cases in the source folder
+I am processing 0 out of 1 (max process ID is 0, we start counting with 0!)
+There are 1 cases that I would like to predict
+Fold 2:  15%|█▌        | 19/125 [01:26<08:12,  4.64s/it]
+Predicting BraTS2021_00184.nii.gz:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with BraTS2021_00184.nii.gz
+There are 1 cases in the source folder
+I am processing 0 out of 1 (max process ID is 0, we start counting with 0!)
+There are 1 cases that I would like to predict
+Fold 2:  16%|█▌        | 20/125 [01:30<08:05,  4.62s/it]
+Predicting BraTS2021_00188.nii.gz:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with BraTS2021_00188.nii.gz
+There are 1 cases in the source folder
+I am processing 0 out of 1 (max process ID is 0, we start counting with 0!)
+There are 1 cases that I would like to predict
+Fold 2:  17%|█▋        | 21/125 [01:35<07:58,  4.60s/it]
+Predicting BraTS2021_00191.nii.gz:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with BraTS2021_00191.nii.gz
+There are 1 cases in the source folder
+I am processing 0 out of 1 (max process ID is 0, we start counting with 0!)
+There are 1 cases that I would like to predict
+Fold 2:  18%|█▊        | 22/125 [01:39<07:51,  4.58s/it]
+Predicting BraTS2021_00203.nii.gz:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with BraTS2021_00203.nii.gz
+There are 1 cases in the source folder
+I am processing 0 out of 1 (max process ID is 0, we start counting with 0!)
+There are 1 cases that I would like to predict
+Fold 2:  18%|█▊        | 23/125 [01:44<07:47,  4.58s/it]
+Predicting BraTS2021_00212.nii.gz:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with BraTS2021_00212.nii.gz
+There are 1 cases in the source folder
+I am processing 0 out of 1 (max process ID is 0, we start counting with 0!)
+There are 1 cases that I would like to predict
+Fold 2:  19%|█▉        | 24/125 [01:49<07:42,  4.58s/it]
+Predicting BraTS2021_00216.nii.gz:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with BraTS2021_00216.nii.gz
+There are 1 cases in the source folder
+I am processing 0 out of 1 (max process ID is 0, we start counting with 0!)
+There are 1 cases that I would like to predict
+Fold 2:  20%|██        | 25/125 [01:53<07:36,  4.57s/it]
+Predicting BraTS2021_00243.nii.gz:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with BraTS2021_00243.nii.gz
+There are 1 cases in the source folder
+I am processing 0 out of 1 (max process ID is 0, we start counting with 0!)
+There are 1 cases that I would like to predict
+Fold 2:  21%|██        | 26/125 [01:58<07:30,  4.55s/it]
+Predicting BraTS2021_00254.nii.gz:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with BraTS2021_00254.nii.gz
+There are 1 cases in the source folder
+I am processing 0 out of 1 (max process ID is 0, we start counting with 0!)
+There are 1 cases that I would like to predict
+Fold 2:  22%|██▏       | 27/125 [02:02<07:22,  4.51s/it]
+Predicting BraTS2021_00261.nii.gz:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with BraTS2021_00261.nii.gz
+There are 1 cases in the source folder
+I am processing 0 out of 1 (max process ID is 0, we start counting with 0!)
+There are 1 cases that I would like to predict
+Fold 2:  22%|██▏       | 28/125 [02:06<07:16,  4.50s/it]
+Predicting BraTS2021_00300.nii.gz:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with BraTS2021_00300.nii.gz
+There are 1 cases in the source folder
+I am processing 0 out of 1 (max process ID is 0, we start counting with 0!)
+There are 1 cases that I would like to predict
+Fold 2:  23%|██▎       | 29/125 [02:11<07:09,  4.48s/it]
+Predicting BraTS2021_00310.nii.gz:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with BraTS2021_00310.nii.gz
+There are 1 cases in the source folder
+I am processing 0 out of 1 (max process ID is 0, we start counting with 0!)
+There are 1 cases that I would like to predict
+Fold 2:  24%|██▍       | 30/125 [02:15<07:07,  4.50s/it]
+Predicting BraTS2021_00312.nii.gz:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with BraTS2021_00312.nii.gz
+There are 1 cases in the source folder
+I am processing 0 out of 1 (max process ID is 0, we start counting with 0!)
+There are 1 cases that I would like to predict
+Fold 2:  25%|██▍       | 31/125 [02:20<07:04,  4.52s/it]
+Predicting BraTS2021_00313.nii.gz:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with BraTS2021_00313.nii.gz
+There are 1 cases in the source folder
+I am processing 0 out of 1 (max process ID is 0, we start counting with 0!)
+There are 1 cases that I would like to predict
+Fold 2:  26%|██▌       | 32/125 [02:24<06:59,  4.51s/it]
+Predicting BraTS2021_00324.nii.gz:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with BraTS2021_00324.nii.gz
+There are 1 cases in the source folder
+I am processing 0 out of 1 (max process ID is 0, we start counting with 0!)
+There are 1 cases that I would like to predict
+Fold 2:  26%|██▋       | 33/125 [02:29<06:54,  4.50s/it]
+Predicting BraTS2021_00327.nii.gz:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with BraTS2021_00327.nii.gz
+There are 1 cases in the source folder
+I am processing 0 out of 1 (max process ID is 0, we start counting with 0!)
+There are 1 cases that I would like to predict
+Fold 2:  27%|██▋       | 34/125 [02:34<06:58,  4.60s/it]
+Predicting BraTS2021_00339.nii.gz:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with BraTS2021_00339.nii.gz
+There are 1 cases in the source folder
+I am processing 0 out of 1 (max process ID is 0, we start counting with 0!)
+There are 1 cases that I would like to predict
+Fold 2:  28%|██▊       | 35/125 [02:38<06:51,  4.57s/it]
+Predicting BraTS2021_00407.nii.gz:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with BraTS2021_00407.nii.gz
+There are 1 cases in the source folder
+I am processing 0 out of 1 (max process ID is 0, we start counting with 0!)
+There are 1 cases that I would like to predict
+Fold 2:  29%|██▉       | 36/125 [02:43<06:47,  4.58s/it]
+Predicting BraTS2021_00440.nii.gz:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with BraTS2021_00440.nii.gz
+There are 1 cases in the source folder
+I am processing 0 out of 1 (max process ID is 0, we start counting with 0!)
+There are 1 cases that I would like to predict
+Fold 2:  30%|██▉       | 37/125 [02:47<06:41,  4.57s/it]
+Predicting BraTS2021_00495.nii.gz:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with BraTS2021_00495.nii.gz
+There are 1 cases in the source folder
+I am processing 0 out of 1 (max process ID is 0, we start counting with 0!)
+There are 1 cases that I would like to predict
+Fold 2:  30%|███       | 38/125 [02:52<06:35,  4.55s/it]
+Predicting BraTS2021_00510.nii.gz:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with BraTS2021_00510.nii.gz
+There are 1 cases in the source folder
+I am processing 0 out of 1 (max process ID is 0, we start counting with 0!)
+There are 1 cases that I would like to predict
+Fold 2:  31%|███       | 39/125 [02:57<06:32,  4.57s/it]
+Predicting BraTS2021_00518.nii.gz:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with BraTS2021_00518.nii.gz
+There are 1 cases in the source folder
+I am processing 0 out of 1 (max process ID is 0, we start counting with 0!)
+There are 1 cases that I would like to predict
+Fold 2:  32%|███▏      | 40/125 [03:01<06:29,  4.58s/it]
+Predicting BraTS2021_00526.nii.gz:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with BraTS2021_00526.nii.gz
+There are 1 cases in the source folder
+I am processing 0 out of 1 (max process ID is 0, we start counting with 0!)
+There are 1 cases that I would like to predict
+Fold 2:  33%|███▎      | 41/125 [03:06<06:25,  4.59s/it]
+Predicting BraTS2021_00528.nii.gz:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with BraTS2021_00528.nii.gz
+There are 1 cases in the source folder
+I am processing 0 out of 1 (max process ID is 0, we start counting with 0!)
+There are 1 cases that I would like to predict
+Fold 2:  34%|███▎      | 42/125 [03:10<06:20,  4.58s/it]
+Predicting BraTS2021_00529.nii.gz:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with BraTS2021_00529.nii.gz
+There are 1 cases in the source folder
+I am processing 0 out of 1 (max process ID is 0, we start counting with 0!)
+There are 1 cases that I would like to predict
+Fold 2:  34%|███▍      | 43/125 [03:15<06:10,  4.52s/it]
+Predicting BraTS2021_00545.nii.gz:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with BraTS2021_00545.nii.gz
+There are 1 cases in the source folder
+I am processing 0 out of 1 (max process ID is 0, we start counting with 0!)
+There are 1 cases that I would like to predict
+Fold 2:  35%|███▌      | 44/125 [03:19<06:07,  4.54s/it]
+Predicting BraTS2021_00556.nii.gz:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with BraTS2021_00556.nii.gz
+There are 1 cases in the source folder
+I am processing 0 out of 1 (max process ID is 0, we start counting with 0!)
+There are 1 cases that I would like to predict
+Fold 2:  36%|███▌      | 45/125 [03:24<06:07,  4.60s/it]
+Predicting BraTS2021_00567.nii.gz:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with BraTS2021_00567.nii.gz
+There are 1 cases in the source folder
+I am processing 0 out of 1 (max process ID is 0, we start counting with 0!)
+There are 1 cases that I would like to predict
+Fold 2:  37%|███▋      | 46/125 [03:29<06:10,  4.69s/it]
+Predicting BraTS2021_00594.nii.gz:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with BraTS2021_00594.nii.gz
+There are 1 cases in the source folder
+I am processing 0 out of 1 (max process ID is 0, we start counting with 0!)
+There are 1 cases that I would like to predict
+Fold 2:  38%|███▊      | 47/125 [03:34<06:06,  4.70s/it]
+Predicting BraTS2021_00596.nii.gz:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with BraTS2021_00596.nii.gz
+There are 1 cases in the source folder
+I am processing 0 out of 1 (max process ID is 0, we start counting with 0!)
+There are 1 cases that I would like to predict
+Fold 2:  38%|███▊      | 48/125 [03:38<05:59,  4.67s/it]
+Predicting BraTS2021_00608.nii.gz:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with BraTS2021_00608.nii.gz
+There are 1 cases in the source folder
+I am processing 0 out of 1 (max process ID is 0, we start counting with 0!)
+There are 1 cases that I would like to predict
+Fold 2:  39%|███▉      | 49/125 [03:43<05:52,  4.64s/it]
+Predicting BraTS2021_00628.nii.gz:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with BraTS2021_00628.nii.gz
+There are 1 cases in the source folder
+I am processing 0 out of 1 (max process ID is 0, we start counting with 0!)
+There are 1 cases that I would like to predict
+Fold 2:  40%|████      | 50/125 [03:47<05:47,  4.63s/it]
+Predicting BraTS2021_00630.nii.gz:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with BraTS2021_00630.nii.gz
+There are 1 cases in the source folder
+I am processing 0 out of 1 (max process ID is 0, we start counting with 0!)
+There are 1 cases that I would like to predict
+Fold 2:  41%|████      | 51/125 [03:52<05:41,  4.61s/it]
+Predicting BraTS2021_00642.nii.gz:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with BraTS2021_00642.nii.gz
+There are 1 cases in the source folder
+I am processing 0 out of 1 (max process ID is 0, we start counting with 0!)
+There are 1 cases that I would like to predict
+Fold 2:  42%|████▏     | 52/125 [03:57<05:34,  4.58s/it]
+Predicting BraTS2021_00646.nii.gz:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with BraTS2021_00646.nii.gz
+There are 1 cases in the source folder
+I am processing 0 out of 1 (max process ID is 0, we start counting with 0!)
+There are 1 cases that I would like to predict
+Fold 2:  42%|████▏     | 53/125 [04:01<05:28,  4.56s/it]
+Predicting BraTS2021_00675.nii.gz:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with BraTS2021_00675.nii.gz
+There are 1 cases in the source folder
+I am processing 0 out of 1 (max process ID is 0, we start counting with 0!)
+There are 1 cases that I would like to predict
+Fold 2:  43%|████▎     | 54/125 [04:06<05:24,  4.57s/it]
+Predicting BraTS2021_00676.nii.gz:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with BraTS2021_00676.nii.gz
+There are 1 cases in the source folder
+I am processing 0 out of 1 (max process ID is 0, we start counting with 0!)
+There are 1 cases that I would like to predict
+Fold 2:  44%|████▍     | 55/125 [04:10<05:18,  4.55s/it]
+Predicting BraTS2021_00679.nii.gz:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with BraTS2021_00679.nii.gz
+There are 1 cases in the source folder
+I am processing 0 out of 1 (max process ID is 0, we start counting with 0!)
+There are 1 cases that I would like to predict
+Fold 2:  45%|████▍     | 56/125 [04:15<05:14,  4.56s/it]
+Predicting BraTS2021_00683.nii.gz:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with BraTS2021_00683.nii.gz
+There are 1 cases in the source folder
+I am processing 0 out of 1 (max process ID is 0, we start counting with 0!)
+There are 1 cases that I would like to predict
+Fold 2:  46%|████▌     | 57/125 [04:19<05:09,  4.55s/it]
+Predicting BraTS2021_00693.nii.gz:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with BraTS2021_00693.nii.gz
+There are 1 cases in the source folder
+I am processing 0 out of 1 (max process ID is 0, we start counting with 0!)
+There are 1 cases that I would like to predict
+Fold 2:  46%|████▋     | 58/125 [04:24<05:06,  4.57s/it]
+Predicting BraTS2021_00782.nii.gz:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with BraTS2021_00782.nii.gz
+There are 1 cases in the source folder
+I am processing 0 out of 1 (max process ID is 0, we start counting with 0!)
+There are 1 cases that I would like to predict
+Fold 2:  47%|████▋     | 59/125 [04:29<05:04,  4.61s/it]
+Predicting BraTS2021_00789.nii.gz:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with BraTS2021_00789.nii.gz
+There are 1 cases in the source folder
+I am processing 0 out of 1 (max process ID is 0, we start counting with 0!)
+There are 1 cases that I would like to predict
+Fold 2:  48%|████▊     | 60/125 [04:33<05:02,  4.65s/it]
+Predicting BraTS2021_00791.nii.gz:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with BraTS2021_00791.nii.gz
+There are 1 cases in the source folder
+I am processing 0 out of 1 (max process ID is 0, we start counting with 0!)
+There are 1 cases that I would like to predict
+Fold 2:  49%|████▉     | 61/125 [04:38<05:00,  4.70s/it]
+Predicting BraTS2021_00792.nii.gz:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with BraTS2021_00792.nii.gz
+There are 1 cases in the source folder
+I am processing 0 out of 1 (max process ID is 0, we start counting with 0!)
+There are 1 cases that I would like to predict
+Fold 2:  50%|████▉     | 62/125 [04:43<04:57,  4.72s/it]
+Predicting BraTS2021_00793.nii.gz:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with BraTS2021_00793.nii.gz
+There are 1 cases in the source folder
+I am processing 0 out of 1 (max process ID is 0, we start counting with 0!)
+There are 1 cases that I would like to predict
+Fold 2:  50%|█████     | 63/125 [04:48<04:54,  4.74s/it]
+Predicting BraTS2021_00823.nii.gz:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with BraTS2021_00823.nii.gz
+There are 1 cases in the source folder
+I am processing 0 out of 1 (max process ID is 0, we start counting with 0!)
+There are 1 cases that I would like to predict
+Fold 2:  51%|█████     | 64/125 [04:52<04:44,  4.67s/it]
+Predicting BraTS2021_00838.nii.gz:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with BraTS2021_00838.nii.gz
+There are 1 cases in the source folder
+I am processing 0 out of 1 (max process ID is 0, we start counting with 0!)
+There are 1 cases that I would like to predict
+Fold 2:  52%|█████▏    | 65/125 [04:57<04:37,  4.63s/it]
+Predicting BraTS2021_00839.nii.gz:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with BraTS2021_00839.nii.gz
+There are 1 cases in the source folder
+I am processing 0 out of 1 (max process ID is 0, we start counting with 0!)
+There are 1 cases that I would like to predict
+Fold 2:  53%|█████▎    | 66/125 [05:01<04:30,  4.59s/it]
+Predicting BraTS2021_01001.nii.gz:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with BraTS2021_01001.nii.gz
+There are 1 cases in the source folder
+I am processing 0 out of 1 (max process ID is 0, we start counting with 0!)
+There are 1 cases that I would like to predict
+Fold 2:  54%|█████▎    | 67/125 [05:06<04:24,  4.56s/it]
+Predicting BraTS2021_01009.nii.gz:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with BraTS2021_01009.nii.gz
+There are 1 cases in the source folder
+I am processing 0 out of 1 (max process ID is 0, we start counting with 0!)
+There are 1 cases that I would like to predict
+Fold 2:  54%|█████▍    | 68/125 [05:10<04:19,  4.56s/it]
+Predicting BraTS2021_01024.nii.gz:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with BraTS2021_01024.nii.gz
+There are 1 cases in the source folder
+I am processing 0 out of 1 (max process ID is 0, we start counting with 0!)
+There are 1 cases that I would like to predict
+Fold 2:  55%|█████▌    | 69/125 [05:15<04:14,  4.54s/it]
+Predicting BraTS2021_01028.nii.gz:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with BraTS2021_01028.nii.gz
+There are 1 cases in the source folder
+I am processing 0 out of 1 (max process ID is 0, we start counting with 0!)
+There are 1 cases that I would like to predict
+Fold 2:  56%|█████▌    | 70/125 [05:19<04:11,  4.57s/it]
+Predicting BraTS2021_01045.nii.gz:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with BraTS2021_01045.nii.gz
+There are 1 cases in the source folder
+I am processing 0 out of 1 (max process ID is 0, we start counting with 0!)
+There are 1 cases that I would like to predict
+Fold 2:  57%|█████▋    | 71/125 [05:24<04:07,  4.57s/it]
+Predicting BraTS2021_01052.nii.gz:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with BraTS2021_01052.nii.gz
+There are 1 cases in the source folder
+I am processing 0 out of 1 (max process ID is 0, we start counting with 0!)
+There are 1 cases that I would like to predict
+Fold 2:  58%|█████▊    | 72/125 [05:29<04:03,  4.59s/it]
+Predicting BraTS2021_01062.nii.gz:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with BraTS2021_01062.nii.gz
+There are 1 cases in the source folder
+I am processing 0 out of 1 (max process ID is 0, we start counting with 0!)
+There are 1 cases that I would like to predict
+Fold 2:  58%|█████▊    | 73/125 [05:33<03:57,  4.57s/it]
+Predicting BraTS2021_01089.nii.gz:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with BraTS2021_01089.nii.gz
+There are 1 cases in the source folder
+I am processing 0 out of 1 (max process ID is 0, we start counting with 0!)
+There are 1 cases that I would like to predict
+Fold 2:  59%|█████▉    | 74/125 [05:38<03:53,  4.57s/it]
+Predicting BraTS2021_01098.nii.gz:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with BraTS2021_01098.nii.gz
+There are 1 cases in the source folder
+I am processing 0 out of 1 (max process ID is 0, we start counting with 0!)
+There are 1 cases that I would like to predict
+Fold 2:  60%|██████    | 75/125 [05:42<03:46,  4.53s/it]
+Predicting BraTS2021_01099.nii.gz:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with BraTS2021_01099.nii.gz
+There are 1 cases in the source folder
+I am processing 0 out of 1 (max process ID is 0, we start counting with 0!)
+There are 1 cases that I would like to predict
+Fold 2:  61%|██████    | 76/125 [05:47<03:42,  4.54s/it]
+Predicting BraTS2021_01110.nii.gz:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with BraTS2021_01110.nii.gz
+There are 1 cases in the source folder
+I am processing 0 out of 1 (max process ID is 0, we start counting with 0!)
+There are 1 cases that I would like to predict
+Fold 2:  62%|██████▏   | 77/125 [05:51<03:37,  4.54s/it]
+Predicting BraTS2021_01113.nii.gz:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with BraTS2021_01113.nii.gz
+There are 1 cases in the source folder
+I am processing 0 out of 1 (max process ID is 0, we start counting with 0!)
+There are 1 cases that I would like to predict
+Fold 2:  62%|██████▏   | 78/125 [05:56<03:33,  4.53s/it]
+Predicting BraTS2021_01130.nii.gz:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with BraTS2021_01130.nii.gz
+There are 1 cases in the source folder
+I am processing 0 out of 1 (max process ID is 0, we start counting with 0!)
+There are 1 cases that I would like to predict
+Fold 2:  63%|██████▎   | 79/125 [06:00<03:27,  4.52s/it]
+Predicting BraTS2021_01133.nii.gz:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with BraTS2021_01133.nii.gz
+There are 1 cases in the source folder
+I am processing 0 out of 1 (max process ID is 0, we start counting with 0!)
+There are 1 cases that I would like to predict
+Fold 2:  64%|██████▍   | 80/125 [06:05<03:23,  4.53s/it]
+Predicting BraTS2021_01153.nii.gz:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with BraTS2021_01153.nii.gz
+There are 1 cases in the source folder
+I am processing 0 out of 1 (max process ID is 0, we start counting with 0!)
+There are 1 cases that I would like to predict
+Fold 2:  65%|██████▍   | 81/125 [06:09<03:18,  4.50s/it]
+Predicting BraTS2021_01154.nii.gz:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with BraTS2021_01154.nii.gz
+There are 1 cases in the source folder
+I am processing 0 out of 1 (max process ID is 0, we start counting with 0!)
+There are 1 cases that I would like to predict
+Fold 2:  66%|██████▌   | 82/125 [06:14<03:14,  4.51s/it]
+Predicting BraTS2021_01156.nii.gz:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with BraTS2021_01156.nii.gz
+There are 1 cases in the source folder
+I am processing 0 out of 1 (max process ID is 0, we start counting with 0!)
+There are 1 cases that I would like to predict
+Fold 2:  66%|██████▋   | 83/125 [06:18<03:09,  4.51s/it]
+Predicting BraTS2021_01188.nii.gz:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with BraTS2021_01188.nii.gz
+There are 1 cases in the source folder
+I am processing 0 out of 1 (max process ID is 0, we start counting with 0!)
+There are 1 cases that I would like to predict
+Fold 2:  67%|██████▋   | 84/125 [06:23<03:04,  4.50s/it]
+Predicting BraTS2021_01198.nii.gz:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with BraTS2021_01198.nii.gz
+There are 1 cases in the source folder
+I am processing 0 out of 1 (max process ID is 0, we start counting with 0!)
+There are 1 cases that I would like to predict
+Fold 2:  68%|██████▊   | 85/125 [06:27<03:00,  4.50s/it]
+Predicting BraTS2021_01200.nii.gz:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with BraTS2021_01200.nii.gz
+There are 1 cases in the source folder
+I am processing 0 out of 1 (max process ID is 0, we start counting with 0!)
+There are 1 cases that I would like to predict
+Fold 2:  69%|██████▉   | 86/125 [06:32<02:55,  4.50s/it]
+Predicting BraTS2021_01207.nii.gz:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with BraTS2021_01207.nii.gz
+There are 1 cases in the source folder
+I am processing 0 out of 1 (max process ID is 0, we start counting with 0!)
+There are 1 cases that I would like to predict
+Fold 2:  70%|██████▉   | 87/125 [06:36<02:52,  4.54s/it]
+Predicting BraTS2021_01216.nii.gz:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with BraTS2021_01216.nii.gz
+There are 1 cases in the source folder
+I am processing 0 out of 1 (max process ID is 0, we start counting with 0!)
+There are 1 cases that I would like to predict
+Fold 2:  70%|███████   | 88/125 [06:41<02:49,  4.58s/it]
+Predicting BraTS2021_01230.nii.gz:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with BraTS2021_01230.nii.gz
+There are 1 cases in the source folder
+I am processing 0 out of 1 (max process ID is 0, we start counting with 0!)
+There are 1 cases that I would like to predict
+Fold 2:  71%|███████   | 89/125 [06:46<02:44,  4.56s/it]
+Predicting BraTS2021_01239.nii.gz:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with BraTS2021_01239.nii.gz
+There are 1 cases in the source folder
+I am processing 0 out of 1 (max process ID is 0, we start counting with 0!)
+There are 1 cases that I would like to predict
+Fold 2:  72%|███████▏  | 90/125 [06:50<02:39,  4.57s/it]
+Predicting BraTS2021_01243.nii.gz:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with BraTS2021_01243.nii.gz
+There are 1 cases in the source folder
+I am processing 0 out of 1 (max process ID is 0, we start counting with 0!)
+There are 1 cases that I would like to predict
+Fold 2:  73%|███████▎  | 91/125 [06:55<02:33,  4.51s/it]
+Predicting BraTS2021_01258.nii.gz:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with BraTS2021_01258.nii.gz
+There are 1 cases in the source folder
+I am processing 0 out of 1 (max process ID is 0, we start counting with 0!)
+There are 1 cases that I would like to predict
+Fold 2:  74%|███████▎  | 92/125 [06:59<02:28,  4.49s/it]
+Predicting BraTS2021_01307.nii.gz:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with BraTS2021_01307.nii.gz
+There are 1 cases in the source folder
+I am processing 0 out of 1 (max process ID is 0, we start counting with 0!)
+There are 1 cases that I would like to predict
+Fold 2:  74%|███████▍  | 93/125 [07:03<02:23,  4.50s/it]
+Predicting BraTS2021_01314.nii.gz:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with BraTS2021_01314.nii.gz
+There are 1 cases in the source folder
+I am processing 0 out of 1 (max process ID is 0, we start counting with 0!)
+There are 1 cases that I would like to predict
+Fold 2:  75%|███████▌  | 94/125 [07:08<02:20,  4.53s/it]
+Predicting BraTS2021_01320.nii.gz:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with BraTS2021_01320.nii.gz
+There are 1 cases in the source folder
+I am processing 0 out of 1 (max process ID is 0, we start counting with 0!)
+There are 1 cases that I would like to predict
+Fold 2:  76%|███████▌  | 95/125 [07:13<02:15,  4.52s/it]
+Predicting BraTS2021_01344.nii.gz:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with BraTS2021_01344.nii.gz
+There are 1 cases in the source folder
+I am processing 0 out of 1 (max process ID is 0, we start counting with 0!)
+There are 1 cases that I would like to predict
+Fold 2:  77%|███████▋  | 96/125 [07:17<02:11,  4.54s/it]
+Predicting BraTS2021_01347.nii.gz:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with BraTS2021_01347.nii.gz
+There are 1 cases in the source folder
+I am processing 0 out of 1 (max process ID is 0, we start counting with 0!)
+There are 1 cases that I would like to predict
+Fold 2:  78%|███████▊  | 97/125 [07:22<02:07,  4.55s/it]
+Predicting BraTS2021_01366.nii.gz:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with BraTS2021_01366.nii.gz
+There are 1 cases in the source folder
+I am processing 0 out of 1 (max process ID is 0, we start counting with 0!)
+There are 1 cases that I would like to predict
+Fold 2:  78%|███████▊  | 98/125 [07:26<02:02,  4.55s/it]
+Predicting BraTS2021_01372.nii.gz:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with BraTS2021_01372.nii.gz
+There are 1 cases in the source folder
+I am processing 0 out of 1 (max process ID is 0, we start counting with 0!)
+There are 1 cases that I would like to predict
+Fold 2:  79%|███████▉  | 99/125 [07:31<01:58,  4.54s/it]
+Predicting BraTS2021_01392.nii.gz:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with BraTS2021_01392.nii.gz
+There are 1 cases in the source folder
+I am processing 0 out of 1 (max process ID is 0, we start counting with 0!)
+There are 1 cases that I would like to predict
+Fold 2:  80%|████████  | 100/125 [07:35<01:53,  4.55s/it]
+Predicting BraTS2021_01413.nii.gz:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with BraTS2021_01413.nii.gz
+There are 1 cases in the source folder
+I am processing 0 out of 1 (max process ID is 0, we start counting with 0!)
+There are 1 cases that I would like to predict
+Fold 2:  81%|████████  | 101/125 [07:40<01:49,  4.55s/it]
+Predicting BraTS2021_01419.nii.gz:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with BraTS2021_01419.nii.gz
+There are 1 cases in the source folder
+I am processing 0 out of 1 (max process ID is 0, we start counting with 0!)
+There are 1 cases that I would like to predict
+Fold 2:  82%|████████▏ | 102/125 [07:45<01:44,  4.55s/it]
+Predicting BraTS2021_01421.nii.gz:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with BraTS2021_01421.nii.gz
+There are 1 cases in the source folder
+I am processing 0 out of 1 (max process ID is 0, we start counting with 0!)
+There are 1 cases that I would like to predict
+Fold 2:  82%|████████▏ | 103/125 [07:49<01:40,  4.56s/it]
+Predicting BraTS2021_01448.nii.gz:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with BraTS2021_01448.nii.gz
+There are 1 cases in the source folder
+I am processing 0 out of 1 (max process ID is 0, we start counting with 0!)
+There are 1 cases that I would like to predict
+Fold 2:  83%|████████▎ | 104/125 [07:54<01:35,  4.54s/it]
+Predicting BraTS2021_01457.nii.gz:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with BraTS2021_01457.nii.gz
+There are 1 cases in the source folder
+I am processing 0 out of 1 (max process ID is 0, we start counting with 0!)
+There are 1 cases that I would like to predict
+Fold 2:  84%|████████▍ | 105/125 [07:58<01:30,  4.52s/it]
+Predicting BraTS2021_01462.nii.gz:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with BraTS2021_01462.nii.gz
+There are 1 cases in the source folder
+I am processing 0 out of 1 (max process ID is 0, we start counting with 0!)
+There are 1 cases that I would like to predict
+Fold 2:  85%|████████▍ | 106/125 [08:02<01:25,  4.49s/it]
+Predicting BraTS2021_01475.nii.gz:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with BraTS2021_01475.nii.gz
+There are 1 cases in the source folder
+I am processing 0 out of 1 (max process ID is 0, we start counting with 0!)
+There are 1 cases that I would like to predict
+Fold 2:  86%|████████▌ | 107/125 [08:07<01:21,  4.51s/it]
+Predicting BraTS2021_01477.nii.gz:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with BraTS2021_01477.nii.gz
+There are 1 cases in the source folder
+I am processing 0 out of 1 (max process ID is 0, we start counting with 0!)
+There are 1 cases that I would like to predict
+Fold 2:  86%|████████▋ | 108/125 [08:12<01:17,  4.53s/it]
+Predicting BraTS2021_01478.nii.gz:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with BraTS2021_01478.nii.gz
+There are 1 cases in the source folder
+I am processing 0 out of 1 (max process ID is 0, we start counting with 0!)
+There are 1 cases that I would like to predict
+Fold 2:  87%|████████▋ | 109/125 [08:16<01:12,  4.53s/it]
+Predicting BraTS2021_01479.nii.gz:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with BraTS2021_01479.nii.gz
+There are 1 cases in the source folder
+I am processing 0 out of 1 (max process ID is 0, we start counting with 0!)
+There are 1 cases that I would like to predict
+Fold 2:  88%|████████▊ | 110/125 [08:21<01:08,  4.55s/it]
+Predicting BraTS2021_01490.nii.gz:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with BraTS2021_01490.nii.gz
+There are 1 cases in the source folder
+I am processing 0 out of 1 (max process ID is 0, we start counting with 0!)
+There are 1 cases that I would like to predict
+Fold 2:  89%|████████▉ | 111/125 [08:25<01:03,  4.55s/it]
+Predicting BraTS2021_01495.nii.gz:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with BraTS2021_01495.nii.gz
+There are 1 cases in the source folder
+I am processing 0 out of 1 (max process ID is 0, we start counting with 0!)
+There are 1 cases that I would like to predict
+Fold 2:  90%|████████▉ | 112/125 [08:30<00:59,  4.55s/it]
+Predicting BraTS2021_01498.nii.gz:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with BraTS2021_01498.nii.gz
+There are 1 cases in the source folder
+I am processing 0 out of 1 (max process ID is 0, we start counting with 0!)
+There are 1 cases that I would like to predict
+Fold 2:  90%|█████████ | 113/125 [08:34<00:54,  4.54s/it]
+Predicting BraTS2021_01499.nii.gz:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with BraTS2021_01499.nii.gz
+There are 1 cases in the source folder
+I am processing 0 out of 1 (max process ID is 0, we start counting with 0!)
+There are 1 cases that I would like to predict
+Fold 2:  91%|█████████ | 114/125 [08:39<00:50,  4.55s/it]
+Predicting BraTS2021_01500.nii.gz:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with BraTS2021_01500.nii.gz
+There are 1 cases in the source folder
+I am processing 0 out of 1 (max process ID is 0, we start counting with 0!)
+There are 1 cases that I would like to predict
+Fold 2:  92%|█████████▏| 115/125 [08:43<00:45,  4.55s/it]
+Predicting BraTS2021_01506.nii.gz:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with BraTS2021_01506.nii.gz
+There are 1 cases in the source folder
+I am processing 0 out of 1 (max process ID is 0, we start counting with 0!)
+There are 1 cases that I would like to predict
+Fold 2:  93%|█████████▎| 116/125 [08:48<00:40,  4.54s/it]
+Predicting BraTS2021_01528.nii.gz:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with BraTS2021_01528.nii.gz
+There are 1 cases in the source folder
+I am processing 0 out of 1 (max process ID is 0, we start counting with 0!)
+There are 1 cases that I would like to predict
+Fold 2:  94%|█████████▎| 117/125 [08:53<00:36,  4.59s/it]
+Predicting BraTS2021_01539.nii.gz:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with BraTS2021_01539.nii.gz
+There are 1 cases in the source folder
+I am processing 0 out of 1 (max process ID is 0, we start counting with 0!)
+There are 1 cases that I would like to predict
+Fold 2:  94%|█████████▍| 118/125 [08:57<00:32,  4.65s/it]
+Predicting BraTS2021_01543.nii.gz:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with BraTS2021_01543.nii.gz
+There are 1 cases in the source folder
+I am processing 0 out of 1 (max process ID is 0, we start counting with 0!)
+There are 1 cases that I would like to predict
+Fold 2:  95%|█████████▌| 119/125 [09:02<00:28,  4.69s/it]
+Predicting BraTS2021_01556.nii.gz:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with BraTS2021_01556.nii.gz
+There are 1 cases in the source folder
+I am processing 0 out of 1 (max process ID is 0, we start counting with 0!)
+There are 1 cases that I would like to predict
+Fold 2:  96%|█████████▌| 120/125 [09:07<00:23,  4.72s/it]
+Predicting BraTS2021_01582.nii.gz:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with BraTS2021_01582.nii.gz
+There are 1 cases in the source folder
+I am processing 0 out of 1 (max process ID is 0, we start counting with 0!)
+There are 1 cases that I would like to predict
+Fold 2:  97%|█████████▋| 121/125 [09:12<00:18,  4.71s/it]
+Predicting BraTS2021_01584.nii.gz:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with BraTS2021_01584.nii.gz
+There are 1 cases in the source folder
+I am processing 0 out of 1 (max process ID is 0, we start counting with 0!)
+There are 1 cases that I would like to predict
+Fold 2:  98%|█████████▊| 122/125 [09:16<00:14,  4.70s/it]
+Predicting BraTS2021_01587.nii.gz:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with BraTS2021_01587.nii.gz
+There are 1 cases in the source folder
+I am processing 0 out of 1 (max process ID is 0, we start counting with 0!)
+There are 1 cases that I would like to predict
+Fold 2:  98%|█████████▊| 123/125 [09:21<00:09,  4.70s/it]
+Predicting BraTS2021_01612.nii.gz:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with BraTS2021_01612.nii.gz
+There are 1 cases in the source folder
+I am processing 0 out of 1 (max process ID is 0, we start counting with 0!)
+There are 1 cases that I would like to predict
+Fold 2:  99%|█████████▉| 124/125 [09:26<00:04,  4.73s/it]
+Predicting BraTS2021_01651.nii.gz:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with BraTS2021_01651.nii.gz
+There are 1 cases in the source folder
+I am processing 0 out of 1 (max process ID is 0, we start counting with 0!)
+There are 1 cases that I would like to predict
+Fold 2: 100%|██████████| 125/125 [09:30<00:00,  4.65s/it]Fold 2: 100%|██████████| 125/125 [09:30<00:00,  4.57s/it]
+
+Predicting BraTS2021_01659.nii.gz:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with BraTS2021_01659.nii.gz
+
+Fold 2 Results:
+  Mean WT Dice: 0.9344 ± 0.0586
+  Mean TC Dice: 0.9182 ± 0.0929
+  Mean ET Dice: 0.8509 ± 0.1865
+  Mean inference time: 4.36s
+  Saved: /home/paul/repositories/thesis_lab/experiments/ablation/abl_nnunet_default/test_predictions/fold_2_results.csv
+
+======================================================================
+Ensemble Prediction (Majority Voting)
+======================================================================
+Ensembling 125 cases
+Ensembling:   0%|          | 0/125 [00:00<?, ?it/s]Ensembling:   1%|          | 1/125 [00:16<34:35, 16.74s/it]Ensembling:   2%|▏         | 2/125 [00:33<34:12, 16.69s/it]Ensembling:   2%|▏         | 3/125 [00:49<33:40, 16.56s/it]Ensembling:   3%|▎         | 4/125 [01:06<33:23, 16.56s/it]Ensembling:   4%|▍         | 5/125 [01:23<33:11, 16.60s/it]Ensembling:   5%|▍         | 6/125 [01:39<32:54, 16.59s/it]Ensembling:   6%|▌         | 7/125 [01:56<32:35, 16.57s/it]Ensembling:   6%|▋         | 8/125 [02:12<32:16, 16.56s/it]Ensembling:   7%|▋         | 9/125 [02:29<31:59, 16.55s/it]Ensembling:   8%|▊         | 10/125 [02:45<31:47, 16.59s/it]Ensembling:   9%|▉         | 11/125 [03:02<31:23, 16.52s/it]Ensembling:  10%|▉         | 12/125 [03:18<31:08, 16.54s/it]Ensembling:  10%|█         | 13/125 [03:35<30:55, 16.57s/it]Ensembling:  11%|█         | 14/125 [03:51<30:28, 16.47s/it]Ensembling:  12%|█▏        | 15/125 [04:08<30:15, 16.51s/it]Ensembling:  13%|█▎        | 16/125 [04:24<30:01, 16.52s/it]Ensembling:  14%|█▎        | 17/125 [04:41<29:43, 16.52s/it]Ensembling:  14%|█▍        | 18/125 [04:57<29:19, 16.44s/it]Ensembling:  15%|█▌        | 19/125 [05:14<29:10, 16.51s/it]Ensembling:  16%|█▌        | 20/125 [05:31<29:00, 16.58s/it]Ensembling:  17%|█▋        | 21/125 [05:47<28:43, 16.57s/it]Ensembling:  18%|█▊        | 22/125 [06:04<28:24, 16.55s/it]Ensembling:  18%|█▊        | 23/125 [06:20<27:57, 16.45s/it]Ensembling:  19%|█▉        | 24/125 [06:36<27:44, 16.48s/it]Ensembling:  20%|██        | 25/125 [06:53<27:34, 16.54s/it]Ensembling:  21%|██        | 26/125 [07:10<27:24, 16.61s/it]Ensembling:  22%|██▏       | 27/125 [07:26<27:07, 16.61s/it]Ensembling:  22%|██▏       | 28/125 [07:43<26:40, 16.50s/it]Ensembling:  23%|██▎       | 29/125 [07:59<26:24, 16.50s/it]Ensembling:  24%|██▍       | 30/125 [08:16<26:05, 16.48s/it]Ensembling:  25%|██▍       | 31/125 [08:32<25:55, 16.55s/it]Ensembling:  26%|██▌       | 32/125 [08:49<25:49, 16.67s/it]Ensembling:  26%|██▋       | 33/125 [09:05<25:20, 16.53s/it]Ensembling:  27%|██▋       | 34/125 [09:22<25:08, 16.57s/it]Ensembling:  28%|██▊       | 35/125 [09:39<24:49, 16.55s/it]Ensembling:  29%|██▉       | 36/125 [09:55<24:31, 16.54s/it]Ensembling:  30%|██▉       | 37/125 [10:11<24:09, 16.48s/it]Ensembling:  30%|███       | 38/125 [10:28<23:55, 16.50s/it]Ensembling:  31%|███       | 39/125 [10:45<23:41, 16.53s/it]Ensembling:  32%|███▏      | 40/125 [11:01<23:24, 16.52s/it]Ensembling:  33%|███▎      | 41/125 [11:17<23:03, 16.47s/it]Ensembling:  34%|███▎      | 42/125 [11:34<22:45, 16.46s/it]Ensembling:  34%|███▍      | 43/125 [11:50<22:30, 16.47s/it]Ensembling:  35%|███▌      | 44/125 [12:07<22:09, 16.41s/it]Ensembling:  36%|███▌      | 45/125 [12:23<21:50, 16.38s/it]Ensembling:  37%|███▋      | 46/125 [12:39<21:34, 16.39s/it]Ensembling:  38%|███▊      | 47/125 [12:56<21:21, 16.43s/it]Ensembling:  38%|███▊      | 48/125 [13:12<20:59, 16.36s/it]Ensembling:  39%|███▉      | 49/125 [13:29<20:53, 16.49s/it]Ensembling:  40%|████      | 50/125 [13:45<20:36, 16.49s/it]Ensembling:  41%|████      | 51/125 [14:02<20:23, 16.54s/it]Ensembling:  42%|████▏     | 52/125 [14:18<20:03, 16.48s/it]Ensembling:  42%|████▏     | 53/125 [14:35<19:48, 16.50s/it]Ensembling:  43%|████▎     | 54/125 [14:52<19:38, 16.60s/it]Ensembling:  44%|████▍     | 55/125 [15:08<19:24, 16.63s/it]Ensembling:  45%|████▍     | 56/125 [15:25<19:07, 16.63s/it]Ensembling:  46%|████▌     | 57/125 [15:41<18:44, 16.53s/it]Ensembling:  46%|████▋     | 58/125 [15:58<18:29, 16.56s/it]Ensembling:  47%|████▋     | 59/125 [16:15<18:15, 16.60s/it]Ensembling:  48%|████▊     | 60/125 [16:31<17:57, 16.58s/it]Ensembling:  49%|████▉     | 61/125 [16:47<17:33, 16.46s/it]Ensembling:  50%|████▉     | 62/125 [17:04<17:13, 16.40s/it]Ensembling:  50%|█████     | 63/125 [17:20<16:58, 16.43s/it]Ensembling:  51%|█████     | 64/125 [17:37<16:50, 16.56s/it]Ensembling:  52%|█████▏    | 65/125 [17:54<16:36, 16.60s/it]Ensembling:  53%|█████▎    | 66/125 [18:10<16:12, 16.49s/it]Ensembling:  54%|█████▎    | 67/125 [18:26<15:56, 16.50s/it]Ensembling:  54%|█████▍    | 68/125 [18:43<15:37, 16.45s/it]Ensembling:  55%|█████▌    | 69/125 [18:59<15:23, 16.48s/it]Ensembling:  56%|█████▌    | 70/125 [19:16<15:04, 16.45s/it]Ensembling:  57%|█████▋    | 71/125 [19:32<14:48, 16.45s/it]Ensembling:  58%|█████▊    | 72/125 [19:49<14:31, 16.45s/it]Ensembling:  58%|█████▊    | 73/125 [20:05<14:15, 16.45s/it]Ensembling:  59%|█████▉    | 74/125 [20:21<13:56, 16.41s/it]Ensembling:  60%|██████    | 75/125 [20:38<13:41, 16.43s/it]Ensembling:  61%|██████    | 76/125 [20:54<13:25, 16.43s/it]Ensembling:  62%|██████▏   | 77/125 [21:11<13:10, 16.48s/it]Ensembling:  62%|██████▏   | 78/125 [21:28<12:56, 16.53s/it]Ensembling:  63%|██████▎   | 79/125 [21:44<12:37, 16.47s/it]Ensembling:  64%|██████▍   | 80/125 [22:01<12:23, 16.53s/it]Ensembling:  65%|██████▍   | 81/125 [22:17<12:07, 16.53s/it]Ensembling:  66%|██████▌   | 82/125 [22:33<11:49, 16.50s/it]Ensembling:  66%|██████▋   | 83/125 [22:50<11:31, 16.47s/it]Ensembling:  67%|██████▋   | 84/125 [23:06<11:15, 16.47s/it]Ensembling:  68%|██████▊   | 85/125 [23:23<10:57, 16.44s/it]Ensembling:  69%|██████▉   | 86/125 [23:39<10:38, 16.36s/it]Ensembling:  70%|██████▉   | 87/125 [23:55<10:23, 16.40s/it]Ensembling:  70%|███████   | 88/125 [24:12<10:07, 16.42s/it]Ensembling:  71%|███████   | 89/125 [24:28<09:51, 16.43s/it]Ensembling:  72%|███████▏  | 90/125 [24:45<09:33, 16.38s/it]Ensembling:  73%|███████▎  | 91/125 [25:01<09:18, 16.43s/it]Ensembling:  74%|███████▎  | 92/125 [25:18<09:02, 16.44s/it]Ensembling:  74%|███████▍  | 93/125 [25:34<08:45, 16.42s/it]Ensembling:  75%|███████▌  | 94/125 [25:50<08:29, 16.43s/it]Ensembling:  76%|███████▌  | 95/125 [26:07<08:13, 16.45s/it]Ensembling:  77%|███████▋  | 96/125 [26:23<07:57, 16.46s/it]Ensembling:  78%|███████▊  | 97/125 [26:40<07:39, 16.42s/it]Ensembling:  78%|███████▊  | 98/125 [26:56<07:23, 16.44s/it]Ensembling:  79%|███████▉  | 99/125 [27:13<07:08, 16.47s/it]Ensembling:  80%|████████  | 100/125 [27:29<06:52, 16.50s/it]Ensembling:  81%|████████  | 101/125 [27:46<06:34, 16.43s/it]Ensembling:  82%|████████▏ | 102/125 [28:02<06:19, 16.51s/it]Ensembling:  82%|████████▏ | 103/125 [28:19<06:05, 16.60s/it]Ensembling:  83%|████████▎ | 104/125 [28:36<05:49, 16.64s/it]Ensembling:  84%|████████▍ | 105/125 [28:52<05:32, 16.62s/it]Ensembling:  85%|████████▍ | 106/125 [29:09<05:14, 16.56s/it]Ensembling:  86%|████████▌ | 107/125 [29:25<04:56, 16.48s/it]Ensembling:  86%|████████▋ | 108/125 [29:42<04:40, 16.52s/it]Ensembling:  87%|████████▋ | 109/125 [29:58<04:25, 16.57s/it]Ensembling:  88%|████████▊ | 110/125 [30:15<04:07, 16.53s/it]Ensembling:  89%|████████▉ | 111/125 [30:31<03:50, 16.44s/it]Ensembling:  90%|████████▉ | 112/125 [30:48<03:34, 16.47s/it]Ensembling:  90%|█████████ | 113/125 [31:04<03:18, 16.53s/it]Ensembling:  91%|█████████ | 114/125 [31:21<03:01, 16.52s/it]Ensembling:  92%|█████████▏| 115/125 [31:37<02:44, 16.43s/it]Ensembling:  93%|█████████▎| 116/125 [31:54<02:28, 16.47s/it]Ensembling:  94%|█████████▎| 117/125 [32:10<02:12, 16.52s/it]Ensembling:  94%|█████████▍| 118/125 [32:27<01:56, 16.63s/it]Ensembling:  95%|█████████▌| 119/125 [32:44<01:39, 16.62s/it]Ensembling:  96%|█████████▌| 120/125 [33:00<01:22, 16.50s/it]Ensembling:  97%|█████████▋| 121/125 [33:16<01:05, 16.47s/it]Ensembling:  98%|█████████▊| 122/125 [33:33<00:49, 16.45s/it]Ensembling:  98%|█████████▊| 123/125 [33:49<00:33, 16.52s/it]Ensembling:  99%|█████████▉| 124/125 [34:06<00:16, 16.47s/it]Ensembling: 100%|██████████| 125/125 [34:22<00:00, 16.46s/it]Ensembling: 100%|██████████| 125/125 [34:22<00:00, 16.50s/it]
+
+Ensemble Results:
+  Mean WT Dice: 0.9366 ± 0.0587
+  Mean TC Dice: 0.9198 ± 0.0935
+  Mean ET Dice: 0.8550 ± 0.1877
+  Saved: /home/paul/repositories/thesis_lab/experiments/ablation/abl_nnunet_default/test_predictions/ensemble_results.csv
+
+======================================================================
+nnU-Net Default Augmentation - Test Set Summary
+======================================================================
+{
+  "model": "nnunet",
+  "augmentation": "default",
+  "trainer": "nnUNetTrainer_DefaultAug",
+  "test_cases": 125,
+  "folds": [
+    0,
+    1,
+    2
+  ],
+  "per_fold_results": [
+    {
+      "fold": 0,
+      "mean_wt_dice": 0.9349797932189821,
+      "mean_tc_dice": 0.914191094327314,
+      "mean_et_dice": 0.8484649605111688
+    },
+    {
+      "fold": 1,
+      "mean_wt_dice": 0.9361105274870943,
+      "mean_tc_dice": 0.9166761305273212,
+      "mean_et_dice": 0.8550659094614248
+    },
+    {
+      "fold": 2,
+      "mean_wt_dice": 0.9343574679315213,
+      "mean_tc_dice": 0.9182396360904236,
+      "mean_et_dice": 0.8509408852743627
+    }
+  ],
+  "ensemble_results": {
+    "mean_wt_dice": 0.9366466851065444,
+    "std_wt_dice": 0.05865458919619133,
+    "mean_tc_dice": 0.9197724786128192,
+    "std_tc_dice": 0.09351596008486557,
+    "mean_et_dice": 0.8549832623837934,
+    "std_et_dice": 0.18769339965666812
+  }
+}
+
+Summary saved: /home/paul/repositories/thesis_lab/experiments/ablation/abl_nnunet_default/test_predictions/summary.json

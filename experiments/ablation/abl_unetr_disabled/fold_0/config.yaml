@@ -1,0 +1,73 @@
+_runtime:
+  fold: 0
+  num_epochs: 100
+  output_dir: /home/paul/repositories/thesis_lab/experiments/ablation/abl_unetr_disabled/fold_0
+checkpointing:
+  metric: dice_wt
+  save_best: true
+  save_last: true
+data:
+  cache_rate: 0.0
+  num_workers: 4
+  raw_dir: /data/paul_daten/nnunet/nnUNet_raw/Dataset001_BraTS
+  splits_file: /data/paul_daten/nnunet/nnUNet_preprocessed/Dataset001_BraTS/splits_final.json
+early_stopping:
+  enabled: true
+  metric: dice_wt
+  min_delta: 0.0001
+  patience: 30
+experiment:
+  description: UNETR baseline on BraTS 2021, 5-fold CV
+  folds:
+  - 0
+  - 1
+  - 2
+  - 3
+  - 4
+  name: exp03_unetr
+logging:
+  csv_file: metrics.csv
+  log_interval: 10
+  results_file: results.json
+model:
+  dropout_rate: 0.0
+  feature_size: 16
+  hidden_size: 768
+  img_size:
+  - 128
+  - 128
+  - 128
+  in_channels: 4
+  mlp_dim: 3072
+  name: unetr
+  norm_name: instance
+  num_heads: 12
+  out_channels: 4
+  proj_type: conv
+  res_block: true
+training:
+  augmentation: disabled
+  batch_size: 2
+  gradient_accumulation: 4
+  lr: 0.0001
+  mixed_precision: true
+  num_epochs: 200
+  num_samples_per_case: 1
+  optimizer: adamw
+  patch_size:
+  - 128
+  - 128
+  - 128
+  scheduler: cosine_warmup
+  warmup_epochs: 5
+  weight_decay: 1.0e-05
+validation:
+  interval: 1
+  sliding_window:
+    mode: gaussian
+    overlap: 0.5
+    roi_size:
+    - 128
+    - 128
+    - 128
+    sw_batch_size: 1

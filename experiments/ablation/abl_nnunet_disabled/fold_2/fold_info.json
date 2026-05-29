@@ -1,0 +1,13 @@
+{
+    "experiment_id": "abl_nnunet_disabled",
+    "fold": 2,
+    "tier": "disabled",
+    "model": "nnunet",
+    "timestamp_start": "2026-05-26T20:25:58+00:00",
+    "timestamp_end": "2026-05-26T21:57:12+00:00",
+    "duration_seconds": 5474,
+    "duration_hours": 1.52,
+    "exit_code": 0,
+    "output_dir": "/home/paul/repositories/thesis_lab/experiments/ablation/abl_nnunet_disabled/fold_2",
+    "checkpoint_dir": "/data/paul_daten/experiments/ablation/abl_nnunet_disabled/fold_2"
+}

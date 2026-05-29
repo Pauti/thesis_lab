@@ -1,0 +1,39 @@
+{
+  "model": "nnunet",
+  "augmentation": "disabled",
+  "trainer": "nnUNetTrainer_NoAug",
+  "test_cases": 125,
+  "folds": [
+    0,
+    1,
+    2
+  ],
+  "per_fold_results": [
+    {
+      "fold": 0,
+      "mean_wt_dice": 0.9309090691402054,
+      "mean_tc_dice": 0.9101288770540569,
+      "mean_et_dice": 0.8585285767774774
+    },
+    {
+      "fold": 1,
+      "mean_wt_dice": 0.9313735793108616,
+      "mean_tc_dice": 0.9089062103586166,
+      "mean_et_dice": 0.849487126976799
+    },
+    {
+      "fold": 2,
+      "mean_wt_dice": 0.9320048216243506,
+      "mean_tc_dice": 0.9125906837206187,
+      "mean_et_dice": 0.8557989816464813
+    }
+  ],
+  "ensemble_results": {
+    "mean_wt_dice": 0.9344223267012821,
+    "std_wt_dice": 0.0601727119698274,
+    "mean_tc_dice": 0.9170328221663964,
+    "std_tc_dice": 0.10340466427195877,
+    "mean_et_dice": 0.8625259154695084,
+    "std_et_dice": 0.17629889979039867
+  }
+}

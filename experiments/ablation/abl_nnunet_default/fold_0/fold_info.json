@@ -1,0 +1,13 @@
+{
+    "experiment_id": "abl_nnunet_default",
+    "fold": 0,
+    "tier": "default",
+    "model": "nnunet",
+    "timestamp_start": "2026-05-20T17:26:27+00:00",
+    "timestamp_end": "2026-05-20T18:58:28+00:00",
+    "duration_seconds": 5521,
+    "duration_hours": 1.53,
+    "exit_code": 0,
+    "output_dir": "/home/paul/repositories/thesis_lab/experiments/ablation/abl_nnunet_default/fold_0",
+    "checkpoint_dir": "/data/paul_daten/experiments/ablation/abl_nnunet_default/fold_0"
+}

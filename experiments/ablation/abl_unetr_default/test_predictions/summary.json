@@ -1,0 +1,38 @@
+{
+  "model": "unetr",
+  "augmentation": "default",
+  "test_cases": 125,
+  "folds": [
+    0,
+    1,
+    2
+  ],
+  "per_fold_results": [
+    {
+      "fold": 0,
+      "mean_wt_dice": 0.9235674749308536,
+      "mean_tc_dice": 0.8752560354231605,
+      "mean_et_dice": 0.818264598369514
+    },
+    {
+      "fold": 1,
+      "mean_wt_dice": 0.9231235779043294,
+      "mean_tc_dice": 0.8804296626715251,
+      "mean_et_dice": 0.8221911776726283
+    },
+    {
+      "fold": 2,
+      "mean_wt_dice": 0.921683307209429,
+      "mean_tc_dice": 0.8847191029914739,
+      "mean_et_dice": 0.821691065776434
+    }
+  ],
+  "ensemble_results": {
+    "mean_wt_dice": 0.9267311259875494,
+    "std_wt_dice": 0.05711242428590252,
+    "mean_tc_dice": 0.8885585002346611,
+    "std_tc_dice": 0.12810917741448025,
+    "mean_et_dice": 0.826817481381401,
+    "std_et_dice": 0.20199823533616335
+  }
+}

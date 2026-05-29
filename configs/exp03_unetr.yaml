@@ -49,8 +49,8 @@ training:
   # Mixed precision
   mixed_precision: true
 
-  # Augmentation tier (none / light / medium / heavy)
-  augmentation: "medium"
+  # Augmentation tier (disabled / reduced / default / extended)
+  augmentation: "default"
 
 # ── Early stopping ───────────────────────────────────────────────────────────
 early_stopping:

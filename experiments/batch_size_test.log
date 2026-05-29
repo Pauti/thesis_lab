@@ -1,0 +1,164 @@
+<frozen importlib._bootstrap_external>:1328: FutureWarning: The cuda.cudart module is deprecated and will be removed in a future release, please switch to use the cuda.bindings.runtime module instead.
+======================================================================
+UNETR Batch Size Memory Test
+======================================================================
+GPU: NVIDIA GeForce RTX 4080
+Total VRAM: 15.7 GB
+
+Testing batch sizes: [1, 2, 3, 4, 5, 6, 8, 10, 12, 16]
+Patch size: (128, 128, 128)
+
+
+======================================================================
+Testing batch_size=1
+======================================================================
+Initial VRAM (model only): 0.49 GB
+Input batch shape: torch.Size([1, 4, 128, 128, 128])
+Allocated after input: 0.54 GB
+After forward pass:
+  Allocated: 3.04 GB
+  Peak:      3.14 GB
+  Time:      0.265 sec
+After backward pass:
+  Allocated: 1.02 GB
+  Peak:      3.54 GB
+  Time:      0.185 sec
+After optimizer step:
+  Allocated: 1.40 GB
+  Peak:      3.54 GB
+  Time:      0.053 sec
+
+✅ SUCCESS!
+Total time: 0.503 sec
+Peak VRAM:  3.54 GB
+
+======================================================================
+Testing batch_size=2
+======================================================================
+Initial VRAM (model only): 0.55 GB
+Input batch shape: torch.Size([2, 4, 128, 128, 128])
+Allocated after input: 0.65 GB
+After forward pass:
+  Allocated: 5.57 GB
+  Peak:      5.76 GB
+  Time:      0.067 sec
+After backward pass:
+  Allocated: 1.10 GB
+  Peak:      6.82 GB
+  Time:      0.047 sec
+After optimizer step:
+  Allocated: 1.48 GB
+  Peak:      6.82 GB
+  Time:      0.111 sec
+
+✅ SUCCESS!
+Total time: 0.224 sec
+Peak VRAM:  6.82 GB
+
+======================================================================
+Testing batch_size=3
+======================================================================
+Initial VRAM (model only): 0.56 GB
+Input batch shape: torch.Size([3, 4, 128, 128, 128])
+Allocated after input: 0.70 GB
+After forward pass:
+  Allocated: 8.08 GB
+  Peak:      8.37 GB
+  Time:      0.079 sec
+After backward pass:
+  Allocated: 1.18 GB
+  Peak:      9.95 GB
+  Time:      0.047 sec
+After optimizer step:
+  Allocated: 1.56 GB
+  Peak:      9.95 GB
+  Time:      0.182 sec
+
+✅ SUCCESS!
+Total time: 0.307 sec
+Peak VRAM:  9.95 GB
+
+======================================================================
+Testing batch_size=4
+======================================================================
+Initial VRAM (model only): 0.56 GB
+Input batch shape: torch.Size([4, 4, 128, 128, 128])
+Allocated after input: 0.75 GB
+After forward pass:
+  Allocated: 10.58 GB
+  Peak:      10.97 GB
+  Time:      0.043 sec
+After backward pass:
+  Allocated: 1.26 GB
+  Peak:      13.08 GB
+  Time:      0.301 sec
+After optimizer step:
+  Allocated: 1.64 GB
+  Peak:      13.08 GB
+  Time:      0.107 sec
+
+✅ SUCCESS!
+Total time: 0.451 sec
+Peak VRAM:  13.08 GB
+
+======================================================================
+Testing batch_size=5
+======================================================================
+Initial VRAM (model only): 0.56 GB
+Input batch shape: torch.Size([5, 4, 128, 128, 128])
+Allocated after input: 0.79 GB
+After forward pass:
+  Allocated: 13.09 GB
+  Peak:      13.58 GB
+  Time:      0.044 sec
+
+💥 OUT OF MEMORY!
+Error: CUDA out of memory. Tried to allocate 640.00 MiB. GPU 0 has a total capacity of 15.70 GiB of which 49.50 MiB is free. Including non-PyTorch memory, this process has 15.64 GiB memory in use. Of the all
+Peak VRAM before OOM: 14.97 GB
+
+⚠️  Stopped testing at batch_size=5 (OOM)
+
+======================================================================
+SUMMARY
+======================================================================
+
+Batch    Success    Peak VRAM    Total Time  
+----------------------------------------------------------------------
+1        ✅ YES      3.54 GB      0.503 sec   
+2        ✅ YES      6.82 GB      0.224 sec   
+3        ✅ YES      9.95 GB      0.307 sec   
+4        ✅ YES      13.08 GB     0.451 sec   
+5        ❌ OOM      14.97 GB     N/A         
+
+======================================================================
+ANALYSIS
+======================================================================
+
+✅ Maximum batch size that fits: 4
+   Peak VRAM: 13.08 GB
+   Time per iteration: 0.451 sec
+
+Our choice (batch=2):
+   Peak VRAM: 6.82 GB
+   Time per iteration: 0.224 sec
+
+With gradient accumulation (batch=2, grad_acc=4):
+   Peak VRAM: 6.82 GB (same)
+   Time per effective batch: 0.898 sec
+   Effective batch size: 8
+
+❌ Direct batch=8 does NOT fit! (OOM)
+   → Gradient accumulation is NECESSARY
+
+Safety margin with batch=2:
+   Total VRAM: 15.70 GB
+   Used: 6.82 GB (43.4%)
+   Free: 8.88 GB (56.6%)
+
+✅ Good safety margin (56.6%)
+
+======================================================================
+CONCLUSION
+======================================================================
+
+Results saved to: experiments/batch_size_memory_test.json

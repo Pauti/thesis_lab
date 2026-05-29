@@ -1,0 +1,13 @@
+{
+    "experiment_id": "abl_unetr_disabled",
+    "fold": 2,
+    "tier": "disabled",
+    "model": "unetr",
+    "timestamp_start": "2026-05-28T06:27:38+00:00",
+    "timestamp_end": "2026-05-28T22:54:13+00:00",
+    "duration_seconds": 59195,
+    "duration_hours": 16.44,
+    "exit_code": 0,
+    "output_dir": "/home/paul/repositories/thesis_lab/experiments/ablation/abl_unetr_disabled/fold_2",
+    "checkpoint_dir": "/data/paul_daten/experiments/ablation/abl_unetr_disabled/fold_2"
+}
