@@ -1,0 +1,142 @@
+\documentclass{article}
+\usepackage[paperwidth=22cm,paperheight=9cm,margin=0.3cm]{geometry}
+\pagestyle{empty}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta, positioning, calc, decorations.pathreplacing}
+
+\begin{document}
+\begin{tikzpicture}[
+    >=Stealth,
+    font=\footnotesize,
+    block/.style={draw=blue!70!black, line width=0.6pt, fill=#1, minimum width=5pt},
+    arrow/.style={->, thick, draw=gray!70},
+    pool/.style={->, thick, draw=red!70!black},
+    up/.style={->, thick, draw=green!60!black},
+    skip/.style={->, thick, draw=gray!50, dashed},
+]
+
+% === Color definitions ===
+\definecolor{enc1}{RGB}{204,204,255}   % lightest blue
+\definecolor{enc2}{RGB}{180,180,255}
+\definecolor{enc3}{RGB}{160,160,255}
+\definecolor{enc4}{RGB}{140,140,255}
+\definecolor{enc5}{RGB}{120,120,255}
+\definecolor{enc6}{RGB}{100,100,255}   % darkest blue (bottleneck)
+\definecolor{dec5}{RGB}{255,220,180}   % lightest orange
+\definecolor{dec4}{RGB}{255,200,150}
+\definecolor{dec3}{RGB}{255,180,120}
+\definecolor{dec2}{RGB}{255,160,100}
+\definecolor{dec1}{RGB}{255,140,80}    % darkest orange
+
+% === Parameters ===
+% Heights represent relative feature map spatial resolution
+% Widths represent number of feature channels (scaled)
+
+% Encoder (left/descending path)
+% Stage 1: 128³, 32 channels
+\node[block=enc1, minimum height=80pt, minimum width=5pt] (e1a) at (0, 0) {};
+\node[block=enc1, minimum height=80pt, minimum width=5pt, right=2pt of e1a] (e1b) {};
+
+% Stage 2: 64³, 64 channels
+\node[block=enc2, minimum height=64pt, minimum width=7pt] (e2a) at (1.3, -0.5) {};
+\node[block=enc2, minimum height=64pt, minimum width=7pt, right=2pt of e2a] (e2b) {};
+
+% Stage 3: 32³, 128 channels
+\node[block=enc3, minimum height=50pt, minimum width=9pt] (e3a) at (2.6, -1.0) {};
+\node[block=enc3, minimum height=50pt, minimum width=9pt, right=2pt of e3a] (e3b) {};
+
+% Stage 4: 16³, 256 channels
+\node[block=enc4, minimum height=38pt, minimum width=11pt] (e4a) at (3.9, -1.5) {};
+\node[block=enc4, minimum height=38pt, minimum width=11pt, right=2pt of e4a] (e4b) {};
+
+% Stage 5: 8³, 320 channels
+\node[block=enc5, minimum height=28pt, minimum width=13pt] (e5a) at (5.2, -1.9) {};
+\node[block=enc5, minimum height=28pt, minimum width=13pt, right=2pt of e5a] (e5b) {};
+
+% Stage 6 (bottleneck): 4³, 320 channels
+\node[block=enc6, minimum height=20pt, minimum width=13pt] (e6a) at (6.5, -2.2) {};
+\node[block=enc6, minimum height=20pt, minimum width=13pt, right=2pt of e6a] (e6b) {};
+
+% Decoder (right/ascending path)
+% Decoder Stage 5: 8³, 320 channels
+\node[block=dec5, minimum height=28pt, minimum width=13pt] (d5a) at (7.8, -1.9) {};
+\node[block=dec5, minimum height=28pt, minimum width=13pt, right=2pt of d5a] (d5b) {};
+
+% Decoder Stage 4: 16³, 256 channels
+\node[block=dec4, minimum height=38pt, minimum width=11pt] (d4a) at (9.1, -1.5) {};
+\node[block=dec4, minimum height=38pt, minimum width=11pt, right=2pt of d4a] (d4b) {};
+
+% Decoder Stage 3: 32³, 128 channels
+\node[block=dec3, minimum height=50pt, minimum width=9pt] (d3a) at (10.4, -1.0) {};
+\node[block=dec3, minimum height=50pt, minimum width=9pt, right=2pt of d3a] (d3b) {};
+
+% Decoder Stage 2: 64³, 64 channels
+\node[block=dec2, minimum height=64pt, minimum width=7pt] (d2a) at (11.7, -0.5) {};
+\node[block=dec2, minimum height=64pt, minimum width=7pt, right=2pt of d2a] (d2b) {};
+
+% Decoder Stage 1: 128³, 32 channels
+\node[block=dec1, minimum height=80pt, minimum width=5pt] (d1a) at (13.0, 0) {};
+\node[block=dec1, minimum height=80pt, minimum width=5pt, right=2pt of d1a] (d1b) {};
+
+% Output: 1×1×1 conv
+\node[block=green!40!white, minimum height=80pt, minimum width=3pt, right=6pt of d1b] (out) {};
+
+% === Pooling arrows (encoder) ===
+\draw[pool] (e1b.south east) -- (e2a.north west);
+\draw[pool] (e2b.south east) -- (e3a.north west);
+\draw[pool] (e3b.south east) -- (e4a.north west);
+\draw[pool] (e4b.south east) -- (e5a.north west);
+\draw[pool] (e5b.south east) -- (e6a.north west);
+
+% === Upsampling arrows (decoder) ===
+\draw[up] (e6b.north east) -- (d5a.south west);
+\draw[up] (d5b.north east) -- (d4a.south west);
+\draw[up] (d4b.north east) -- (d3a.south west);
+\draw[up] (d3b.north east) -- (d2a.south west);
+\draw[up] (d2b.north east) -- (d1a.south west);
+
+% === Skip connections ===
+\draw[skip] (e5b.east) -- (d5a.west);
+\draw[skip] (e4b.east) -- ++(0.3,0) |- (d4a.west);
+\draw[skip] (e3b.east) -- ++(0.3,0) |- (d3a.west);
+\draw[skip] (e2b.east) -- ++(0.3,0) |- (d2a.west);
+\draw[skip] (e1b.east) -- ++(0.3,0) |- (d1a.west);
+
+% === Output arrow ===
+\draw[arrow] (d1b.east) -- (out.west);
+
+% === Dimension annotations ===
+\node[above=3pt of e1a, anchor=south, align=center, font=\scriptsize] {$128^3$\\32};
+\node[above=3pt of e2a, anchor=south, align=center, font=\scriptsize] {$64^3$\\64};
+\node[above=3pt of e3a, anchor=south, align=center, font=\scriptsize] {$32^3$\\128};
+\node[above=3pt of e4a, anchor=south, align=center, font=\scriptsize] {$16^3$\\256};
+\node[above=3pt of e5a, anchor=south, align=center, font=\scriptsize] {$8^3$\\320};
+\node[below=3pt of e6a, anchor=north, align=center, font=\scriptsize] {$4^3$, 320};
+
+\node[above=3pt of d5a, anchor=south, font=\scriptsize] {320};
+\node[above=3pt of d4a, anchor=south, font=\scriptsize] {256};
+\node[above=3pt of d3a, anchor=south, font=\scriptsize] {128};
+\node[above=3pt of d2a, anchor=south, font=\scriptsize] {64};
+\node[above=3pt of d1a, anchor=south, font=\scriptsize] {32};
+\node[above=3pt of out, anchor=south, font=\scriptsize] {4};
+
+% === Input label ===
+\node[left=8pt of e1a, align=center, font=\small] {Input\\$128^3 \times 4$};
+
+% === Output label ===
+\node[right=8pt of out, align=center, font=\small] {Output\\$128^3 \times 4$};
+
+% === Legend ===
+\node[anchor=north west, font=\small\bfseries] at (0, -3.5) {Legend:};
+\draw[pool] (0, -3.9) -- ++(0.8, 0) node[right, font=\scriptsize] {Max Pool $2^3$ (stride 2)};
+\draw[up] (0, -4.3) -- ++(0.8, 0) node[right, font=\scriptsize] {Transposed Conv $2^3$};
+\draw[skip] (0, -4.7) -- ++(0.8, 0) node[right, font=\scriptsize] {Skip connection (concat)};
+
+\node[block=enc2, minimum height=8pt, minimum width=8pt, anchor=west] at (5.5, -3.9) {};
+\node[right, font=\scriptsize] at (6.0, -3.9) {Conv $3^3$, InstanceNorm, LeakyReLU ($\times 2$ per stage)};
+
+% === Title ===
+\node[font=\normalsize\bfseries, anchor=south] at (6.5, 2.2) {nnU-Net (PlainConvUNet, 3D full-resolution) --- BraTS 2021};
+
+\end{tikzpicture}
+\end{document}

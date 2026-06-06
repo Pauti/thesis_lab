@@ -1,0 +1,31 @@
+{
+    "experiment_id": "abl_unetr_extended",
+    "research_question": "RQ2 - Augmentation Ablation",
+    "timestamp_start": "2026-05-29T21:35:32+00:00",
+    "config": {
+        "model": "unetr",
+        "model_description": "UNETR (ViT-B/16 + CNN decoder)",
+        "augmentation_tier": "extended",
+        "nnunet_trainer": "N/A",
+        "num_epochs": 100,
+        "folds": [
+            0,
+            1,
+            2
+        ],
+        "splits_file": "/data/paul_daten/nnunet/nnUNet_preprocessed/Dataset001_BraTS/splits_ablation.json",
+        "test_cases": 125,
+        "debug": false
+    },
+    "hardware": {
+        "gpu": "NVIDIA GeForce RTX 4080",
+        "vram_gb": "16376",
+        "hostname": "ca-crs-mth-dat24-02",
+        "torch_version": "2.10.0+cu128"
+    },
+    "paths": {
+        "experiment_dir": "/home/paul/repositories/thesis_lab/experiments/ablation/abl_unetr_extended",
+        "checkpoints_dir": "/data/paul_daten/experiments/ablation/abl_unetr_extended",
+        "splits_file": "/data/paul_daten/nnunet/nnUNet_preprocessed/Dataset001_BraTS/splits_ablation.json"
+    }
+}

@@ -42,7 +42,7 @@ training:
   lr: 1.0e-4
   weight_decay: 1.0e-5
 
-  # Scheduler: linear warmup (5 epochs) + cosine decay (paper Appendix)
+  # Scheduler: linear warmup (5 epochs) + cosine decay
   scheduler: "cosine_warmup"
   warmup_epochs: 5
 
