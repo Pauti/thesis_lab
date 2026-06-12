@@ -144,49 +144,49 @@ nn_gap_at100   = interp_at(nn_eps, nn_tl_m - nn_vl_m[: len(nn_tl_m)], EPOCH_MARK
 
 
 # ===========================================================================
-# FIGURE 1 — Training loss side-by-side
+# FIGURE 1 — Training loss stacked (nnU-Net top, UNETR bottom)
 # ===========================================================================
 print("Generating Figure 1: Training loss …")
-fig1, (ax1a, ax1b) = plt.subplots(1, 2, figsize=(13, 4.5))
-fig1.suptitle("Training Loss Convergence — nnU-Net vs. UNETR", fontweight="bold", y=1.01)
+fig1, (ax1a, ax1b) = plt.subplots(2, 1, figsize=(10, 8))
+fig1.suptitle("Training Loss Convergence — nnU-Net vs. UNETR", fontweight="bold")
 
-# --- nnU-Net (left) ---
+# --- nnU-Net (top) ---
 ax1a.plot(nn_eps, nn_tl_m, color=C_NNUNET, lw=1.8, label="Mean (5 folds)")
 ax1a.fill_between(nn_eps, nn_tl_m - nn_tl_s, nn_tl_m + nn_tl_s,
                   color=C_NNUNET, alpha=0.18, label="±1 Std")
 ax1a.axvline(EPOCH_MARKER, color=C_MARKER, ls="--", lw=1.5, label=f"Epoch {EPOCH_MARKER}")
 ax1a.axhline(nn_tl_at100, color=C_MARKER, ls=":", lw=0.9, alpha=0.6)
-ax1a.annotate(f"Loss = {nn_tl_at100:.3f}\n(ep {EPOCH_MARKER})",
+ax1a.annotate(f"Loss = {nn_tl_at100:.3f}  (ep {EPOCH_MARKER})",
               xy=(EPOCH_MARKER, nn_tl_at100),
-              xytext=(200, nn_tl_at100 + 0.04),
+              xytext=(250, nn_tl_at100 + 0.06),
               fontsize=9, color=C_MARKER,
               arrowprops=dict(arrowstyle="->", color=C_MARKER, lw=0.9))
-ax1a.set_xlabel("Epoch")
 ax1a.set_ylabel("Dice + CE Loss")
-ax1a.set_title("nnU-Net  (250 iters/epoch, bs=2, 1000 epochs)")
-ax1a.legend(loc="lower left")
+ax1a.set_title("(a)  nnU-Net  (250 iters/epoch, bs=2, 1000 epochs)")
+ax1a.legend(loc="upper right")
 ax1a.set_xlim(-10, 1009)
+ax1a.tick_params(labelbottom=False)  # hide x tick labels, shared via top axis
 
-# Second x-label: iterations
+# Second x-axis (iterations) on top
 ax1a_top = ax1a.twiny()
 ax1a_top.set_xlim(-10 * 250, 1009 * 250)
 ax1a_top.set_xlabel("Iterations  (1 ep = 250 iters)")
 ax1a_top.tick_params(labelsize=8)
 
-# --- UNETR (right) ---
+# --- UNETR (bottom) ---
 ax1b.plot(ut_eps, ut_tl_m, color=C_UNETR, lw=1.8, label="Mean (5 folds)")
 ax1b.fill_between(ut_eps, ut_tl_m - ut_tl_s, ut_tl_m + ut_tl_s,
                   color=C_UNETR, alpha=0.18, label="±1 Std")
 ax1b.axvline(EPOCH_MARKER, color=C_MARKER, ls="--", lw=1.5, label=f"Epoch {EPOCH_MARKER}")
 ax1b.axhline(ut_tl_at100, color=C_MARKER, ls=":", lw=0.9, alpha=0.6)
-ax1b.annotate(f"Loss = {ut_tl_at100:.3f}\n(ep {EPOCH_MARKER})",
+ax1b.annotate(f"Loss = {ut_tl_at100:.3f}  (ep {EPOCH_MARKER})",
               xy=(EPOCH_MARKER, ut_tl_at100),
-              xytext=(120, ut_tl_at100 + 0.1),
+              xytext=(115, ut_tl_at100 + 0.15),
               fontsize=9, color=C_MARKER,
               arrowprops=dict(arrowstyle="->", color=C_MARKER, lw=0.9))
 ax1b.set_xlabel("Epoch")
 ax1b.set_ylabel("Dice + CE Loss")
-ax1b.set_title("UNETR  (501 iters/epoch, bs=2, grad-accum=4, early stop)")
+ax1b.set_title("(b)  UNETR  (501 iters/epoch, bs=2, grad-accum=4, early stop)")
 ax1b.legend(loc="upper right")
 ax1b.set_xlim(-1, max(ut_eps) + 5)
 
