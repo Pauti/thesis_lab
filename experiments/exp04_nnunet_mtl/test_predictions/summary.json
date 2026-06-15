@@ -1,0 +1,40 @@
+{
+  "experiment_id": "exp04_nnunet_mtl",
+  "model": "nnunet",
+  "trainer": "nnUNetTrainer_MTL",
+  "aux_task": "ET-volume ordinal (CORAL)",
+  "test_cases": 125,
+  "folds": [
+    0,
+    1,
+    2
+  ],
+  "per_fold_results": [
+    {
+      "fold": 0,
+      "mean_wt_dice": 0.9332532173407978,
+      "mean_tc_dice": 0.9145878024705393,
+      "mean_et_dice": 0.8505105874744968
+    },
+    {
+      "fold": 1,
+      "mean_wt_dice": 0.9329877009933122,
+      "mean_tc_dice": 0.9175541981831375,
+      "mean_et_dice": 0.8499632123540478
+    },
+    {
+      "fold": 2,
+      "mean_wt_dice": 0.9334945438748289,
+      "mean_tc_dice": 0.9085696218280952,
+      "mean_et_dice": 0.8470554242392737
+    }
+  ],
+  "ensemble_results": {
+    "mean_wt_dice": 0.9351610717179046,
+    "std_wt_dice": 0.05574493558352672,
+    "mean_tc_dice": 0.9177617972619768,
+    "std_tc_dice": 0.09795032011972073,
+    "mean_et_dice": 0.8538451295322115,
+    "std_et_dice": 0.1897060090014795
+  }
+}

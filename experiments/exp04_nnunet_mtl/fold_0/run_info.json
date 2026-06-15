@@ -1,0 +1,13 @@
+{
+    "experiment_id": "exp04_nnunet_mtl",
+    "fold": 0,
+    "model": "nnunet",
+    "aux_task": "ET-volume ordinal (CORAL)",
+    "timestamp_start": "2026-06-14T15:12:34+00:00",
+    "timestamp_end": "2026-06-14T16:54:33+00:00",
+    "duration_seconds": 6119,
+    "duration_hours": 1.7,
+    "exit_code": 0,
+    "output_dir": "/home/paul/repositories/thesis_lab/experiments/exp04_nnunet_mtl/fold_0",
+    "checkpoint_dir": "/data/paul_daten/experiments/exp04_nnunet_mtl/fold_0"
+}

@@ -1,0 +1,13 @@
+{
+    "experiment_id": "exp05_unetr_mtl",
+    "fold": 1,
+    "model": "unetr",
+    "aux_task": "ET-volume ordinal (CORAL)",
+    "timestamp_start": "2026-06-13T06:30:13+00:00",
+    "timestamp_end": "2026-06-13T22:19:09+00:00",
+    "duration_seconds": 56936,
+    "duration_hours": 15.82,
+    "exit_code": 0,
+    "output_dir": "/home/paul/repositories/thesis_lab/experiments/exp05_unetr_mtl/fold_1",
+    "checkpoint_dir": "/data/paul_daten/experiments/exp05_unetr_mtl/fold_1"
+}

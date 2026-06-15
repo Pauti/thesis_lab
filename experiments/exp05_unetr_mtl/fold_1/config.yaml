@@ -1,0 +1,83 @@
+_runtime:
+  fold: 1
+  num_epochs: 100
+  ordinal_thresholds:
+    t1: 10897.0
+    t2: 25683.0
+  output_dir: /home/paul/repositories/thesis_lab/experiments/exp05_unetr_mtl/fold_1
+  splits_file: /data/paul_daten/nnunet/nnUNet_preprocessed/Dataset001_BraTS/splits_ablation.json
+checkpointing:
+  metric: dice_wt
+  save_best: true
+  save_last: true
+data:
+  cache_rate: 0.0
+  num_workers: 4
+  raw_dir: /data/paul_daten/nnunet/nnUNet_raw/Dataset001_BraTS
+  splits_file: /data/paul_daten/nnunet/nnUNet_preprocessed/Dataset001_BraTS/splits_ablation.json
+early_stopping:
+  enabled: true
+  metric: dice_wt
+  min_delta: 0.0001
+  patience: 30
+experiment:
+  description: UNETR + multi-task ET-volume ordinal classification, 3-fold CV
+  folds:
+  - 0
+  - 1
+  - 2
+  name: exp05_unetr_mtl
+logging:
+  csv_file: metrics.csv
+  log_interval: 10
+  results_file: results.json
+model:
+  dropout_rate: 0.0
+  feature_size: 16
+  hidden_size: 768
+  img_size:
+  - 128
+  - 128
+  - 128
+  in_channels: 4
+  mlp_dim: 3072
+  name: unetr_multitask
+  norm_name: instance
+  num_heads: 12
+  out_channels: 4
+  proj_type: conv
+  res_block: true
+multitask:
+  aux_hidden: 256
+  enabled: true
+  et_volume_json: experiments/et_volume_distribution.json
+  lambda_aux: 0.3
+  lambda_seg: 1.0
+  loss: coral
+  num_ordinal_classes: 3
+training:
+  augmentation: default
+  batch_size: 2
+  gradient_accumulation: 4
+  lr: 0.0001
+  mixed_precision: true
+  num_epochs: 100
+  num_samples_per_case: 1
+  optimizer: adamw
+  patch_size:
+  - 128
+  - 128
+  - 128
+  scheduler: cosine_warmup
+  warmup_epochs: 5
+  weight_decay: 1.0e-05
+validation:
+  interval: 1
+  sliding_window:
+    mode: gaussian
+    overlap: 0.5
+    roi_size:
+    - 128
+    - 128
+    - 128
+    sw_batch_size: 1

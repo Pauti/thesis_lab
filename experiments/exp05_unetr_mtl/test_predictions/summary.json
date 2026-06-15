@@ -1,0 +1,40 @@
+{
+  "experiment": "exp05_unetr_mtl",
+  "model": "MultiTaskUNETR (ViT-B/16 + CORAL aux head)",
+  "aux_task": "ET-volume ordinal classification (3 tertiles, lambda=0.3)",
+  "baseline_comparison": "abl_unetr_default (ABL-07)",
+  "test_cases": 125,
+  "folds": [
+    0,
+    1,
+    2
+  ],
+  "per_fold_results": [
+    {
+      "fold": 0,
+      "mean_wt_dice": 0.9226942247122705,
+      "mean_tc_dice": 0.8755099744949495,
+      "mean_et_dice": 0.81832975476803
+    },
+    {
+      "fold": 1,
+      "mean_wt_dice": 0.9177065662151831,
+      "mean_tc_dice": 0.8725690659378076,
+      "mean_et_dice": 0.8156377840402245
+    },
+    {
+      "fold": 2,
+      "mean_wt_dice": 0.9198340962972735,
+      "mean_tc_dice": 0.8740255981899894,
+      "mean_et_dice": 0.8125666252701477
+    }
+  ],
+  "ensemble_results": {
+    "mean_wt_dice": 0.9239055524793127,
+    "std_wt_dice": 0.06508429053667164,
+    "mean_tc_dice": 0.8818843327144212,
+    "std_tc_dice": 0.13512781109411043,
+    "mean_et_dice": 0.8211041055546324,
+    "std_et_dice": 0.20618646060515994
+  }
+}

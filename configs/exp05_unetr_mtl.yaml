@@ -1,0 +1,93 @@
+# EXP-05: UNETR multi-task training (RQ3)
+# Segmentation + auxiliary ET-volume ORDINAL classification (CORAL).
+# Identical to the ABL-07 UNETR Default baseline EXCEPT for the auxiliary head,
+# so any difference is attributable to the multi-task signal alone.
+#
+# Protocol matched to ABL-07 (abl_unetr_default): 100 epochs, default augmentation,
+# splits_ablation.json (3-fold CV, 1126 train pool, 125 held-out test).
+# Launch with: --num_epochs 100 --splits_file <splits_ablation.json>
+
+experiment:
+  name: "exp05_unetr_mtl"
+  description: "UNETR + multi-task ET-volume ordinal classification, 3-fold CV"
+  folds: [0, 1, 2]
+
+# ── Model ────────────────────────────────────────────────────────────────────
+model:
+  name: "unetr_multitask"
+  img_size: [128, 128, 128]
+  in_channels: 4
+  out_channels: 4            # bg=0, NCR=1, ED=2, ET=3
+  feature_size: 16
+  hidden_size: 768
+  mlp_dim: 3072
+  num_heads: 12
+  proj_type: "conv"
+  norm_name: "instance"
+  res_block: true
+  dropout_rate: 0.0
+
+# ── Multi-task auxiliary head (RQ3) ──────────────────────────────────────────
+multitask:
+  enabled: true
+  num_ordinal_classes: 3     # ET-volume tertiles: low / mid / high
+  aux_hidden: 256            # FC width in the ordinal head
+  lambda_seg: 1.0
+  lambda_aux: 0.3            # raised from 0.1 so the aux signal reaches the encoder
+  loss: "coral"             # CORAL ordinal loss (Cao et al. 2020)
+  et_volume_json: "experiments/et_volume_distribution.json"
+  # Per-fold tertile thresholds are computed from this fold's TRAINING cases only
+  # (whole-volume ET voxel counts) and applied on-the-fly to cropped-patch counts.
+
+# ── Data ─────────────────────────────────────────────────────────────────────
+data:
+  raw_dir: "/data/paul_daten/nnunet/nnUNet_raw/Dataset001_BraTS"
+  splits_file: "/data/paul_daten/nnunet/nnUNet_preprocessed/Dataset001_BraTS/splits_ablation.json"
+  num_workers: 4
+  cache_rate: 0.0
+
+# ── Training ─────────────────────────────────────────────────────────────────
+training:
+  num_epochs: 100
+  batch_size: 2
+  gradient_accumulation: 4  # effective batch = 8
+  patch_size: [128, 128, 128]
+  num_samples_per_case: 1
+
+  optimizer: "adamw"
+  lr: 1.0e-4
+  weight_decay: 1.0e-5
+
+  scheduler: "cosine_warmup"
+  warmup_epochs: 5
+
+  mixed_precision: true
+  augmentation: "default"
+
+# ── Early stopping (identical to ABL-07; did not trigger at 100 epochs) ──────
+early_stopping:
+  enabled: true
+  metric: "dice_wt"
+  patience: 30
+  min_delta: 0.0001
+
+# ── Validation ───────────────────────────────────────────────────────────────
+validation:
+  interval: 1
+  sliding_window:
+    roi_size: [128, 128, 128]
+    sw_batch_size: 1
+    overlap: 0.5
+    mode: "gaussian"
+
+# ── Checkpointing ────────────────────────────────────────────────────────────
+checkpointing:
+  save_best: true
+  metric: "dice_wt"
+  save_last: true
+
+# ── Logging ──────────────────────────────────────────────────────────────────
+logging:
+  log_interval: 10
+  csv_file: "metrics.csv"
+  results_file: "results.json"

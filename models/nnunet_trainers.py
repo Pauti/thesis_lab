@@ -25,10 +25,22 @@ Reference: Isensee et al. "nnU-Net: a self-configuring method for deep
 learning-based biomedical image segmentation." Nature Methods 18 (2021).
 """
 
+import os
+import sys
 from typing import List, Tuple, Union
 
 import numpy as np
+import torch
 from os.path import join, isfile
+from torch import autocast, nn
+
+# This file is loaded by nnU-Net via a symlink in its trainer directory. Resolve
+# the real repo root so the shared ordinal utilities (utils/ordinal.py) are
+# importable — UNETR (EXP-05) and nnU-Net (EXP-04) then use the SAME CORAL code.
+_REPO_ROOT = os.path.dirname(os.path.dirname(os.path.realpath(__file__)))
+if _REPO_ROOT not in sys.path:
+    sys.path.insert(0, _REPO_ROOT)
+
 from batchgeneratorsv2.helpers.scalar_type import RandomScalar
 from batchgeneratorsv2.transforms.base.basic_transform import BasicTransform
 from batchgeneratorsv2.transforms.intensity.gaussian_noise import GaussianNoiseTransform
@@ -54,6 +66,13 @@ from batchgeneratorsv2.transforms.nnunet.remove_connected_components import (
 
 from nnunetv2.training.nnUNetTrainer.nnUNetTrainer import nnUNetTrainer
 from nnunetv2.training.dataloading.nnunet_dataset import infer_dataset_class
+from nnunetv2.training.lr_scheduler.polylr import PolyLRScheduler
+from nnunetv2.utilities.helpers import dummy_context
+
+from utils.ordinal import (
+    CoralLayer, coral_loss, label_to_levels,
+    et_count_to_bin, patch_et_counts, compute_fold_thresholds,
+)
 
 
 # ---------------------------------------------------------------------------
@@ -465,7 +484,132 @@ class nnUNetTrainer_DefaultAug(nnUNetTrainer_Ablation):
     
     Note: torch.compile disabled for consistency with other ablation trainers.
     """
-    
+
     def _do_i_compile(self):
         # Disable torch.compile for consistency
         return False
+
+
+# ---------------------------------------------------------------------------
+# EXP-04: nnU-Net Multi-Task (RQ3) — segmentation + ET-volume ordinal head
+# ---------------------------------------------------------------------------
+
+class nnUNetTrainer_MTL(nnUNetTrainer_Ablation):
+    """
+    EXP-04: nnU-Net + auxiliary ET-volume ordinal classification (RQ3).
+
+    A CORAL ordinal head is attached to the encoder bottleneck (the lowest-
+    resolution feature map, 320 channels) via a forward hook. The segmentation
+    backbone, preprocessing, deep supervision, optimiser and schedule remain the
+    nnU-Net defaults — only the auxiliary head and the joint loss are added.
+    This mirrors the UNETR EXP-05 design (GAP -> FC(256) -> ReLU -> CORAL) so the
+    CNN-vs-Transformer multi-task comparison is fair.
+
+    Auxiliary target: ET-volume tertile (low/mid/high). Per-fold thresholds are
+    computed from the fold's training cases (whole-volume ET counts) and applied
+    on-the-fly to the cropped patch's ET-voxel count (label == 3), reusing
+    utils/ordinal.py — identical to the UNETR pipeline.
+
+    Comparison baseline: ABL-03 (nnUNetTrainer_DefaultAug), same ablation splits,
+    same 100-epoch protocol. Run:
+        nnUNetv2_train 001 3d_fullres 0 -tr nnUNetTrainer_MTL
+
+    nnU-Net is Apache-2.0; this is an additive trainer subclass (the framework's
+    documented extension mechanism), not a modification of nnU-Net's source.
+    """
+
+    ET_VOLUME_JSON = join(_REPO_ROOT, "experiments", "et_volume_distribution.json")
+
+    def __init__(self, plans, configuration, fold, dataset_json, device=None):
+        super().__init__(plans, configuration, fold, dataset_json, device)
+        # num_epochs = 100 (inherited from nnUNetTrainer_Ablation); allow a short
+        # debug run via env override (run_multitask.sh --debug sets this).
+        if os.environ.get("MTL_NUM_EPOCHS"):
+            self.num_epochs = int(os.environ["MTL_NUM_EPOCHS"])
+        self.num_ordinal_classes = 3
+        self.lambda_aux = 0.3
+        self.aux_hidden = 256
+        self.aux_head = None
+        self._bottleneck = {}
+        self._t1 = None
+        self._t2 = None
+
+    def _do_i_compile(self):
+        # Disable torch.compile: the forward hook must see the un-wrapped encoder.
+        return False
+
+    def _capture_bottleneck(self, module, inp, out):
+        # PlainConvEncoder returns a list of skip features; the last is the
+        # bottleneck (320 ch). Stored each forward, consumed in train_step.
+        self._bottleneck["z"] = out[-1]
+
+    def configure_optimizers(self):
+        # Called inside initialize() AFTER self.network is built. Build the aux
+        # head here so its parameters are included in the optimiser, register the
+        # encoder hook, and freeze the per-fold ordinal thresholds.
+        if self.aux_head is None:
+            bott_ch = self.network.encoder.output_channels[-1]  # 320
+            self.aux_head = nn.Sequential(
+                nn.Linear(bott_ch, self.aux_hidden),
+                nn.ReLU(inplace=True),
+                CoralLayer(self.aux_hidden, self.num_ordinal_classes),
+            ).to(self.device)
+            self.network.encoder.register_forward_hook(self._capture_bottleneck)
+
+            splits_file = join(self.preprocessed_dataset_folder_base, ABLATION_SPLITS_FILE)
+            self._t1, self._t2 = compute_fold_thresholds(
+                self.fold, splits_file, self.ET_VOLUME_JSON, self.num_ordinal_classes
+            )
+            self.print_to_log_file(
+                f"[MTL] aux CORAL head on {bott_ch}-ch bottleneck | "
+                f"fold {self.fold} ET thresholds t1={self._t1:.0f} t2={self._t2:.0f} | "
+                f"lambda_aux={self.lambda_aux}"
+            )
+
+        params = list(self.network.parameters()) + list(self.aux_head.parameters())
+        optimizer = torch.optim.SGD(
+            params, self.initial_lr, weight_decay=self.weight_decay,
+            momentum=0.99, nesterov=True,
+        )
+        lr_scheduler = PolyLRScheduler(optimizer, self.initial_lr, self.num_epochs)
+        return optimizer, lr_scheduler
+
+    def train_step(self, batch: dict) -> dict:
+        # Mirrors nnUNetTrainer.train_step, adding the auxiliary CORAL loss.
+        data = batch["data"]
+        target = batch["target"]
+        data = data.to(self.device, non_blocking=True)
+        if isinstance(target, list):
+            target = [i.to(self.device, non_blocking=True) for i in target]
+        else:
+            target = target.to(self.device, non_blocking=True)
+
+        self.optimizer.zero_grad(set_to_none=True)
+        with autocast(self.device.type, enabled=True) if self.device.type == "cuda" else dummy_context():
+            output = self.network(data)              # forward hook captures bottleneck
+            l_seg = self.loss(output, target)
+
+            bottleneck = self._bottleneck["z"]       # (B, 320, d, h, w)
+            pooled = bottleneck.mean(dim=(2, 3, 4))  # GAP -> (B, 320)
+            aux_logits = self.aux_head(pooled)       # (B, K-1)
+
+            seg_full = target[0] if isinstance(target, list) else target  # full-res labels
+            et_counts = patch_et_counts(seg_full)
+            ord_labels = et_count_to_bin(et_counts, self._t1, self._t2)
+            levels = label_to_levels(ord_labels, self.num_ordinal_classes)
+            l_aux = coral_loss(aux_logits.float(), levels)
+
+            l = l_seg + self.lambda_aux * l_aux
+
+        all_params = list(self.network.parameters()) + list(self.aux_head.parameters())
+        if self.grad_scaler is not None:
+            self.grad_scaler.scale(l).backward()
+            self.grad_scaler.unscale_(self.optimizer)
+            torch.nn.utils.clip_grad_norm_(all_params, 12)
+            self.grad_scaler.step(self.optimizer)
+            self.grad_scaler.update()
+        else:
+            l.backward()
+            torch.nn.utils.clip_grad_norm_(all_params, 12)
+            self.optimizer.step()
+        return {"loss": l.detach().cpu().numpy()}
