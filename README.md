@@ -8,13 +8,13 @@ Three research questions drive the experimental design:
 
 - **RQ1 - Architecture Comparison**: How do nnU-Net (CNN) and UNETR (Vision Transformer) compare on 3D glioma segmentation?
 - **RQ2 - Augmentation Sensitivity**: Which augmentation strategies yield the most robust models, and does sensitivity differ between architectures?
-- **RQ3 - Multi-Task Learning**: Does an auxiliary ET-volume regression task improve segmentation through encoder regularization?
+- **RQ3 - Multi-Task Learning**: Does an auxiliary ET-volume *ordinal classification* task (CORAL) improve segmentation through encoder regularization? Two target formulations are compared: per-patch (local) and per-case whole-volume (global) ET-volume tertiles.
 
 ## Models
 
-**nnU-Net** ([Isensee et al., Nature Methods 2021](https://www.researchgate.net/publication/346711234_nnU-Net_a_self-configuring_method_for_deep_learning-based_biomedical_image_segmentation)) - self-configuring CNN; auto-configured via `nnUNetv2_plan_and_preprocess`. Extended via custom Trainer subclasses in `models/nnunet_trainers.py` for augmentation ablation.
+**nnU-Net** ([Isensee et al., Nature Methods 2021](https://www.researchgate.net/publication/346711234_nnU-Net_a_self-configuring_method_for_deep_learning-based_biomedical_image_segmentation)) - self-configuring CNN; auto-configured via `nnUNetv2_plan_and_preprocess`. Extended via custom Trainer subclasses in `models/nnunet_trainers.py` for augmentation ablation (RQ2) and multi-task learning (RQ3).
 
-**UNETR** ([Hatamizadeh et al., WACV 2022](https://arxiv.org/abs/2103.10504)) - ViT-B/16 encoder + CNN decoder via MONAI. Configured through `configs/exp03_unetr.yaml` and trained with `scripts/train.py`.
+**UNETR** ([Hatamizadeh et al., WACV 2022](https://arxiv.org/abs/2103.10504)) - ViT-B/16 encoder + CNN decoder via MONAI. Configured through `configs/exp03_unetr.yaml`; the multi-task variant (`models/multitask.py`) attaches a CORAL ordinal head to the ViT bottleneck.
 
 ## Dataset
 
@@ -31,17 +31,21 @@ BraTS 2021 Training Set - 1251 multi-parametric MRI cases (T1, T1ce, T2, FLAIR),
 | EXP-02 | nnU-Net | Default | No | 5 | 1000 | Completed |
 | EXP-03 | UNETR | Default | No | 5 | 200+ES | Completed |
 | ABL-01 | nnU-Net | Disabled | No | 3 | 100 | Completed |
-| ABL-02 | nnU-Net | Reduced | No | 3 | 100 | In progress |
+| ABL-02 | nnU-Net | Reduced | No | 3 | 100 | Completed |
 | ABL-03 | nnU-Net | Default | No | 3 | 100 | Completed |
 | ABL-04 | nnU-Net | Extended | No | 3 | 100 | Completed |
 | ABL-05 | UNETR | Disabled | No | 3 | 100 | Completed |
-| ABL-06 | UNETR | Reduced | No | 3 | 100 | In progress |
+| ABL-06 | UNETR | Reduced | No | 3 | 100 | Completed |
 | ABL-07 | UNETR | Default | No | 3 | 100 | Completed |
 | ABL-08 | UNETR | Extended | No | 3 | 100 | Completed |
-| EXP-04 | nnU-Net | Default | Yes | 3 | 100 | Planned |
-| EXP-05 | UNETR | Default | Yes | 3 | 100 | Planned |
+| EXP-04 | nnU-Net | Default | Yes (local) | 3 | 100 | Completed |
+| EXP-05 | UNETR | Default | Yes (local) | 3 | 100 | Completed |
+| EXP-06 | nnU-Net | Default | Yes (global) | 3 | 100 | Completed |
+| EXP-07 | UNETR | Default | Yes (global) | 3 | 100 | Completed |
 
 Augmentation tiers: **Disabled** (no transforms) / **Reduced** (spatial only) / **Default** (framework paper config) / **Extended** (Default + elastic deformation + extra intensity).
+
+Multi-task target (RQ3): **local** = per-patch ET-voxel count of the training crop; **global** = per-case whole-volume ET tertile (fixed label per case). Both attach a CORAL ordinal head to the shared encoder bottleneck (λ_aux = 0.3); comparison baselines are ABL-03 / ABL-07 (segmentation-only, same splits).
 
 ## Repository Structure
 
@@ -51,18 +55,24 @@ experiments/      Training outputs, checkpoints, logs
 figures/          TikZ architecture diagrams
 models/
   unetr.py              UNETR model factory (MONAI)
-  nnunet_trainers.py    nnU-Net Trainer subclasses for augmentation ablation
+  multitask.py          MultiTaskUNETR (ViT bottleneck + CORAL ordinal head)
+  nnunet_trainers.py    nnU-Net Trainer subclasses (augmentation ablation + multi-task)
 plan/             Research documentation, planning files, CLAUDE.md
 scripts/
-  train.py              Main UNETR training loop
-  run_exp02.sh          nnU-Net training runner
-  run_exp03.sh          UNETR training runner
-  run_ablation.sh       Ablation experiment runner (--model, --tier, --fold)
-  analyze_exp02/03.py   Per-experiment result analysis
-  plot_*.py             Convergence and comparison plots
-  infer_ablation_*.py   Test-set inference scripts
+  train.py / train_multitask.py     UNETR baseline / multi-task training loops
+  run_exp02.sh, run_exp03.sh        nnU-Net / UNETR baseline runners
+  run_ablation.sh                   Augmentation ablation runner (--model, --tier, --fold)
+  run_multitask.sh                  Multi-task runner (--model, --variant, --fold)
+  infer_*.py                        Test-set / CV inference (Dice + HD95)
+  compute_hd95_nnunet_from_disk.py  HD95 from saved nnU-Net predictions (lazy, memory-safe)
+  consolidate_results.py            Aggregate all experiments -> results_master.{csv,json}
+  analyze_mtl_significance.py       Significance analysis (RQ3)
+  analyze_significance_rq1_rq2.py   Significance analysis (RQ1/RQ2)
+  plot_*.py                         Convergence and comparison plots
 utils/
   augmentation.py       4-tier MONAI augmentation pipeline
+  ordinal.py            CORAL ordinal head + loss (shared by nnU-Net & UNETR MTL)
+  hd95.py               NaN-aware HD95 + Dice scoring (shared metric path)
   losses.py             DiceCELoss
   metrics.py            BraTS Dice (WT/TC/ET) + HD95
   dataloader.py         BraTS dataset and split loading
@@ -103,9 +113,15 @@ bash scripts/run_ablation.sh --model unetr --tier default --fold 0
 bash scripts/run_ablation.sh --model nnunet --tier disabled  # all folds sequentially
 ```
 
+**Multi-task learning** (RQ3; variant: v1 = per-patch local target, v2 = per-case global target):
+```bash
+bash scripts/run_multitask.sh --model unetr  --variant v1    # EXP-05
+bash scripts/run_multitask.sh --model nnunet --variant v2    # EXP-06
+```
+
 ## Evaluation
 
-Metrics are computed post-hoc via `utils/metrics.py` using the BraTS evaluation convention (Dice WT/TC/ET, HD95).
+Per-case metrics (Dice WT/TC/ET, HD95) follow the BraTS convention via the shared `utils/hd95.py` path (NaN-aware HD95). Results across all experiments are aggregated with `scripts/consolidate_results.py` into `experiments/results_master.{csv,json}`.
 
 ## References
 

@@ -25,6 +25,7 @@ Reference: Isensee et al. "nnU-Net: a self-configuring method for deep
 learning-based biomedical image segmentation." Nature Methods 18 (2021).
 """
 
+import json
 import os
 import sys
 from typing import List, Tuple, Union
@@ -70,7 +71,7 @@ from nnunetv2.training.lr_scheduler.polylr import PolyLRScheduler
 from nnunetv2.utilities.helpers import dummy_context
 
 from utils.ordinal import (
-    CoralLayer, coral_loss, label_to_levels,
+    CoralLayer, coral_loss, label_to_levels, logits_to_rank,
     et_count_to_bin, patch_et_counts, compute_fold_thresholds,
 )
 
@@ -613,3 +614,346 @@ class nnUNetTrainer_MTL(nnUNetTrainer_Ablation):
             torch.nn.utils.clip_grad_norm_(all_params, 12)
             self.optimizer.step()
         return {"loss": l.detach().cpu().numpy()}
+
+
+# ---------------------------------------------------------------------------
+# EXP-06: nnU-Net MTL v2 (Raw-Images variant)
+# ---------------------------------------------------------------------------
+
+class nnUNetTrainer_MTL_RawImages(nnUNetTrainer_Ablation):
+    """
+    EXP-06: nnU-Net + auxiliary GLOBAL ET-volume tertile classification (RQ3, v2).
+
+    Architecturally identical to EXP-04 (nnUNetTrainer_MTL): a CORAL ordinal head
+    on the encoder bottleneck (320 ch, GAP -> FC(256) -> ReLU -> CORAL), λ_aux=0.3,
+    100 epochs, ablation splits. In BOTH experiments the aux head reads only the
+    shared encoder features (derived from the raw MRI) — never the segmentation
+    decoder output — so both are genuine hard-parameter-sharing MTL.
+
+    The ONLY difference is the auxiliary TARGET:
+
+      EXP-04: per-PATCH ET-voxel count of the current crop, binned to a tertile.
+              This is essentially the local segmentation summarised — the same
+              information the decoder already produces for that crop — so the aux
+              signal is largely redundant and gives no benefit (RQ3 v1 finding).
+
+      EXP-06: per-CASE whole-volume ET tertile (one fixed low/mid/high label per
+              case, pre-computed from the full volume). The encoder must infer the
+              case's GLOBAL tumour-burden tier from a possibly partial patch view —
+              a genuinely auxiliary signal NOT trivially derivable from the local
+              crop. This tests whether a non-redundant global aux task changes
+              segmentation quality.
+
+    Per-case labels are loaded from et_tertiles_ablation.json (fold-specific
+    thresholds from training cases only — no leakage). Case IDs come directly from
+    the nnU-Net batch (batch['keys']).
+
+    Run:
+        python scripts/precompute_et_tertiles.py   # one-time setup
+        nnUNetv2_train 001 3d_fullres 0 -tr nnUNetTrainer_MTL_RawImages
+    """
+
+    ET_TERTILES_JSON = join(_REPO_ROOT, "experiments", "et_tertiles_ablation.json")
+
+    def __init__(self, plans, configuration, fold, dataset_json, device=None):
+        super().__init__(plans, configuration, fold, dataset_json, device)
+        self.num_ordinal_classes = 3
+        self.lambda_aux = 0.3
+        self.aux_hidden = 256
+        self.aux_head = None
+        self._bottleneck = {}
+        self._et_tertiles = None  # loaded in configure_optimizers
+
+    def _do_i_compile(self):
+        return False
+
+    def _capture_bottleneck(self, module, inp, out):
+        self._bottleneck["z"] = out[-1]
+
+    def configure_optimizers(self):
+        if self.aux_head is None:
+            bott_ch = self.network.encoder.output_channels[-1]
+            self.aux_head = nn.Sequential(
+                nn.Linear(bott_ch, self.aux_hidden),
+                nn.ReLU(inplace=True),
+                CoralLayer(self.aux_hidden, self.num_ordinal_classes),
+            ).to(self.device)
+            self.network.encoder.register_forward_hook(self._capture_bottleneck)
+
+            # Load pre-computed tertile labels
+            with open(self.ET_TERTILES_JSON) as f:
+                tertiles_data = json.load(f)
+            self._et_tertiles = tertiles_data[str(self.fold)]["labels"]
+            thresholds = tertiles_data[str(self.fold)]["thresholds"]
+
+            self.print_to_log_file(
+                f"[MTL-RawImages] aux CORAL head on {bott_ch}-ch bottleneck | "
+                f"fold {self.fold} ET thresholds t1={thresholds['t1']:.0f} "
+                f"t2={thresholds['t2']:.0f} | lambda_aux={self.lambda_aux}"
+            )
+
+        params = list(self.network.parameters()) + list(self.aux_head.parameters())
+        optimizer = torch.optim.SGD(
+            params, self.initial_lr, weight_decay=self.weight_decay,
+            momentum=0.99, nesterov=True,
+        )
+        lr_scheduler = PolyLRScheduler(optimizer, self.initial_lr, self.num_epochs)
+        return optimizer, lr_scheduler
+
+    def train_step(self, batch: dict) -> dict:
+        data = batch["data"]
+        target = batch["target"]
+        data = data.to(self.device, non_blocking=True)
+        if isinstance(target, list):
+            target = [i.to(self.device, non_blocking=True) for i in target]
+        else:
+            target = target.to(self.device, non_blocking=True)
+
+        self.optimizer.zero_grad(set_to_none=True)
+        with autocast(self.device.type, enabled=True) if self.device.type == "cuda" else dummy_context():
+            output = self.network(data)
+            l_seg = self.loss(output, target)
+
+            bottleneck = self._bottleneck["z"]
+            pooled = bottleneck.mean(dim=(2, 3, 4))
+            aux_logits = self.aux_head(pooled)
+
+            # ─── KEY DIFFERENCE vs EXP-04 ───────────────────────────────────────
+            # Target = per-CASE whole-volume ET tertile (stable, global), looked up
+            # by case id. nnU-Net attaches the selected case ids as batch['keys']
+            # (one per sample in the batch) after augmentation. We do NOT touch the
+            # segmentation here — the label depends only on which case was drawn.
+            case_ids = batch["keys"]  # list[str], length = batch size
+            ord_labels = torch.tensor(
+                [self._et_tertiles[cid] for cid in case_ids],
+                device=self.device, dtype=torch.long,
+            )
+            levels = label_to_levels(ord_labels, self.num_ordinal_classes)
+
+            l_aux = coral_loss(aux_logits.float(), levels)
+            l = l_seg + self.lambda_aux * l_aux
+
+        all_params = list(self.network.parameters()) + list(self.aux_head.parameters())
+        if self.grad_scaler is not None:
+            self.grad_scaler.scale(l).backward()
+            self.grad_scaler.unscale_(self.optimizer)
+            torch.nn.utils.clip_grad_norm_(all_params, 12)
+            self.grad_scaler.step(self.optimizer)
+            self.grad_scaler.update()
+        else:
+            l.backward()
+            torch.nn.utils.clip_grad_norm_(all_params, 12)
+            self.optimizer.step()
+        return {"loss": l.detach().cpu().numpy()}
+
+
+# ---------------------------------------------------------------------------
+# EXP-08: nnU-Net MTL v3 — uncertainty weighting + FiLM feature fusion
+# ---------------------------------------------------------------------------
+
+class _MTLv3Net(nn.Module):
+    """
+    Wraps a standard nnU-Net (encoder + decoder) and adds, AS PROPER IN-NETWORK
+    SUBMODULES (so they are saved in the checkpoint and active at inference):
+
+      - a FiLM conditioning block (Perez et al. 2018) that modulates the encoder
+        bottleneck before the decoder — in the spirit of channel-attention modules
+        such as Squeeze-and-Excitation (Hu et al. 2018);
+      - a CORAL auxiliary head, exposed via ``last_aux_logits`` for the training
+        loss (ignored at inference);
+      - the two homoscedastic log-variances for learned loss weighting.
+
+    forward() returns exactly the wrapped decoder's segmentation output (a deep-
+    supervision list when enabled, a single tensor otherwise), so nnU-Net's loss
+    and inference paths work unchanged. The FiLM last layer is zero-initialised, so
+    the network starts as the unmodified base model and learns the conditioning.
+    """
+
+    def __init__(self, base: nn.Module, num_ordinal_classes: int = 3, hidden: int = 256):
+        super().__init__()
+        # Re-parent encoder/decoder so set_deep_supervision_enabled
+        # (`network.decoder.deep_supervision = ...`) keeps working on the wrapper.
+        self.encoder = base.encoder
+        self.decoder = base.decoder
+        bott_ch = self.encoder.output_channels[-1]
+
+        self.aux_head = nn.Sequential(
+            nn.Linear(bott_ch, hidden),
+            nn.ReLU(inplace=True),
+            CoralLayer(hidden, num_ordinal_classes),
+        )
+        self.film_head = nn.Sequential(
+            nn.Linear(bott_ch, hidden),
+            nn.ReLU(inplace=True),
+            nn.Linear(hidden, 2 * bott_ch),
+        )
+        nn.init.zeros_(self.film_head[-1].weight)
+        nn.init.zeros_(self.film_head[-1].bias)
+
+        self.log_var_seg = nn.Parameter(torch.zeros(()))
+        self.log_var_aux = nn.Parameter(torch.zeros(()))
+        self.last_aux_logits = None
+
+    def forward(self, x):
+        skips = self.encoder(x)
+        bottleneck = skips[-1]
+        pooled = bottleneck.mean(dim=(2, 3, 4))          # GAP -> (B, C)
+        self.last_aux_logits = self.aux_head(pooled)     # (B, K-1); read by train_step
+
+        gamma, beta = self.film_head(pooled).chunk(2, dim=1)
+        shape = gamma.shape + (1, 1, 1)
+        skips = list(skips)
+        skips[-1] = bottleneck * (1.0 + gamma.view(shape)) + beta.view(shape)
+        return self.decoder(skips)
+
+
+class nnUNetTrainer_MTL_v3(nnUNetTrainer_Ablation):
+    """
+    EXP-08: nnU-Net MTL v3 — exploratory "best-effort" variant combining two
+    supervisor-suggested refinements on top of the v2 global-target setup. The
+    auxiliary TARGET is unchanged (per-case whole-volume ET tertile); two
+    mechanisms are added:
+
+      (1) Learned loss weighting (Kendall, Gal & Cipolla 2018): the fixed
+          lambda_aux=0.3 is replaced by two learnable log-variances s_seg, s_aux,
+              L = exp(-s_seg)*L_seg + exp(-s_aux)*L_aux + s_seg + s_aux.
+
+      (2) FiLM feature fusion (Perez et al. 2018): the pooled bottleneck modulates
+          the bottleneck feature map before the decoder, so the segmentation
+          branch consumes the global-tumour-burden representation directly.
+
+    Both heads and the FiLM block live INSIDE the network (see _MTLv3Net), built
+    via build_network_architecture. nnU-Net therefore saves them in the checkpoint
+    and rebuilds + activates them at inference automatically — the standard
+    predictor works, no custom inference script needed.
+
+    This is NOT part of the controlled v1/v2 pair (two variables change at once);
+    a positive result would require ablating the two mechanisms separately.
+
+    Run:
+        python scripts/precompute_et_tertiles.py    # one-time (shared with v2)
+        nnUNetv2_train 001 3d_fullres 0 -tr nnUNetTrainer_MTL_v3
+    """
+
+    ET_TERTILES_JSON = join(_REPO_ROOT, "experiments", "et_tertiles_ablation.json")
+
+    def __init__(self, plans, configuration, fold, dataset_json, device=None):
+        super().__init__(plans, configuration, fold, dataset_json, device)
+        # num_epochs = 100 (from nnUNetTrainer_Ablation); allow a short debug run.
+        if os.environ.get("MTL_NUM_EPOCHS"):
+            self.num_epochs = int(os.environ["MTL_NUM_EPOCHS"])
+        self.num_ordinal_classes = 3
+        self.aux_hidden = 256
+        self._et_tertiles = None
+
+    def _do_i_compile(self):
+        # No torch.compile: keep the wrapper module un-wrapped for clean access.
+        return False
+
+    @staticmethod
+    def build_network_architecture(architecture_class_name, arch_init_kwargs,
+                                   arch_init_kwargs_req_import, num_input_channels,
+                                   num_output_channels, enable_deep_supervision=True):
+        # Build the standard nnU-Net, then wrap it with the in-network FiLM + aux
+        # heads. Called for BOTH training and inference, so the conditioning is
+        # always present and the checkpoint round-trips cleanly.
+        base = nnUNetTrainer.build_network_architecture(
+            architecture_class_name, arch_init_kwargs, arch_init_kwargs_req_import,
+            num_input_channels, num_output_channels, enable_deep_supervision,
+        )
+        return _MTLv3Net(base, num_ordinal_classes=3, hidden=256)
+
+    def configure_optimizers(self):
+        if self._et_tertiles is None:
+            with open(self.ET_TERTILES_JSON) as f:
+                tertiles_data = json.load(f)
+            self._et_tertiles = tertiles_data[str(self.fold)]["labels"]
+            thresholds = tertiles_data[str(self.fold)]["thresholds"]
+            self.print_to_log_file(
+                f"[MTL-v3] in-network FiLM + aux CORAL | fold {self.fold} "
+                f"ET thresholds t1={thresholds['t1']:.0f} t2={thresholds['t2']:.0f} | "
+                f"uncertainty-weighted loss (learned s_seg, s_aux)"
+            )
+        # Everything (encoder, decoder, aux_head, film_head, log-vars) is inside
+        # self.network. Keep the log-variances out of weight decay.
+        decay, no_decay = [], []
+        for name, p in self.network.named_parameters():
+            (no_decay if "log_var" in name else decay).append(p)
+        optimizer = torch.optim.SGD(
+            [{"params": decay},
+             {"params": no_decay, "weight_decay": 0.0}],
+            self.initial_lr, weight_decay=self.weight_decay,
+            momentum=0.99, nesterov=True,
+        )
+        lr_scheduler = PolyLRScheduler(optimizer, self.initial_lr, self.num_epochs)
+        return optimizer, lr_scheduler
+
+    def train_step(self, batch: dict) -> dict:
+        data = batch["data"]
+        target = batch["target"]
+        data = data.to(self.device, non_blocking=True)
+        if isinstance(target, list):
+            target = [i.to(self.device, non_blocking=True) for i in target]
+        else:
+            target = target.to(self.device, non_blocking=True)
+
+        self.optimizer.zero_grad(set_to_none=True)
+        with autocast(self.device.type, enabled=True) if self.device.type == "cuda" else dummy_context():
+            output = self.network(data)              # FiLM applied in-network; aux logits stashed
+            l_seg = self.loss(output, target)
+
+            aux_logits = self.network.last_aux_logits
+            case_ids = batch["keys"]
+            ord_labels = torch.tensor(
+                [self._et_tertiles[cid] for cid in case_ids],
+                device=self.device, dtype=torch.long,
+            )
+            levels = label_to_levels(ord_labels, self.num_ordinal_classes)
+            l_aux = coral_loss(aux_logits.float(), levels)
+
+            # Homoscedastic uncertainty weighting (Kendall et al. 2018). This
+            # formulation requires NON-NEGATIVE task losses. nnU-Net's Dice+CE loss
+            # is negative (the Dice term lies in [-1, 0]), which otherwise drives
+            # s_seg -> -inf (precision exp(-s_seg) -> inf, train loss -> nan, as seen
+            # in the 2-epoch debug). Shift the seg loss to >= 0 (a constant w.r.t.
+            # the network parameters, since Dice loss >= -1 and CE >= 0) before
+            # weighting. The CORAL aux loss is already non-negative.
+            l_seg_pos = (l_seg + 1.0).clamp_min(1e-3)
+            s_seg, s_aux = self.network.log_var_seg, self.network.log_var_aux
+            l = (torch.exp(-s_seg) * l_seg_pos + torch.exp(-s_aux) * l_aux
+                 + s_seg + s_aux)
+
+        with torch.no_grad():
+            aux_acc = (logits_to_rank(aux_logits) == ord_labels).float().mean()
+
+        if self.grad_scaler is not None:
+            self.grad_scaler.scale(l).backward()
+            self.grad_scaler.unscale_(self.optimizer)
+            torch.nn.utils.clip_grad_norm_(self.network.parameters(), 12)
+            self.grad_scaler.step(self.optimizer)
+            self.grad_scaler.update()
+        else:
+            l.backward()
+            torch.nn.utils.clip_grad_norm_(self.network.parameters(), 12)
+            self.optimizer.step()
+        # Extra keys are collated by nnU-Net and consumed in on_train_epoch_end.
+        return {
+            "loss": l.detach().cpu().numpy(),
+            "l_aux": float(l_aux.detach().cpu()),
+            "aux_acc": float(aux_acc.detach().cpu()),
+        }
+
+    def on_train_epoch_end(self, train_outputs):
+        # Let nnU-Net log the total loss as usual, then add an MTL line to its
+        # training_log: mean auxiliary loss + ordinal accuracy this epoch, plus the
+        # CURRENT learned task weights exp(-s). The weights reveal whether the model
+        # down-weights the (redundant) auxiliary task over training.
+        super().on_train_epoch_end(train_outputs)
+        l_aux = float(np.mean([o["l_aux"] for o in train_outputs]))
+        aux_acc = float(np.mean([o["aux_acc"] for o in train_outputs]))
+        w_seg = float(torch.exp(-self.network.log_var_seg).detach().cpu())
+        w_aux = float(torch.exp(-self.network.log_var_aux).detach().cpu())
+        self.print_to_log_file(
+            f"[MTL-v3] aux: loss={l_aux:.4f}  acc={aux_acc:.3f}  |  "
+            f"learned weights  seg={w_seg:.3f}  aux={w_aux:.3f}"
+        )

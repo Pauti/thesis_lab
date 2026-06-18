@@ -1,0 +1,20 @@
+{
+  "experiment": "exp03_unetr",
+  "eval_protocol": "5fold_cv",
+  "n_cases": 1251,
+  "hd95_convention": "NaN (excluded) when region absent in pred or GT; mm == voxel (1mm isotropic)",
+  "overall": {
+    "mean_dice_wt": 0.9244678621516731,
+    "mean_hd95_wt": 8.053475385761262,
+    "std_hd95_wt": 14.359018644254567,
+    "n_hd95_wt": 1250,
+    "mean_dice_tc": 0.8890627708792272,
+    "mean_hd95_tc": 5.8965237555588175,
+    "std_hd95_tc": 11.671245762267693,
+    "n_hd95_tc": 1244,
+    "mean_dice_et": 0.8453719816232071,
+    "mean_hd95_et": 4.940179124168421,
+    "std_hd95_et": 10.953524087135163,
+    "n_hd95_et": 1217
+  }
+}

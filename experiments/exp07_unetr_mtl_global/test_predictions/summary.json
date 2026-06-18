@@ -1,0 +1,40 @@
+{
+  "experiment": "exp07_unetr_mtl_global",
+  "model": "MultiTaskUNETR (ViT-B/16 + CORAL aux head)",
+  "aux_task": "ET-volume tertile, per-case global (CORAL, lambda=0.3)",
+  "baseline_comparison": "abl_unetr_default (ABL-07); MTL v1 = exp05_unetr_mtl",
+  "test_cases": 125,
+  "folds": [
+    0,
+    1,
+    2
+  ],
+  "per_fold_results": [
+    {
+      "fold": 0,
+      "mean_wt_dice": 0.9221562957528384,
+      "mean_tc_dice": 0.8716190914003614,
+      "mean_et_dice": 0.8177982827042555
+    },
+    {
+      "fold": 1,
+      "mean_wt_dice": 0.9148538052141577,
+      "mean_tc_dice": 0.8770443636929981,
+      "mean_et_dice": 0.816052746291068
+    },
+    {
+      "fold": 2,
+      "mean_wt_dice": 0.916427243326468,
+      "mean_tc_dice": 0.8666751594796002,
+      "mean_et_dice": 0.8133732545676459
+    }
+  ],
+  "ensemble_results": {
+    "mean_wt_dice": 0.9234900608318316,
+    "std_wt_dice": 0.06267303582898678,
+    "mean_tc_dice": 0.8800859389975341,
+    "std_tc_dice": 0.14042586444223706,
+    "mean_et_dice": 0.8230389789566571,
+    "std_et_dice": 0.20366144719924292
+  }
+}

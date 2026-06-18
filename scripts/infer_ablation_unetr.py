@@ -41,6 +41,7 @@ from monai.transforms import (
 )
 
 from models.unetr import get_unetr_model
+from utils.hd95 import score_case, summarise
 
 # ========== Paths ==========
 REPO = Path(__file__).resolve().parent.parent
@@ -151,14 +152,15 @@ def infer_fold(fold: int, device: str = "cuda"):
     print(f"Starting inference...")
     
     results = []
+    hd_rows = []           # per-case dice + HD95 (parallel _hd95 output)
     predictions_dict = {}  # For ensemble
-    
+
     with torch.no_grad():
         for batch in tqdm(test_loader, desc=f"Fold {fold}"):
             case_id = batch["case_id"][0]
             imgs = batch["image"].to(device)    # (1, 4, H, W, D)
             lbls = batch["label"].to(device)    # (1, 1, H, W, D)
-            
+
             t0 = time.time()
             logits = sliding_window_inference(
                 inputs=imgs,
@@ -169,31 +171,38 @@ def infer_fold(fold: int, device: str = "cuda"):
                 mode=sw_cfg["mode"],
             )
             elapsed = time.time() - t0
-            
+
             pred = torch.argmax(logits, dim=1).squeeze(0).cpu().numpy().astype(np.int32)
             gt = lbls.squeeze().cpu().numpy().astype(np.int32)
-            
+
             scores = compute_brats_dice(pred, gt)
             scores["case_id"] = case_id
             scores["infer_time_s"] = round(elapsed, 2)
             results.append(scores)
-            
+            hd_rows.append({"case_id": case_id, **score_case(pred, gt)})
+
             # Store prediction for ensemble
             predictions_dict[case_id] = pred
-    
-    # Save results
+
+    # Save results (Dice — unchanged) + parallel Dice+HD95 file
     df = pd.DataFrame(results)
     output_path = OUT_DIR / f"fold_{fold}_results.csv"
     df.to_csv(output_path, index=False)
-    
+
+    hd_df = pd.DataFrame(hd_rows)
+    hd_df.to_csv(OUT_DIR / f"fold_{fold}_results_hd95.csv", index=False)
+
+    hd = summarise(hd_df)
     print(f"\nFold {fold} Results:")
     print(f"  Mean WT Dice: {df['dice_wt'].mean():.4f} ± {df['dice_wt'].std():.4f}")
     print(f"  Mean TC Dice: {df['dice_tc'].mean():.4f} ± {df['dice_tc'].std():.4f}")
     print(f"  Mean ET Dice: {df['dice_et'].mean():.4f} ± {df['dice_et'].std():.4f}")
+    print(f"  HD95 WT={hd['mean_hd95_wt']:.2f} TC={hd['mean_hd95_tc']:.2f} "
+          f"ET={hd['mean_hd95_et']:.2f} mm")
     print(f"  Mean inference time: {df['infer_time_s'].mean():.2f}s")
     print(f"  Saved: {output_path}")
-    
-    return df, predictions_dict
+
+    return df, predictions_dict, hd_df
 
 
 def ensemble_predictions(all_preds: list):
@@ -222,34 +231,42 @@ def ensemble_predictions(all_preds: list):
     
     # Ensemble
     results = []
+    hd_rows = []
     for case_id in tqdm(case_ids, desc="Ensembling"):
         # Stack predictions from all folds
         preds = np.stack([all_preds[i][case_id] for i in range(len(all_preds))])
-        
+
         # Majority voting
         ensemble_pred = np.apply_along_axis(
             lambda x: np.bincount(x, minlength=4).argmax(),
             axis=0,
             arr=preds
         ).astype(np.int32)
-        
+
         # Compute Dice
         gt = gt_dict[case_id]
         scores = compute_brats_dice(ensemble_pred, gt)
         scores["case_id"] = case_id
         results.append(scores)
-    
+        hd_rows.append({"case_id": case_id, **score_case(ensemble_pred, gt)})
+
     df = pd.DataFrame(results)
     output_path = OUT_DIR / "ensemble_results.csv"
     df.to_csv(output_path, index=False)
-    
+
+    hd_df = pd.DataFrame(hd_rows)
+    hd_df.to_csv(OUT_DIR / "ensemble_results_hd95.csv", index=False)
+
+    hd = summarise(hd_df)
     print(f"\nEnsemble Results:")
     print(f"  Mean WT Dice: {df['dice_wt'].mean():.4f} ± {df['dice_wt'].std():.4f}")
     print(f"  Mean TC Dice: {df['dice_tc'].mean():.4f} ± {df['dice_tc'].std():.4f}")
     print(f"  Mean ET Dice: {df['dice_et'].mean():.4f} ± {df['dice_et'].std():.4f}")
+    print(f"  HD95 WT={hd['mean_hd95_wt']:.2f} TC={hd['mean_hd95_tc']:.2f} "
+          f"ET={hd['mean_hd95_et']:.2f} mm")
     print(f"  Saved: {output_path}")
-    
-    return df
+
+    return df, hd_df
 
 
 def main():
@@ -276,14 +293,41 @@ def main():
     # Run inference for each fold
     all_results = []
     all_predictions = []
-    
+    all_hd = []
+
     for fold in [0, 1, 2]:
-        df, preds = infer_fold(fold, device)
+        df, preds, hd_df = infer_fold(fold, device)
         all_results.append(df)
         all_predictions.append(preds)
-    
+        all_hd.append(hd_df)
+
     # Ensemble
-    ensemble_df = ensemble_predictions(all_predictions)
+    ensemble_df, ensemble_hd_df = ensemble_predictions(all_predictions)
+
+    # ── HD95 summary (per-fold mean over folds + ensemble) ──────────────────────
+    fold_hd = [summarise(h) for h in all_hd]
+    ens_hd = summarise(ensemble_hd_df)
+    hd95_summary = {
+        "model": "unetr",
+        "augmentation": tier,
+        "test_cases": 125,
+        "hd95_convention": "NaN (excluded) when region absent in pred or GT; mm == voxel (1mm isotropic)",
+        "per_fold": [
+            {"fold": f, **{k: v for k, v in m.items() if "hd95" in k}}
+            for f, m in enumerate(fold_hd)
+        ],
+        "per_fold_hd95_mean_over_folds": {
+            f"hd95_{r}": {
+                "mean": float(np.mean([m[f"mean_hd95_{r}"] for m in fold_hd])),
+                "std": float(np.std([m[f"mean_hd95_{r}"] for m in fold_hd])),
+            }
+            for r in ("wt", "tc", "et")
+        },
+        "ensemble": ens_hd,
+    }
+    with open(OUT_DIR / "summary_hd95.json", "w") as f:
+        json.dump(hd95_summary, f, indent=2)
+    print(f"\nHD95 summary saved: {OUT_DIR / 'summary_hd95.json'}")
     
     # Summary
     summary = {

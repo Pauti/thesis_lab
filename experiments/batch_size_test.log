@@ -28,7 +28,7 @@ After optimizer step:
   Peak:      3.54 GB
   Time:      0.053 sec
 
-✅ SUCCESS!
+SUCCESS!
 Total time: 0.503 sec
 Peak VRAM:  3.54 GB
 
@@ -51,7 +51,7 @@ After optimizer step:
   Peak:      6.82 GB
   Time:      0.111 sec
 
-✅ SUCCESS!
+SUCCESS!
 Total time: 0.224 sec
 Peak VRAM:  6.82 GB
 
@@ -74,7 +74,7 @@ After optimizer step:
   Peak:      9.95 GB
   Time:      0.182 sec
 
-✅ SUCCESS!
+SUCCESS!
 Total time: 0.307 sec
 Peak VRAM:  9.95 GB
 
@@ -97,7 +97,7 @@ After optimizer step:
   Peak:      13.08 GB
   Time:      0.107 sec
 
-✅ SUCCESS!
+SUCCESS!
 Total time: 0.451 sec
 Peak VRAM:  13.08 GB
 
@@ -112,11 +112,11 @@ After forward pass:
   Peak:      13.58 GB
   Time:      0.044 sec
 
-💥 OUT OF MEMORY!
+OUT OF MEMORY!
 Error: CUDA out of memory. Tried to allocate 640.00 MiB. GPU 0 has a total capacity of 15.70 GiB of which 49.50 MiB is free. Including non-PyTorch memory, this process has 15.64 GiB memory in use. Of the all
 Peak VRAM before OOM: 14.97 GB
 
-⚠️  Stopped testing at batch_size=5 (OOM)
+Stopped testing at batch_size=5 (OOM)
 
 ======================================================================
 SUMMARY
@@ -124,17 +124,17 @@ SUMMARY
 
 Batch    Success    Peak VRAM    Total Time  
 ----------------------------------------------------------------------
-1        ✅ YES      3.54 GB      0.503 sec   
-2        ✅ YES      6.82 GB      0.224 sec   
-3        ✅ YES      9.95 GB      0.307 sec   
-4        ✅ YES      13.08 GB     0.451 sec   
-5        ❌ OOM      14.97 GB     N/A         
+1        SUCCESS      3.54 GB      0.503 sec   
+2        SUCCESS      6.82 GB      0.224 sec   
+3        SUCCESS      9.95 GB      0.307 sec   
+4        SUCCESS      13.08 GB     0.451 sec   
+5        OUT OF MEMORY      14.97 GB     N/A         
 
 ======================================================================
 ANALYSIS
 ======================================================================
 
-✅ Maximum batch size that fits: 4
+Maximum batch size that fits: 4
    Peak VRAM: 13.08 GB
    Time per iteration: 0.451 sec
 
@@ -147,7 +147,7 @@ With gradient accumulation (batch=2, grad_acc=4):
    Time per effective batch: 0.898 sec
    Effective batch size: 8
 
-❌ Direct batch=8 does NOT fit! (OOM)
+Direct batch=8 does NOT fit! (OOM)
    → Gradient accumulation is NECESSARY
 
 Safety margin with batch=2:
@@ -155,7 +155,7 @@ Safety margin with batch=2:
    Used: 6.82 GB (43.4%)
    Free: 8.88 GB (56.6%)
 
-✅ Good safety margin (56.6%)
+Good safety margin (56.6%)
 
 ======================================================================
 CONCLUSION

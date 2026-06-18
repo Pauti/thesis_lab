@@ -1,0 +1,15 @@
+{
+    "fold": 1,
+    "experiment": "exp05_unetr_mtl",
+    "num_epochs_run": 100,
+    "best_val_dice_wt": 0.914006,
+    "ordinal_thresholds": {
+        "t1": 10897.0,
+        "t2": 25683.0
+    },
+    "lambda_seg": 1.0,
+    "lambda_aux": 0.3,
+    "config": "/home/paul/repositories/thesis_lab/configs/exp05_unetr_mtl.yaml",
+    "output_dir": "/home/paul/repositories/thesis_lab/experiments/exp07_unetr_mtl_global/fold_1",
+    "checkpoint_dir": "/data/paul_daten/experiments/exp07_unetr_mtl_global/fold_1"
+}

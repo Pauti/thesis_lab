@@ -5,7 +5,7 @@
   "delta_sign": "positive = MTL better than single-task baseline",
   "comparisons": [
     {
-      "architecture": "nnU-Net",
+      "architecture": "nnU-Net MTL v1 (per-patch) vs baseline",
       "n_cases": 125,
       "regions": [
         {
@@ -50,7 +50,97 @@
       ]
     },
     {
-      "architecture": "UNETR",
+      "architecture": "nnU-Net MTL v2 (global) vs baseline",
+      "n_cases": 125,
+      "regions": [
+        {
+          "region": "WT",
+          "mtl_mean": 0.9367443022880321,
+          "baseline_mean": 0.9366466851065444,
+          "median_delta": -0.0001927410350199832,
+          "hodges_lehmann": -0.000569469640925413,
+          "wilcoxon_stat": 3108.0,
+          "p_value": 0.0409702969981844,
+          "n_mtl_better": 53,
+          "n_baseline_better": 72,
+          "n_tie": 0,
+          "p_holm_reject": false
+        },
+        {
+          "region": "TC",
+          "mtl_mean": 0.9165149184263991,
+          "baseline_mean": 0.9197724786128191,
+          "median_delta": 0.00015052361758560728,
+          "hodges_lehmann": 2.9293234181992922e-05,
+          "wilcoxon_stat": 3899.0,
+          "p_value": 0.9244249719419475,
+          "n_mtl_better": 66,
+          "n_baseline_better": 59,
+          "n_tie": 0,
+          "p_holm_reject": false
+        },
+        {
+          "region": "ET",
+          "mtl_mean": 0.8528914314283352,
+          "baseline_mean": 0.8549832623837934,
+          "median_delta": -0.0005968824578715948,
+          "hodges_lehmann": -0.0011771768926340798,
+          "wilcoxon_stat": 2865.0,
+          "p_value": 0.016721436434902374,
+          "n_mtl_better": 51,
+          "n_baseline_better": 72,
+          "n_tie": 2,
+          "p_holm_reject": false
+        }
+      ]
+    },
+    {
+      "architecture": "nnU-Net MTL v2 (global) vs v1 (per-patch)",
+      "n_cases": 125,
+      "regions": [
+        {
+          "region": "WT",
+          "mtl_mean": 0.9367443022880321,
+          "baseline_mean": 0.9351610717179046,
+          "median_delta": 0.0005384118339873956,
+          "hodges_lehmann": 0.0008524521353947545,
+          "wilcoxon_stat": 3074.0,
+          "p_value": 0.0333699202237921,
+          "n_mtl_better": 72,
+          "n_baseline_better": 53,
+          "n_tie": 0,
+          "p_holm_reject": false
+        },
+        {
+          "region": "TC",
+          "mtl_mean": 0.9165149184263991,
+          "baseline_mean": 0.9177617972619768,
+          "median_delta": 0.0007436024923022089,
+          "hodges_lehmann": 0.0006797436949579905,
+          "wilcoxon_stat": 3278.0,
+          "p_value": 0.1041705989435472,
+          "n_mtl_better": 77,
+          "n_baseline_better": 48,
+          "n_tie": 0,
+          "p_holm_reject": false
+        },
+        {
+          "region": "ET",
+          "mtl_mean": 0.8528914314283352,
+          "baseline_mean": 0.8538451295322115,
+          "median_delta": 2.249872130943853e-05,
+          "hodges_lehmann": -8.304718938495246e-05,
+          "wilcoxon_stat": 3751.0,
+          "p_value": 0.8756471290406892,
+          "n_mtl_better": 63,
+          "n_baseline_better": 60,
+          "n_tie": 2,
+          "p_holm_reject": false
+        }
+      ]
+    },
+    {
+      "architecture": "UNETR MTL v1 (per-patch) vs baseline",
       "n_cases": 125,
       "regions": [
         {

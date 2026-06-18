@@ -1,0 +1,76 @@
+{
+  "experiment": "abl_nnunet_disabled",
+  "n_cases": 125,
+  "hd95_convention": "NaN (excluded) when region absent in pred or GT; mm == voxel (1mm isotropic)",
+  "per_fold": [
+    {
+      "fold": 0,
+      "mean_hd95_wt": 5.510594725608826,
+      "std_hd95_wt": 7.156840545532048,
+      "n_hd95_wt": 125,
+      "mean_hd95_tc": 4.34965050983429,
+      "std_hd95_tc": 6.2826861144632495,
+      "n_hd95_tc": 125,
+      "mean_hd95_et": 3.765978844185186,
+      "std_hd95_et": 6.722542869704739,
+      "n_hd95_et": 123
+    },
+    {
+      "fold": 1,
+      "mean_hd95_wt": 5.321467251777649,
+      "std_hd95_wt": 7.10081526488939,
+      "n_hd95_wt": 125,
+      "mean_hd95_tc": 4.86467656993866,
+      "std_hd95_tc": 7.73484515903753,
+      "n_hd95_tc": 125,
+      "mean_hd95_et": 3.9915954165342376,
+      "std_hd95_et": 7.1046590016139355,
+      "n_hd95_et": 123
+    },
+    {
+      "fold": 2,
+      "mean_hd95_wt": 5.6949972810745235,
+      "std_hd95_wt": 7.752068000282252,
+      "n_hd95_wt": 125,
+      "mean_hd95_tc": 5.05717909526825,
+      "std_hd95_tc": 8.04279409851454,
+      "n_hd95_tc": 125,
+      "mean_hd95_et": 3.9130746780848895,
+      "std_hd95_et": 6.937817291122023,
+      "n_hd95_et": 122
+    }
+  ],
+  "per_fold_hd95_mean_over_folds": {
+    "hd95_wt": {
+      "mean": 5.509019752820333,
+      "std": 0.15249706248776163
+    },
+    "hd95_tc": {
+      "mean": 4.757168725013734,
+      "std": 0.2986833633820791
+    },
+    "hd95_et": {
+      "mean": 3.8902163129347707,
+      "std": 0.09351501866059035
+    }
+  },
+  "ensemble": {
+    "mean_dice_wt": 0.9344223267012821,
+    "mean_hd95_wt": 5.2383852243423465,
+    "std_hd95_wt": 7.266608594244904,
+    "n_hd95_wt": 125,
+    "mean_dice_tc": 0.9170328221663964,
+    "mean_hd95_tc": 4.142337478637695,
+    "std_hd95_tc": 5.931475579257612,
+    "n_hd95_tc": 125,
+    "mean_dice_et": 0.8625259154695084,
+    "mean_hd95_et": 3.714887052047543,
+    "std_hd95_et": 6.706143913913871,
+    "n_hd95_et": 123
+  },
+  "sanity_dice_vs_stored": {
+    "dice_wt_diff": 0.0,
+    "dice_tc_diff": 0.0,
+    "dice_et_diff": 0.0
+  }
+}

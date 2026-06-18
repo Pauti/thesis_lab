@@ -1,0 +1,33 @@
+{
+    "experiment_id": "exp07_unetr_mtl_global",
+    "research_question": "RQ3 - Multi-Task Learning (ET-volume ordinal classification)",
+    "timestamp_start": "2026-06-16T08:07:07+00:00",
+    "config": {
+        "model": "unetr",
+        "model_description": "UNETR (ViT-B/16 + CNN decoder) + aux ET-volume ordinal head (CORAL)",
+        "aux_task": "ET-volume ordinal classification (3 tertiles, CORAL)",
+        "lambda_seg": 1.0,
+        "lambda_aux": 0.3,
+        "num_epochs": 100,
+        "folds": [
+            0,
+            1,
+            2
+        ],
+        "splits_file": "/data/paul_daten/nnunet/nnUNet_preprocessed/Dataset001_BraTS/splits_ablation.json",
+        "baseline_comparison": "abl_unetr_default (ABL-07)",
+        "test_cases": 125,
+        "debug": false
+    },
+    "hardware": {
+        "gpu": "NVIDIA GeForce RTX 4080",
+        "vram_gb": "16376",
+        "hostname": "ca-crs-mth-dat24-02",
+        "torch_version": "2.10.0+cu128"
+    },
+    "paths": {
+        "experiment_dir": "/home/paul/repositories/thesis_lab/experiments/exp07_unetr_mtl_global",
+        "checkpoints_dir": "/data/paul_daten/experiments/exp07_unetr_mtl_global",
+        "splits_file": "/data/paul_daten/nnunet/nnUNet_preprocessed/Dataset001_BraTS/splits_ablation.json"
+    }
+}

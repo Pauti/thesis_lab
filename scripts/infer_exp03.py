@@ -15,6 +15,7 @@ Usage:
 """
 
 import argparse
+import json
 import sys
 import time
 from pathlib import Path
@@ -30,6 +31,7 @@ from monai.inferers import sliding_window_inference
 
 from models.unetr import get_unetr_model
 from utils.dataloader import get_dataloader, get_val_dataset
+from utils.hd95 import REGIONS, score_case, summarise
 
 # ---------- paths ----------
 REPO = Path(__file__).resolve().parent.parent
@@ -95,7 +97,8 @@ def infer_fold(fold: int, model, device: torch.device, sw_cfg: dict) -> pd.DataF
             pred = torch.argmax(logits, dim=1).squeeze(0).cpu().numpy().astype(np.int32)
             gt = lbls.squeeze().cpu().numpy().astype(np.int32)
 
-            scores = compute_brats_regions(pred, gt)
+            # score_case yields Dice + HD95 per region (shared utils/hd95 code path)
+            scores = score_case(pred, gt)
             scores["case_id"] = case_id
             scores["infer_time_s"] = round(elapsed, 2)
             results.append(scores)
@@ -161,17 +164,29 @@ def run_inference(folds: list[int], device: torch.device):
         print("ERROR: no folds processed.")
         return
 
-    # Aggregate across all folds
+    # Aggregate across all folds (Dice + HD95 in one CSV)
     df_all = pd.concat(all_fold_dfs.values(), ignore_index=True)
     df_all.to_csv(OUT_DIR / "all_folds_brats_dice_nifti.csv", index=False)
 
+    # HD95 summary (NaN-aware, shared utils/hd95 convention) — RQ1 CV protocol
+    hd95_summary = {
+        "experiment": "exp03_unetr",
+        "eval_protocol": "5fold_cv",
+        "n_cases": len(df_all),
+        "hd95_convention": "NaN (excluded) when region absent in pred or GT; mm == voxel (1mm isotropic)",
+        "overall": summarise(df_all),
+    }
+    with open(OUT_DIR / "summary_hd95.json", "w") as f:
+        json.dump(hd95_summary, f, indent=2)
+
     print(f"\n{'='*60}")
-    print("AGGREGATE ACROSS ALL FOLDS (volumetric NIfTI Dice)")
+    print("AGGREGATE ACROSS ALL FOLDS (volumetric NIfTI Dice + HD95)")
     print(f"{'='*60}")
-    for region in ["dice_wt", "dice_tc", "dice_et"]:
-        vals = df_all[region].values
-        print(f"  {region.upper():10s}: {vals.mean():.4f} ± {vals.std():.4f}  "
-              f"(median={np.median(vals):.4f})")
+    s = hd95_summary["overall"]
+    for region in REGIONS:
+        rl = region.lower()
+        print(f"  {region:3s}: Dice={s[f'mean_dice_{rl}']:.4f}  "
+              f"HD95={s[f'mean_hd95_{rl}']:.2f} mm (n={s[f'n_hd95_{rl}']})")
 
     print("\nPer-fold mean Dice (CV summary):")
     for fold, df in sorted(all_fold_dfs.items()):

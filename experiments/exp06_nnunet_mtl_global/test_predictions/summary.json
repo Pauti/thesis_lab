@@ -1,0 +1,41 @@
+{
+  "experiment_id": "exp06_nnunet_mtl_global",
+  "model": "nnunet",
+  "trainer": "nnUNetTrainer_MTL_RawImages",
+  "aux_task": "ET-volume tertile, per-case global (CORAL)",
+  "baseline_comparison": "abl_nnunet_default (ABL-03); MTL v1 = exp04_nnunet_mtl",
+  "test_cases": 125,
+  "folds": [
+    0,
+    1,
+    2
+  ],
+  "per_fold_results": [
+    {
+      "fold": 0,
+      "mean_wt_dice": 0.9347465635801514,
+      "mean_tc_dice": 0.9141655494985387,
+      "mean_et_dice": 0.8538161930591517
+    },
+    {
+      "fold": 1,
+      "mean_wt_dice": 0.9340569472844001,
+      "mean_tc_dice": 0.9102412142245331,
+      "mean_et_dice": 0.8476987043355664
+    },
+    {
+      "fold": 2,
+      "mean_wt_dice": 0.9346277865090412,
+      "mean_tc_dice": 0.9129122407824238,
+      "mean_et_dice": 0.8475961719731328
+    }
+  ],
+  "ensemble_results": {
+    "mean_wt_dice": 0.9367443022880322,
+    "std_wt_dice": 0.05209377819576806,
+    "mean_tc_dice": 0.9165149184263991,
+    "std_tc_dice": 0.10385274065018331,
+    "mean_et_dice": 0.8528914314283352,
+    "std_et_dice": 0.18910631926363755
+  }
+}

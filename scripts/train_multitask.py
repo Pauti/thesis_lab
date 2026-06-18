@@ -139,6 +139,17 @@ def train(args):
     t1, t2 = compute_fold_thresholds(args.fold, splits_file, et_json, num_classes=K)
     logger.info(f"Fold {args.fold} ET-volume thresholds (train-only): t1={t1:.0f}  t2={t2:.0f}")
 
+    # EXP-07 global variant: per-case whole-volume ET tertile (stable label per case),
+    # looked up by case id instead of recomputed per patch. Same pre-computed labels
+    # as EXP-06 (scripts/precompute_et_tertiles.py).
+    et_tertiles = None
+    if args.aux_target == "global":
+        tert_path = Path(__file__).resolve().parent.parent / "experiments" / "et_tertiles_ablation.json"
+        et_tertiles = json.loads(tert_path.read_text())[str(args.fold)]["labels"]
+        logger.info(f"Aux target = GLOBAL per-case ET tertile ({len(et_tertiles)} cases) from {tert_path.name}")
+    else:
+        logger.info("Aux target = PATCH ET count (EXP-05 behaviour)")
+
     effective_cfg = dict(cfg)
     effective_cfg["_runtime"] = {
         "fold": args.fold, "num_epochs": num_epochs, "output_dir": str(output_dir),
@@ -208,9 +219,17 @@ def train(args):
             imgs = batch["image"].to(device)    # (B, 4, H, W, D)
             lbls = batch["label"].to(device)    # (B, 1, H, W, D), int64
 
-            # Auxiliary target: ET voxels in THIS crop -> ordinal bin
-            et_counts = patch_et_counts(lbls)               # (B,)
-            ord_labels = et_count_to_bin(et_counts, t1, t2)  # (B,) in {0..K-1}
+            # Auxiliary ordinal target
+            if et_tertiles is None:
+                # EXP-05: ET voxels in THIS crop -> ordinal bin
+                et_counts = patch_et_counts(lbls)               # (B,)
+                ord_labels = et_count_to_bin(et_counts, t1, t2)  # (B,) in {0..K-1}
+            else:
+                # EXP-07: per-case whole-volume ET tertile, looked up by case id
+                ord_labels = torch.tensor(
+                    [et_tertiles[cid] for cid in batch["case_id"]],
+                    device=device, dtype=torch.long,
+                )
             levels = label_to_levels(ord_labels, K)          # (B, K-1)
 
             with autocast(enabled=tr["mixed_precision"]):
@@ -342,6 +361,10 @@ def parse_args():
     p.add_argument("--checkpoint_dir", default=None)
     p.add_argument("--splits_file", default=None,
                    help="Defaults to data.splits_file in the config (splits_ablation.json).")
+    p.add_argument("--aux_target", choices=["patch", "global"], default="patch",
+                   help="Auxiliary ordinal target source. 'patch' (EXP-05): ET count of "
+                        "the current crop. 'global' (EXP-07): per-case whole-volume ET "
+                        "tertile, looked up by case id (non-redundant, matches EXP-06).")
     return p.parse_args()
 
 

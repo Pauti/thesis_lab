@@ -30,15 +30,28 @@ from scipy.stats import wilcoxon
 
 REPO = Path(__file__).resolve().parent.parent
 
-# (label, mtl ensemble csv, baseline ensemble csv)
+# (label, "treatment" ensemble csv, "reference" ensemble csv)
+# Positive delta = treatment better than reference. For MTL-vs-baseline rows the
+# reference is the single-task default-aug baseline; for the v2-vs-v1 row the
+# reference is the per-patch MTL (EXP-04), so positive = global target better.
 COMPARISONS = [
     (
-        "nnU-Net",
+        "nnU-Net MTL v1 (per-patch) vs baseline",
         REPO / "experiments/exp04_nnunet_mtl/test_predictions/ensemble_results.csv",
         REPO / "experiments/ablation/abl_nnunet_default/test_predictions/ensemble_results.csv",
     ),
     (
-        "UNETR",
+        "nnU-Net MTL v2 (global) vs baseline",
+        REPO / "experiments/exp06_nnunet_mtl_global/test_predictions/ensemble_results.csv",
+        REPO / "experiments/ablation/abl_nnunet_default/test_predictions/ensemble_results.csv",
+    ),
+    (
+        "nnU-Net MTL v2 (global) vs v1 (per-patch)",
+        REPO / "experiments/exp06_nnunet_mtl_global/test_predictions/ensemble_results.csv",
+        REPO / "experiments/exp04_nnunet_mtl/test_predictions/ensemble_results.csv",
+    ),
+    (
+        "UNETR MTL v1 (per-patch) vs baseline",
         REPO / "experiments/exp05_unetr_mtl/test_predictions/ensemble_results.csv",
         REPO / "experiments/ablation/abl_unetr_default/test_predictions/ensemble_results.csv",
     ),

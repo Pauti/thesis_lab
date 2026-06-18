@@ -11,7 +11,10 @@
 #   bash scripts/run_multitask.sh --model unetr --fold 1
 #   bash scripts/run_multitask.sh --model unetr --folds 0,2
 #   bash scripts/run_multitask.sh --model unetr --debug          # 2 epochs, fold 0
-#   bash scripts/run_multitask.sh --model nnunet                 # EXP-04 (not yet implemented)
+#   bash scripts/run_multitask.sh --model nnunet                 # EXP-04 (v1, per-patch)
+#   bash scripts/run_multitask.sh --model nnunet --variant v2    # EXP-06 (per-case global)
+#   bash scripts/run_multitask.sh --model nnunet --variant v3    # EXP-08 (global + FiLM + learned weighting)
+#   bash scripts/run_multitask.sh --model nnunet --variant v3 --debug   # 2-epoch sanity run
 #
 # Comparison baselines: ABL-07 (abl_unetr_default) / ABL-03 (abl_nnunet_default)
 # — same splits, same protocol, seg-only. Only the auxiliary head differs.
@@ -32,9 +35,11 @@ MODEL=""
 SPLITS_FILE="/data/paul_daten/nnunet/nnUNet_preprocessed/Dataset001_BraTS/splits_ablation.json"
 
 # ── Parse CLI arguments ───────────────────────────────────────────────────────
+VARIANT="v1"   # nnU-Net only: v1=EXP-04 (per-patch ET), v2=EXP-06 (per-case global ET)
 while [[ $# -gt 0 ]]; do
     case "$1" in
         --model)      MODEL="$2"; shift 2 ;;
+        --variant)    VARIANT="$2"; shift 2 ;;
         --fold)       FOLDS=("$2"); shift 2 ;;
         --folds)      IFS=',' read -ra FOLDS <<< "$2"; shift 2 ;;
         --num_epochs) NUM_EPOCHS="$2"; shift 2 ;;
@@ -45,12 +50,21 @@ done
 
 # Validate required args
 if [[ -z "$MODEL" ]]; then
-    echo "Usage: $0 --model {unetr|nnunet} [--folds 0,1,2] [--num_epochs N] [--debug]"
+    echo "Usage: $0 --model {unetr|nnunet} [--variant {v1|v2|v3}] [--folds 0,1,2] [--num_epochs N] [--debug]"
+    echo "       (--variant v3 = EXP-08, nnU-Net only: global target + FiLM + learned weighting)"
     exit 1
 fi
 if [[ "$MODEL" != "nnunet" && "$MODEL" != "unetr" ]]; then
     echo "ERROR: --model must be 'unetr' or 'nnunet', got '$MODEL'"; exit 1
 fi
+if [[ "$VARIANT" != "v1" && "$VARIANT" != "v2" && "$VARIANT" != "v3" ]]; then
+    echo "ERROR: --variant must be 'v1', 'v2' or 'v3', got '$VARIANT'"; exit 1
+fi
+if [[ "$VARIANT" == "v3" && "$MODEL" != "nnunet" ]]; then
+    echo "ERROR: --variant v3 (EXP-08) is implemented for nnU-Net only"; exit 1
+fi
+# v1 = per-patch ET target (EXP-04/05); v2 = per-case global ET tertile (EXP-06/07);
+# v3 = v2 target + FiLM feature fusion + learned (uncertainty) loss weighting (EXP-08)
 
 # ── nnU-Net branch: not yet implemented (intentional guard) ──────────────────
 # ── Activate environment ──────────────────────────────────────────────────────
@@ -66,13 +80,31 @@ cd "$REPO_ROOT"
 # nnU-Net multi-task specifics (trainer subclass added in models/nnunet_trainers.py)
 DATASET_ID="001"
 NNUNET_CONFIG="3d_fullres"
-MTL_TRAINER="nnUNetTrainer_MTL"
+case "$VARIANT" in
+    v3) MTL_TRAINER="nnUNetTrainer_MTL_v3" ;;
+    v2) MTL_TRAINER="nnUNetTrainer_MTL_RawImages" ;;
+    *)  MTL_TRAINER="nnUNetTrainer_MTL" ;;
+esac
+
+# v2 (EXP-06/07) and v3 (EXP-08) need per-case ET tertile labels; generate once if missing.
+if [[ ( "$VARIANT" == "v2" || "$VARIANT" == "v3" ) && ! -f "${REPO_ROOT}/experiments/et_tertiles_ablation.json" ]]; then
+    echo "Pre-computing per-case ET tertiles for ${VARIANT}..."
+    python "${SCRIPT_DIR}/precompute_et_tertiles.py"
+fi
 
 # ── Directories ───────────────────────────────────────────────────────────────
 if [[ "$MODEL" == "nnunet" ]]; then
-    EXP_ID="exp04_nnunet_mtl"
+    case "$VARIANT" in
+        v3) EXP_ID="exp08_nnunet_mtl_v3" ;;
+        v2) EXP_ID="exp06_nnunet_mtl_global" ;;
+        *)  EXP_ID="exp04_nnunet_mtl" ;;
+    esac
 else
-    EXP_ID="exp05_unetr_mtl"
+    if [[ "$VARIANT" == "v2" ]]; then
+        EXP_ID="exp07_unetr_mtl_global"
+    else
+        EXP_ID="exp05_unetr_mtl"
+    fi
 fi
 CONFIG="${REPO_ROOT}/configs/exp05_unetr_mtl.yaml"
 # Logs + metrics go to repo (lightweight, git-trackable)
@@ -89,6 +121,15 @@ if [[ "$MODEL" == "nnunet" ]]; then
 else
     MODEL_DESC="UNETR (ViT-B/16 + CNN decoder) + aux ET-volume ordinal head (CORAL)"
 fi
+# v3 (EXP-08) adds two mechanisms on top of the v2 global target; lambda_aux is
+# no longer a fixed scalar but learned via homoscedastic uncertainty weighting.
+LAMBDA_AUX_JSON="0.3"
+AUX_BANNER="ET-volume ordinal classification (CORAL, λ_aux=0.3)"
+if [[ "$VARIANT" == "v3" ]]; then
+    MODEL_DESC="${MODEL_DESC} + FiLM feature fusion + learned loss weighting (Kendall 2018)"
+    LAMBDA_AUX_JSON='"learned (uncertainty weighting)"'
+    AUX_BANNER="ET-volume ordinal (CORAL) + FiLM fusion + learned loss weighting"
+fi
 
 python3 -c "
 import json, torch
@@ -102,7 +143,7 @@ meta = {
         'model_description': '${MODEL_DESC}',
         'aux_task': 'ET-volume ordinal classification (3 tertiles, CORAL)',
         'lambda_seg': 1.0,
-        'lambda_aux': 0.3,
+        'lambda_aux': ${LAMBDA_AUX_JSON},
         'num_epochs': ${NUM_EPOCHS},
         'folds': [$(echo "${FOLDS[*]}" | tr ' ' ',')],
         'splits_file': '${SPLITS_FILE}',
@@ -131,7 +172,7 @@ print('Metadata saved.')
 echo ""
 echo "═══════════════════════════════════════════════════════════════"
 echo "  RQ3 Multi-Task: ${MODEL}  (${EXP_ID})"
-echo "  Aux    : ET-volume ordinal classification (CORAL, λ_aux=0.3)"
+echo "  Aux    : ${AUX_BANNER}"
 echo "  Folds  : ${FOLDS[*]}"
 echo "  Epochs : ${NUM_EPOCHS}"
 echo "  Splits : ${SPLITS_FILE}"
@@ -188,6 +229,7 @@ for FOLD in "${FOLDS[@]}"; do
             2>&1 | tee "${OUT_DIR}/training_stdout.log"
         FOLD_EXIT=${PIPESTATUS[0]}
     else
+        AUX_TARGET="patch"; [[ "$VARIANT" == "v2" ]] && AUX_TARGET="global"
         python scripts/train_multitask.py \
             --config "${CONFIG}" \
             --fold "${FOLD}" \
@@ -195,6 +237,7 @@ for FOLD in "${FOLDS[@]}"; do
             --output_dir "${OUT_DIR}" \
             --checkpoint_dir "${CKPT_DIR}" \
             --splits_file "${SPLITS_FILE}" \
+            --aux_target "${AUX_TARGET}" \
             2>&1 | tee "${OUT_DIR}/training_stdout.log"
         FOLD_EXIT=${PIPESTATUS[0]}
     fi
