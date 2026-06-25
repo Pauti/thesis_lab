@@ -140,6 +140,96 @@
       ]
     },
     {
+      "architecture": "nnU-Net MTL v3 (FiLM + uncertainty) vs baseline",
+      "n_cases": 125,
+      "regions": [
+        {
+          "region": "WT",
+          "mtl_mean": 0.9345591674242202,
+          "baseline_mean": 0.9366466851065444,
+          "median_delta": -0.00040690615095217986,
+          "hodges_lehmann": -0.0006789060982994588,
+          "wilcoxon_stat": 3183.0,
+          "p_value": 0.06302208111613816,
+          "n_mtl_better": 52,
+          "n_baseline_better": 73,
+          "n_tie": 0,
+          "p_holm_reject": false
+        },
+        {
+          "region": "TC",
+          "mtl_mean": 0.9234401599429709,
+          "baseline_mean": 0.9197724786128191,
+          "median_delta": 0.00022519348843541565,
+          "hodges_lehmann": 0.0001474666236773725,
+          "wilcoxon_stat": 3744.0,
+          "p_value": 0.6335254960722476,
+          "n_mtl_better": 68,
+          "n_baseline_better": 57,
+          "n_tie": 0,
+          "p_holm_reject": false
+        },
+        {
+          "region": "ET",
+          "mtl_mean": 0.8573897208195475,
+          "baseline_mean": 0.8549832623837934,
+          "median_delta": 0.00013524582004054153,
+          "hodges_lehmann": 0.00016167787182280735,
+          "wilcoxon_stat": 3628.0,
+          "p_value": 0.640539424833632,
+          "n_mtl_better": 65,
+          "n_baseline_better": 58,
+          "n_tie": 2,
+          "p_holm_reject": false
+        }
+      ]
+    },
+    {
+      "architecture": "nnU-Net MTL v3 (FiLM + uncertainty) vs v2 (global)",
+      "n_cases": 125,
+      "regions": [
+        {
+          "region": "WT",
+          "mtl_mean": 0.9345591674242202,
+          "baseline_mean": 0.9367443022880321,
+          "median_delta": -0.0003228257116671962,
+          "hodges_lehmann": -0.0003370092776239231,
+          "wilcoxon_stat": 3513.0,
+          "p_value": 0.2955893982579494,
+          "n_mtl_better": 57,
+          "n_baseline_better": 68,
+          "n_tie": 0,
+          "p_holm_reject": false
+        },
+        {
+          "region": "TC",
+          "mtl_mean": 0.9234401599429709,
+          "baseline_mean": 0.9165149184263991,
+          "median_delta": -6.474498341435542e-05,
+          "hodges_lehmann": 0.0007130177864819731,
+          "wilcoxon_stat": 3336.0,
+          "p_value": 0.13832585008390044,
+          "n_mtl_better": 62,
+          "n_baseline_better": 63,
+          "n_tie": 0,
+          "p_holm_reject": false
+        },
+        {
+          "region": "ET",
+          "mtl_mean": 0.8573897208195475,
+          "baseline_mean": 0.8528914314283352,
+          "median_delta": 0.0004220374658497894,
+          "hodges_lehmann": 0.0013007860603043153,
+          "wilcoxon_stat": 2860.0,
+          "p_value": 0.016154934230011436,
+          "n_mtl_better": 72,
+          "n_baseline_better": 51,
+          "n_tie": 2,
+          "p_holm_reject": true
+        }
+      ]
+    },
+    {
       "architecture": "UNETR MTL v1 (per-patch) vs baseline",
       "n_cases": 125,
       "regions": [
@@ -177,6 +267,51 @@
           "hodges_lehmann": -0.0020573084264164376,
           "wilcoxon_stat": 2739.0,
           "p_value": 0.006712040340669996,
+          "n_mtl_better": 48,
+          "n_baseline_better": 75,
+          "n_tie": 2,
+          "p_holm_reject": true
+        }
+      ]
+    },
+    {
+      "architecture": "UNETR MTL v2 (global) vs baseline",
+      "n_cases": 125,
+      "regions": [
+        {
+          "region": "WT",
+          "mtl_mean": 0.9234900608318316,
+          "baseline_mean": 0.9267311259875495,
+          "median_delta": -0.0016602540872604488,
+          "hodges_lehmann": -0.0025945205473854593,
+          "wilcoxon_stat": 2304.0,
+          "p_value": 5.7016312785888794e-05,
+          "n_mtl_better": 38,
+          "n_baseline_better": 87,
+          "n_tie": 0,
+          "p_holm_reject": true
+        },
+        {
+          "region": "TC",
+          "mtl_mean": 0.8800859389975341,
+          "baseline_mean": 0.888558500234661,
+          "median_delta": -0.0018992233876260478,
+          "hodges_lehmann": -0.0030812828747362464,
+          "wilcoxon_stat": 2424.0,
+          "p_value": 0.00019211986588674667,
+          "n_mtl_better": 42,
+          "n_baseline_better": 83,
+          "n_tie": 0,
+          "p_holm_reject": true
+        },
+        {
+          "region": "ET",
+          "mtl_mean": 0.8230389789566571,
+          "baseline_mean": 0.826817481381401,
+          "median_delta": -0.0012089896566053193,
+          "hodges_lehmann": -0.0019310718104894598,
+          "wilcoxon_stat": 2796.0,
+          "p_value": 0.010260214545693366,
           "n_mtl_better": 48,
           "n_baseline_better": 75,
           "n_tie": 2,

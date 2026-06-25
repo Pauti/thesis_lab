@@ -1,0 +1,41 @@
+{
+  "experiment_id": "exp08_nnunet_mtl_v3",
+  "model": "nnunet",
+  "trainer": "nnUNetTrainer_MTL_v3",
+  "aux_task": "ET-volume tertile per-case global (CORAL) + FiLM fusion + learned (uncertainty) loss weighting",
+  "baseline_comparison": "abl_nnunet_default (ABL-03); v1=exp04_nnunet_mtl, v2=exp06_nnunet_mtl_global",
+  "test_cases": 125,
+  "folds": [
+    0,
+    1,
+    2
+  ],
+  "per_fold_results": [
+    {
+      "fold": 0,
+      "mean_wt_dice": 0.9325339965264429,
+      "mean_tc_dice": 0.9187588839790246,
+      "mean_et_dice": 0.8556847794736769
+    },
+    {
+      "fold": 1,
+      "mean_wt_dice": 0.9325735692688997,
+      "mean_tc_dice": 0.9224805877191353,
+      "mean_et_dice": 0.8554058418779223
+    },
+    {
+      "fold": 2,
+      "mean_wt_dice": 0.9345444512408534,
+      "mean_tc_dice": 0.9179589438531487,
+      "mean_et_dice": 0.8509735237162108
+    }
+  ],
+  "ensemble_results": {
+    "mean_wt_dice": 0.9345591674242201,
+    "std_wt_dice": 0.06132558568825172,
+    "mean_tc_dice": 0.923440159942971,
+    "std_tc_dice": 0.08641594727478696,
+    "mean_et_dice": 0.8573897208195475,
+    "std_et_dice": 0.18761008446256502
+  }
+}

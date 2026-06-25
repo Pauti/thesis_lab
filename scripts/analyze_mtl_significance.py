@@ -51,8 +51,23 @@ COMPARISONS = [
         REPO / "experiments/exp04_nnunet_mtl/test_predictions/ensemble_results.csv",
     ),
     (
+        "nnU-Net MTL v3 (FiLM + uncertainty) vs baseline",
+        REPO / "experiments/exp08_nnunet_mtl_v3/test_predictions/ensemble_results.csv",
+        REPO / "experiments/ablation/abl_nnunet_default/test_predictions/ensemble_results.csv",
+    ),
+    (
+        "nnU-Net MTL v3 (FiLM + uncertainty) vs v2 (global)",
+        REPO / "experiments/exp08_nnunet_mtl_v3/test_predictions/ensemble_results.csv",
+        REPO / "experiments/exp06_nnunet_mtl_global/test_predictions/ensemble_results.csv",
+    ),
+    (
         "UNETR MTL v1 (per-patch) vs baseline",
         REPO / "experiments/exp05_unetr_mtl/test_predictions/ensemble_results.csv",
+        REPO / "experiments/ablation/abl_unetr_default/test_predictions/ensemble_results.csv",
+    ),
+    (
+        "UNETR MTL v2 (global) vs baseline",
+        REPO / "experiments/exp07_unetr_mtl_global/test_predictions/ensemble_results.csv",
         REPO / "experiments/ablation/abl_unetr_default/test_predictions/ensemble_results.csv",
     ),
 ]
