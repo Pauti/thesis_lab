@@ -50,6 +50,58 @@
       ]
     }
   ],
+  "rq1_hd95": [
+    {
+      "comparison": "RQ1  UNETR vs nnU-Net  HD95  (5-fold CV)",
+      "n_cases": 1251,
+      "metric": "hd95",
+      "delta_sign": "positive = UNETR has larger (worse) HD95 than nnU-Net",
+      "regions": [
+        {
+          "region": "WT",
+          "a_mean": 8.053475385761262,
+          "b_mean": 4.775536156463623,
+          "median_delta": 0.1276469230651851,
+          "hodges_lehmann": 0.41421353816986084,
+          "wilcoxon_stat": 108539.5,
+          "p_value": 3.60674231093128e-36,
+          "n_pairs": 1250,
+          "n_a_worse": 640,
+          "n_b_worse": 273,
+          "n_tie": 337,
+          "p_holm_reject": true
+        },
+        {
+          "region": "TC",
+          "a_mean": 5.88179252968617,
+          "b_mean": 3.46044258407691,
+          "median_delta": 0.2360680103302002,
+          "hodges_lehmann": 0.4281895160675049,
+          "wilcoxon_stat": 74108.5,
+          "p_value": 1.7296624594392017e-50,
+          "n_pairs": 1243,
+          "n_a_worse": 641,
+          "n_b_worse": 210,
+          "n_tie": 392,
+          "p_holm_reject": true
+        },
+        {
+          "region": "ET",
+          "a_mean": 4.860236535453325,
+          "b_mean": 2.994676695624136,
+          "median_delta": 0.0,
+          "hodges_lehmann": 0.20710676908493042,
+          "wilcoxon_stat": 44124.5,
+          "p_value": 3.0001020680892632e-36,
+          "n_pairs": 1214,
+          "n_a_worse": 479,
+          "n_b_worse": 163,
+          "n_tie": 572,
+          "p_holm_reject": true
+        }
+      ]
+    }
+  ],
   "rq2": [
     {
       "comparison": "RQ2  nnunet: disabled vs default",
@@ -324,6 +376,308 @@
           "n_b_better": 80,
           "n_tie": 2,
           "p_holm_reject": true
+        }
+      ]
+    }
+  ],
+  "rq2_hd95": [
+    {
+      "comparison": "RQ2  nnunet: disabled vs default  (HD95)",
+      "n_cases": 125,
+      "metric": "hd95",
+      "delta_sign": "positive = disabled has larger (worse) HD95 than default",
+      "regions": [
+        {
+          "region": "WT",
+          "a_mean": 5.2383852243423465,
+          "b_mean": 5.0125662651062015,
+          "median_delta": 0.0,
+          "hodges_lehmann": 0.053900301456451416,
+          "wilcoxon_stat": 1123.0,
+          "p_value": 0.054613831766581175,
+          "n_pairs": 125,
+          "n_a_worse": 46,
+          "n_b_worse": 31,
+          "n_tie": 48,
+          "p_holm_reject": false
+        },
+        {
+          "region": "TC",
+          "a_mean": 4.142337478637695,
+          "b_mean": 4.3388338451385495,
+          "median_delta": 0.0,
+          "hodges_lehmann": 0.0,
+          "wilcoxon_stat": 750.5,
+          "p_value": 0.5459385482777726,
+          "n_pairs": 125,
+          "n_a_worse": 29,
+          "n_b_worse": 28,
+          "n_tie": 68,
+          "p_holm_reject": false
+        },
+        {
+          "region": "ET",
+          "a_mean": 3.714887052047543,
+          "b_mean": 3.9057223438247433,
+          "median_delta": 0.0,
+          "hodges_lehmann": 0.0,
+          "wilcoxon_stat": 508.0,
+          "p_value": 0.29854595861516464,
+          "n_pairs": 123,
+          "n_a_worse": 29,
+          "n_b_worse": 20,
+          "n_tie": 74,
+          "p_holm_reject": false
+        }
+      ]
+    },
+    {
+      "comparison": "RQ2  nnunet: reduced vs default  (HD95)",
+      "n_cases": 125,
+      "metric": "hd95",
+      "delta_sign": "positive = reduced has larger (worse) HD95 than default",
+      "regions": [
+        {
+          "region": "WT",
+          "a_mean": 4.823133442878723,
+          "b_mean": 5.0125662651062015,
+          "median_delta": 0.0,
+          "hodges_lehmann": 0.0,
+          "wilcoxon_stat": 1045.5,
+          "p_value": 0.8599379458162169,
+          "n_pairs": 125,
+          "n_a_worse": 36,
+          "n_b_worse": 29,
+          "n_tie": 60,
+          "p_holm_reject": false
+        },
+        {
+          "region": "TC",
+          "a_mean": 4.5856405448913575,
+          "b_mean": 4.3388338451385495,
+          "median_delta": 0.0,
+          "hodges_lehmann": 0.0,
+          "wilcoxon_stat": 627.0,
+          "p_value": 0.7357033631742103,
+          "n_pairs": 125,
+          "n_a_worse": 26,
+          "n_b_worse": 25,
+          "n_tie": 74,
+          "p_holm_reject": false
+        },
+        {
+          "region": "ET",
+          "a_mean": 4.090299144023803,
+          "b_mean": 3.9057223438247433,
+          "median_delta": 0.0,
+          "hodges_lehmann": 0.0,
+          "wilcoxon_stat": 431.0,
+          "p_value": 0.23154056833855696,
+          "n_pairs": 123,
+          "n_a_worse": 28,
+          "n_b_worse": 18,
+          "n_tie": 77,
+          "p_holm_reject": false
+        }
+      ]
+    },
+    {
+      "comparison": "RQ2  nnunet: extended vs default  (HD95)",
+      "n_cases": 125,
+      "metric": "hd95",
+      "delta_sign": "positive = extended has larger (worse) HD95 than default",
+      "regions": [
+        {
+          "region": "WT",
+          "a_mean": 5.189281964302063,
+          "b_mean": 5.0125662651062015,
+          "median_delta": 0.0,
+          "hodges_lehmann": 0.0,
+          "wilcoxon_stat": 735.0,
+          "p_value": 0.06161175477364145,
+          "n_pairs": 125,
+          "n_a_worse": 39,
+          "n_b_worse": 24,
+          "n_tie": 62,
+          "p_holm_reject": false
+        },
+        {
+          "region": "TC",
+          "a_mean": 4.144537343025208,
+          "b_mean": 4.3388338451385495,
+          "median_delta": 0.0,
+          "hodges_lehmann": 0.0,
+          "wilcoxon_stat": 694.5,
+          "p_value": 0.6793376868058503,
+          "n_pairs": 125,
+          "n_a_worse": 29,
+          "n_b_worse": 25,
+          "n_tie": 71,
+          "p_holm_reject": false
+        },
+        {
+          "region": "ET",
+          "a_mean": 3.8978399959036976,
+          "b_mean": 3.9057223438247433,
+          "median_delta": 0.0,
+          "hodges_lehmann": 0.0,
+          "wilcoxon_stat": 537.5,
+          "p_value": 0.973849805029482,
+          "n_pairs": 123,
+          "n_a_worse": 23,
+          "n_b_worse": 23,
+          "n_tie": 77,
+          "p_holm_reject": false
+        }
+      ]
+    },
+    {
+      "comparison": "RQ2  unetr: disabled vs default  (HD95)",
+      "n_cases": 125,
+      "metric": "hd95",
+      "delta_sign": "positive = disabled has larger (worse) HD95 than default",
+      "regions": [
+        {
+          "region": "WT",
+          "a_mean": 6.598822813034058,
+          "b_mean": 7.299549324035644,
+          "median_delta": 0.0,
+          "hodges_lehmann": 0.0,
+          "wilcoxon_stat": 1498.0,
+          "p_value": 0.3467997817828452,
+          "n_pairs": 125,
+          "n_a_worse": 37,
+          "n_b_worse": 45,
+          "n_tie": 43,
+          "p_holm_reject": false
+        },
+        {
+          "region": "TC",
+          "a_mean": 5.874905838012696,
+          "b_mean": 6.580284508705139,
+          "median_delta": 0.0,
+          "hodges_lehmann": 0.03865778446197532,
+          "wilcoxon_stat": 2053.5,
+          "p_value": 0.4004491033461427,
+          "n_pairs": 125,
+          "n_a_worse": 51,
+          "n_b_worse": 44,
+          "n_tie": 30,
+          "p_holm_reject": false
+        },
+        {
+          "region": "ET",
+          "a_mean": 6.149204321993076,
+          "b_mean": 6.2013807035074,
+          "median_delta": 0.0,
+          "hodges_lehmann": 0.0,
+          "wilcoxon_stat": 774.5,
+          "p_value": 0.10990472886825822,
+          "n_pairs": 123,
+          "n_a_worse": 37,
+          "n_b_worse": 26,
+          "n_tie": 60,
+          "p_holm_reject": false
+        }
+      ]
+    },
+    {
+      "comparison": "RQ2  unetr: reduced vs default  (HD95)",
+      "n_cases": 125,
+      "metric": "hd95",
+      "delta_sign": "positive = reduced has larger (worse) HD95 than default",
+      "regions": [
+        {
+          "region": "WT",
+          "a_mean": 7.70067504119873,
+          "b_mean": 7.299549324035644,
+          "median_delta": 0.0,
+          "hodges_lehmann": 0.0,
+          "wilcoxon_stat": 1524.5,
+          "p_value": 0.3211718835589116,
+          "n_pairs": 125,
+          "n_a_worse": 47,
+          "n_b_worse": 36,
+          "n_tie": 42,
+          "p_holm_reject": false
+        },
+        {
+          "region": "TC",
+          "a_mean": 6.55131510925293,
+          "b_mean": 6.580284508705139,
+          "median_delta": 0.0,
+          "hodges_lehmann": 0.013394176959991344,
+          "wilcoxon_stat": 993.0,
+          "p_value": 0.049368126881707275,
+          "n_pairs": 125,
+          "n_a_worse": 44,
+          "n_b_worse": 29,
+          "n_tie": 52,
+          "p_holm_reject": false
+        },
+        {
+          "region": "ET",
+          "a_mean": 6.153693792296619,
+          "b_mean": 6.2013807035074,
+          "median_delta": 0.0,
+          "hodges_lehmann": 0.0,
+          "wilcoxon_stat": 654.5,
+          "p_value": 0.24173412983338483,
+          "n_pairs": 123,
+          "n_a_worse": 28,
+          "n_b_worse": 28,
+          "n_tie": 67,
+          "p_holm_reject": false
+        }
+      ]
+    },
+    {
+      "comparison": "RQ2  unetr: extended vs default  (HD95)",
+      "n_cases": 125,
+      "metric": "hd95",
+      "delta_sign": "positive = extended has larger (worse) HD95 than default",
+      "regions": [
+        {
+          "region": "WT",
+          "a_mean": 7.141027943611145,
+          "b_mean": 7.299549324035644,
+          "median_delta": 0.0,
+          "hodges_lehmann": 0.0,
+          "wilcoxon_stat": 1714.0,
+          "p_value": 0.6189344116558194,
+          "n_pairs": 125,
+          "n_a_worse": 46,
+          "n_b_worse": 39,
+          "n_tie": 40,
+          "p_holm_reject": false
+        },
+        {
+          "region": "TC",
+          "a_mean": 6.716414238929748,
+          "b_mean": 6.580284508705139,
+          "median_delta": 0.0,
+          "hodges_lehmann": 0.0,
+          "wilcoxon_stat": 1594.0,
+          "p_value": 0.7541837273116652,
+          "n_pairs": 125,
+          "n_a_worse": 42,
+          "n_b_worse": 39,
+          "n_tie": 44,
+          "p_holm_reject": false
+        },
+        {
+          "region": "ET",
+          "a_mean": 6.042960164023609,
+          "b_mean": 6.2013807035074,
+          "median_delta": 0.0,
+          "hodges_lehmann": 0.0,
+          "wilcoxon_stat": 1256.5,
+          "p_value": 0.9019428667678935,
+          "n_pairs": 123,
+          "n_a_worse": 34,
+          "n_b_worse": 37,
+          "n_tie": 52,
+          "p_holm_reject": false
         }
       ]
     }

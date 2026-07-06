@@ -3,6 +3,7 @@
   "correction": "Holm-Bonferroni across WT/TC/ET within each architecture",
   "alpha": 0.05,
   "delta_sign": "positive = MTL better than single-task baseline",
+  "hd95_delta_sign": "positive = MTL has larger (worse) HD95 than reference",
   "comparisons": [
     {
       "architecture": "nnU-Net MTL v1 (per-patch) vs baseline",
@@ -316,6 +317,445 @@
           "n_baseline_better": 75,
           "n_tie": 2,
           "p_holm_reject": true
+        }
+      ]
+    },
+    {
+      "architecture": "UNETR MTL v2 (global) vs v1 (per-patch)",
+      "n_cases": 125,
+      "regions": [
+        {
+          "region": "WT",
+          "mtl_mean": 0.9234900608318316,
+          "baseline_mean": 0.9239055524793127,
+          "median_delta": 6.757106863741758e-05,
+          "hodges_lehmann": -0.00015211024448125166,
+          "wilcoxon_stat": 3803.0,
+          "p_value": 0.7403433669262645,
+          "n_mtl_better": 63,
+          "n_baseline_better": 62,
+          "n_tie": 0,
+          "p_holm_reject": false
+        },
+        {
+          "region": "TC",
+          "mtl_mean": 0.8800859389975341,
+          "baseline_mean": 0.8818843327144212,
+          "median_delta": 0.00029629268394204544,
+          "hodges_lehmann": 0.00010552737655050715,
+          "wilcoxon_stat": 3867.0,
+          "p_value": 0.862095648520807,
+          "n_mtl_better": 66,
+          "n_baseline_better": 59,
+          "n_tie": 0,
+          "p_holm_reject": false
+        },
+        {
+          "region": "ET",
+          "mtl_mean": 0.8230389789566571,
+          "baseline_mean": 0.8211041055546325,
+          "median_delta": -2.566090362976503e-05,
+          "hodges_lehmann": 0.0004409697665479495,
+          "wilcoxon_stat": 3557.0,
+          "p_value": 0.5181818676180472,
+          "n_mtl_better": 60,
+          "n_baseline_better": 63,
+          "n_tie": 2,
+          "p_holm_reject": false
+        }
+      ]
+    }
+  ],
+  "comparisons_hd95": [
+    {
+      "architecture": "nnU-Net MTL v1 (per-patch) vs baseline  (HD95)",
+      "n_cases": 125,
+      "metric": "hd95",
+      "regions": [
+        {
+          "region": "WT",
+          "a_mean": 5.4258248462677,
+          "b_mean": 5.0125662651062015,
+          "median_delta": 0.0,
+          "hodges_lehmann": 0.0,
+          "wilcoxon_stat": 867.5,
+          "p_value": 0.7265675357819023,
+          "n_pairs": 125,
+          "n_a_worse": 28,
+          "n_b_worse": 32,
+          "n_tie": 65,
+          "p_holm_reject": false
+        },
+        {
+          "region": "TC",
+          "a_mean": 4.387183835983277,
+          "b_mean": 4.3388338451385495,
+          "median_delta": 0.0,
+          "hodges_lehmann": 0.0,
+          "wilcoxon_stat": 632.5,
+          "p_value": 0.4624102287630659,
+          "n_pairs": 125,
+          "n_a_worse": 27,
+          "n_b_worse": 26,
+          "n_tie": 72,
+          "p_holm_reject": false
+        },
+        {
+          "region": "ET",
+          "a_mean": 4.008930078366908,
+          "b_mean": 3.9057223438247433,
+          "median_delta": 0.0,
+          "hodges_lehmann": 0.0,
+          "wilcoxon_stat": 448.5,
+          "p_value": 0.58730074463248,
+          "n_pairs": 123,
+          "n_a_worse": 23,
+          "n_b_worse": 21,
+          "n_tie": 79,
+          "p_holm_reject": false
+        }
+      ]
+    },
+    {
+      "architecture": "nnU-Net MTL v2 (global) vs baseline  (HD95)",
+      "n_cases": 125,
+      "metric": "hd95",
+      "regions": [
+        {
+          "region": "WT",
+          "a_mean": 5.0227273645401,
+          "b_mean": 5.0125662651062015,
+          "median_delta": 0.0,
+          "hodges_lehmann": 0.0,
+          "wilcoxon_stat": 901.5,
+          "p_value": 0.354305067046187,
+          "n_pairs": 125,
+          "n_a_worse": 38,
+          "n_b_worse": 26,
+          "n_tie": 61,
+          "p_holm_reject": false
+        },
+        {
+          "region": "TC",
+          "a_mean": 4.5078601608276365,
+          "b_mean": 4.3388338451385495,
+          "median_delta": 0.0,
+          "hodges_lehmann": 0.0,
+          "wilcoxon_stat": 504.0,
+          "p_value": 0.5254569903832018,
+          "n_pairs": 125,
+          "n_a_worse": 24,
+          "n_b_worse": 23,
+          "n_tie": 78,
+          "p_holm_reject": false
+        },
+        {
+          "region": "ET",
+          "a_mean": 4.115358646323041,
+          "b_mean": 3.9057223438247433,
+          "median_delta": 0.0,
+          "hodges_lehmann": 0.0,
+          "wilcoxon_stat": 301.0,
+          "p_value": 0.0932401818293059,
+          "n_pairs": 123,
+          "n_a_worse": 25,
+          "n_b_worse": 16,
+          "n_tie": 82,
+          "p_holm_reject": false
+        }
+      ]
+    },
+    {
+      "architecture": "nnU-Net MTL v2 (global) vs v1 (per-patch)  (HD95)",
+      "n_cases": 125,
+      "metric": "hd95",
+      "regions": [
+        {
+          "region": "WT",
+          "a_mean": 5.0227273645401,
+          "b_mean": 5.4258248462677,
+          "median_delta": 0.0,
+          "hodges_lehmann": 0.0,
+          "wilcoxon_stat": 1158.5,
+          "p_value": 0.7695293152732445,
+          "n_pairs": 125,
+          "n_a_worse": 38,
+          "n_b_worse": 31,
+          "n_tie": 56,
+          "p_holm_reject": false
+        },
+        {
+          "region": "TC",
+          "a_mean": 4.5078601608276365,
+          "b_mean": 4.387183835983277,
+          "median_delta": 0.0,
+          "hodges_lehmann": 0.0,
+          "wilcoxon_stat": 651.0,
+          "p_value": 0.9104337196377266,
+          "n_pairs": 125,
+          "n_a_worse": 24,
+          "n_b_worse": 27,
+          "n_tie": 74,
+          "p_holm_reject": false
+        },
+        {
+          "region": "ET",
+          "a_mean": 4.115358646323041,
+          "b_mean": 4.008930078366908,
+          "median_delta": 0.0,
+          "hodges_lehmann": 0.0,
+          "wilcoxon_stat": 492.5,
+          "p_value": 0.3272311624696198,
+          "n_pairs": 123,
+          "n_a_worse": 23,
+          "n_b_worse": 25,
+          "n_tie": 75,
+          "p_holm_reject": false
+        }
+      ]
+    },
+    {
+      "architecture": "nnU-Net MTL v3 (FiLM + uncertainty) vs baseline  (HD95)",
+      "n_cases": 125,
+      "metric": "hd95",
+      "regions": [
+        {
+          "region": "WT",
+          "a_mean": 5.217675024032593,
+          "b_mean": 5.0125662651062015,
+          "median_delta": 0.0,
+          "hodges_lehmann": 0.0,
+          "wilcoxon_stat": 1161.0,
+          "p_value": 0.6333738609988555,
+          "n_pairs": 125,
+          "n_a_worse": 40,
+          "n_b_worse": 30,
+          "n_tie": 55,
+          "p_holm_reject": false
+        },
+        {
+          "region": "TC",
+          "a_mean": 4.088389283180237,
+          "b_mean": 4.3388338451385495,
+          "median_delta": 0.0,
+          "hodges_lehmann": 0.0,
+          "wilcoxon_stat": 487.5,
+          "p_value": 0.30261408181143135,
+          "n_pairs": 125,
+          "n_a_worse": 20,
+          "n_b_worse": 28,
+          "n_tie": 77,
+          "p_holm_reject": false
+        },
+        {
+          "region": "ET",
+          "a_mean": 3.739465858878159,
+          "b_mean": 3.9057223438247433,
+          "median_delta": 0.0,
+          "hodges_lehmann": 0.0,
+          "wilcoxon_stat": 371.5,
+          "p_value": 0.604789714648695,
+          "n_pairs": 123,
+          "n_a_worse": 20,
+          "n_b_worse": 20,
+          "n_tie": 83,
+          "p_holm_reject": false
+        }
+      ]
+    },
+    {
+      "architecture": "nnU-Net MTL v3 (FiLM + uncertainty) vs v2 (global)  (HD95)",
+      "n_cases": 125,
+      "metric": "hd95",
+      "regions": [
+        {
+          "region": "WT",
+          "a_mean": 5.217675024032593,
+          "b_mean": 5.0227273645401,
+          "median_delta": 0.0,
+          "hodges_lehmann": 0.0,
+          "wilcoxon_stat": 1104.5,
+          "p_value": 0.9949026412271723,
+          "n_pairs": 125,
+          "n_a_worse": 36,
+          "n_b_worse": 30,
+          "n_tie": 59,
+          "p_holm_reject": false
+        },
+        {
+          "region": "TC",
+          "a_mean": 4.088389283180237,
+          "b_mean": 4.5078601608276365,
+          "median_delta": 0.0,
+          "hodges_lehmann": 0.0,
+          "wilcoxon_stat": 663.0,
+          "p_value": 0.2707590092630848,
+          "n_pairs": 125,
+          "n_a_worse": 28,
+          "n_b_worse": 28,
+          "n_tie": 69,
+          "p_holm_reject": false
+        },
+        {
+          "region": "ET",
+          "a_mean": 3.739465858878159,
+          "b_mean": 4.115358646323041,
+          "median_delta": 0.0,
+          "hodges_lehmann": 0.0,
+          "wilcoxon_stat": 345.5,
+          "p_value": 0.2706610851982346,
+          "n_pairs": 123,
+          "n_a_worse": 21,
+          "n_b_worse": 20,
+          "n_tie": 82,
+          "p_holm_reject": false
+        }
+      ]
+    },
+    {
+      "architecture": "UNETR MTL v1 (per-patch) vs baseline  (HD95)",
+      "n_cases": 125,
+      "metric": "hd95",
+      "regions": [
+        {
+          "region": "WT",
+          "a_mean": 7.901164976119995,
+          "b_mean": 7.299549324035644,
+          "median_delta": 0.0,
+          "hodges_lehmann": 0.0,
+          "wilcoxon_stat": 1785.0,
+          "p_value": 0.8522611935540709,
+          "n_pairs": 125,
+          "n_a_worse": 46,
+          "n_b_worse": 39,
+          "n_tie": 40,
+          "p_holm_reject": false
+        },
+        {
+          "region": "TC",
+          "a_mean": 7.806883174896241,
+          "b_mean": 6.580284508705139,
+          "median_delta": 0.1961522102355957,
+          "hodges_lehmann": 0.28968989849090554,
+          "wilcoxon_stat": 1232.5,
+          "p_value": 0.0001624997807179249,
+          "n_pairs": 125,
+          "n_a_worse": 65,
+          "n_b_worse": 29,
+          "n_tie": 31,
+          "p_holm_reject": true
+        },
+        {
+          "region": "ET",
+          "a_mean": 6.606351673118467,
+          "b_mean": 6.2013807035074,
+          "median_delta": 0.0,
+          "hodges_lehmann": 0.0,
+          "wilcoxon_stat": 746.5,
+          "p_value": 0.5250050610802555,
+          "n_pairs": 123,
+          "n_a_worse": 27,
+          "n_b_worse": 30,
+          "n_tie": 66,
+          "p_holm_reject": false
+        }
+      ]
+    },
+    {
+      "architecture": "UNETR MTL v2 (global) vs baseline  (HD95)",
+      "n_cases": 125,
+      "metric": "hd95",
+      "regions": [
+        {
+          "region": "WT",
+          "a_mean": 8.865574772834778,
+          "b_mean": 7.299549324035644,
+          "median_delta": 0.0,
+          "hodges_lehmann": 0.1339746117591858,
+          "wilcoxon_stat": 1596.5,
+          "p_value": 0.04939461667659589,
+          "n_pairs": 125,
+          "n_a_worse": 54,
+          "n_b_worse": 37,
+          "n_tie": 34,
+          "p_holm_reject": true
+        },
+        {
+          "region": "TC",
+          "a_mean": 7.95300333404541,
+          "b_mean": 6.580284508705139,
+          "median_delta": 0.0,
+          "hodges_lehmann": 0.22474491596221924,
+          "wilcoxon_stat": 1181.0,
+          "p_value": 0.0012245306991232965,
+          "n_pairs": 125,
+          "n_a_worse": 56,
+          "n_b_worse": 32,
+          "n_tie": 37,
+          "p_holm_reject": true
+        },
+        {
+          "region": "ET",
+          "a_mean": 6.32739534416819,
+          "b_mean": 6.2013807035074,
+          "median_delta": 0.0,
+          "hodges_lehmann": 0.0,
+          "wilcoxon_stat": 622.0,
+          "p_value": 0.012936339182430912,
+          "n_pairs": 123,
+          "n_a_worse": 37,
+          "n_b_worse": 25,
+          "n_tie": 61,
+          "p_holm_reject": true
+        }
+      ]
+    },
+    {
+      "architecture": "UNETR MTL v2 (global) vs v1 (per-patch)  (HD95)",
+      "n_cases": 125,
+      "metric": "hd95",
+      "regions": [
+        {
+          "region": "WT",
+          "a_mean": 8.865574772834778,
+          "b_mean": 7.901164976119995,
+          "median_delta": 0.0,
+          "hodges_lehmann": 0.0,
+          "wilcoxon_stat": 1669.5,
+          "p_value": 0.6064645006437801,
+          "n_pairs": 125,
+          "n_a_worse": 44,
+          "n_b_worse": 40,
+          "n_tie": 41,
+          "p_holm_reject": false
+        },
+        {
+          "region": "TC",
+          "a_mean": 7.95300333404541,
+          "b_mean": 7.806883174896241,
+          "median_delta": 0.0,
+          "hodges_lehmann": 0.0,
+          "wilcoxon_stat": 1735.5,
+          "p_value": 0.5610122994131792,
+          "n_pairs": 125,
+          "n_a_worse": 38,
+          "n_b_worse": 48,
+          "n_tie": 39,
+          "p_holm_reject": false
+        },
+        {
+          "region": "ET",
+          "a_mean": 6.32739534416819,
+          "b_mean": 6.606351673118467,
+          "median_delta": 0.0,
+          "hodges_lehmann": 0.0,
+          "wilcoxon_stat": 928.0,
+          "p_value": 0.899967963614874,
+          "n_pairs": 123,
+          "n_a_worse": 32,
+          "n_b_worse": 29,
+          "n_tie": 62,
+          "p_holm_reject": false
         }
       ]
     }
